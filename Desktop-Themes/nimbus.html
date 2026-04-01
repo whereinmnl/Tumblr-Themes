@@ -1,0 +1,1245 @@
+
+<!---------------------------------------------------
+NIMBUS THEME BY RELA OF WHEREINMNL
+
+First Version - 02 January 2026
+Latest Version - 01 April 2026
+
+Do Not Remove Credit:
+Please keep the credit in the footer visible. It helps me grow!
+Personal Use Only:
+Do not resell, redistribute, or claim the code as your own.
+Base Coding:
+Do not use my themes as a "base" for a release.
+Customization:
+Feel free to change colors/fonts! Just keep the credit link.
+No Re-hosting:
+Always link back to the original blog post.
+----------------------------------------------------->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{Title}{block:PostSummary} — {PostSummary}{/block:PostSummary}</title>
+    <link rel="shortcut icon" href="{Favicon}">
+    <link rel="alternate" type="application/rss+xml" href="{RSS}">
+    <meta name="description" content="{MetaDescription}" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300&family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+    <meta name="color:Background" content="#090909"/>
+    <meta name="color:Sidebar Background" content="#090909"/>
+    <meta name="color:Post Background" content="#121212"/>
+    <meta name="color:Widget Background" content="#121212"/>
+    <meta name="color:Text" content="#ffffff"/>
+    
+    <meta name="color:Accent" content="#b9a8ed"/>
+    <meta name="color:Menu and FAQ Background" content="#ffffff"/>
+    <meta name="color:Menu and FAQ Text" content="#000000"/>
+    <meta name="color:Dark Mode Hover" content="#ffffff"/>
+    
+    <meta name="color:Light Mode Accent" content="#b9a8ed"/>
+    <meta name="color:Light Mode Menu and FAQ Background" content="#000000"/>
+    <meta name="color:Light Mode Menu and FAQ Text" content="#ffffff"/>
+    <meta name="color:Light Mode Hover" content="#000000"/>
+    
+    <meta name="color:Subtext" content="#888888"/>
+    <meta name="color:Borders" content="#333333"/>
+
+    <meta name="image:Sidebar Photo" content=""/>
+    <meta name="image:Background" content=""/>
+    <meta name="image:About Photo" content=""/>
+
+    <meta name="font:Body" content="'DM Sans', sans-serif"/>
+    <meta name="font:Titles" content="'DM Mono', monospace"/>
+    <meta name="font:Accents" content="'DM Serif Display', serif"/>
+
+    <meta name="if:Show Sidebar Photo" content="1"/>
+    <meta name="if:Show Archive Link" content="1"/>
+    <meta name="if:Show Crosshatch Pattern" content="1"/>
+    <meta name="if:Two Column Grid" content="0"/>
+    
+    <meta name="text:About Text" content="Welcome to my blog. I share my thoughts, media, and daily life here."/>
+
+    <meta name="text:FAQ 1 Question" content="What is this blog about?"/>
+    <meta name="text:FAQ 1 Answer" content="This is a space where I share my thoughts, media, and daily life."/>
+    <meta name="text:FAQ 2 Question" content=""/>
+    <meta name="text:FAQ 2 Answer" content=""/>
+    <meta name="text:FAQ 3 Question" content=""/>
+    <meta name="text:FAQ 3 Answer" content=""/>
+    <meta name="text:FAQ 4 Question" content=""/>
+    <meta name="text:FAQ 4 Answer" content=""/>
+
+    <meta name="text:More Links Description" content="Explore my extended directory, archives, and external pages below."/>
+    <meta name="text:Link 1 Title" content=""/> <meta name="text:Link 1 URL" content=""/>
+    <meta name="text:Link 2 Title" content=""/> <meta name="text:Link 2 URL" content=""/>
+    <meta name="text:Link 3 Title" content=""/> <meta name="text:Link 3 URL" content=""/>
+    <meta name="text:Link 4 Title" content=""/> <meta name="text:Link 4 URL" content=""/>
+    <meta name="text:Link 5 Title" content=""/> <meta name="text:Link 5 URL" content=""/>
+    <meta name="text:Link 6 Title" content=""/> <meta name="text:Link 6 URL" content=""/>
+    <meta name="text:Link 7 Title" content=""/> <meta name="text:Link 7 URL" content=""/>
+    <meta name="text:Link 8 Title" content=""/> <meta name="text:Link 8 URL" content=""/>
+    <meta name="text:Link 9 Title" content=""/> <meta name="text:Link 9 URL" content=""/>
+    <meta name="text:Link 10 Title" content=""/> <meta name="text:Link 10 URL" content=""/>
+
+    <style>
+        :root {
+            --post-hover: {color:Dark Mode Hover};
+            --hover-bg: {color:Dark Mode Hover};
+            --bg: {color:Background};
+            --sidebar-bg: {color:Sidebar Background};
+            --post-bg: {color:Post Background};
+            --widget-bg: {color:Widget Background};
+            --text: {color:Text};
+            --accent: {color:Accent};
+            --nav-faq-bg: {color:Menu and FAQ Background};
+            --nav-faq-text: {color:Menu and FAQ Text};
+            --subtext: {color:Subtext};
+            --borders: {color:Borders};
+            --sidebar-width: 300px;
+            --transition: 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+            --grid-size: 40px;
+        }
+
+        body.light-mode {
+            --bg: #fdfdfd; --sidebar-bg: #f4f4f4; --post-bg: #ffffff; --widget-bg: #f8f8f8;
+            --text: #000000; 
+            --accent: {color:Light Mode Accent}; 
+            --hover-bg: {color:Light Mode Hover};
+            --nav-faq-bg: {color:Light Mode Menu and FAQ Background};
+            --nav-faq-text: {color:Light Mode Menu and FAQ Text};
+            --post-hover: {color:Light Mode Hover}; 
+            --subtext: #555555;
+            --borders: #cccccc;
+        }
+
+        html, body { max-width: 100%; overflow-x: hidden; }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        ::-webkit-scrollbar { width: 4px; background: transparent; }
+        ::-webkit-scrollbar-thumb { background: var(--borders); }
+        ::-selection { color: var(--bg); background: var(--text); }
+        ::-moz-selection { color: var(--bg); background: var(--text); }
+
+        body {
+            background-color: var(--bg); color: var(--text); font-family: 'DM Sans', sans-serif;
+            font-size: 14px; line-height: 1.6; -webkit-font-smoothing: antialiased;
+            transition: background var(--transition), color var(--transition);
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            *, ::before, ::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+                scroll-behavior: auto !important;
+            }
+        }
+
+        body, a, button, input, summary, .control-btn, .scroll-top, .theme-btn {
+            cursor: url(https://static.tumblr.com/obptcxj/QvHmo0l0g/cursor__6_.png), auto !important;
+        }
+
+        {block:IfShowCrosshatchPattern}
+        body::before {
+            content: ''; position: fixed; inset: 0; z-index: 0; opacity: 0.35; pointer-events: none;
+            background-image: repeating-linear-gradient(0deg, transparent, transparent calc(var(--grid-size) - 1px), var(--borders) calc(var(--grid-size) - 1px), var(--borders) var(--grid-size)),
+                              repeating-linear-gradient(90deg, transparent, transparent calc(var(--grid-size) - 1px), var(--borders) calc(var(--grid-size) - 1px), var(--borders) var(--grid-size));
+        }
+        {/block:IfShowCrosshatchPattern}
+
+        {block:IfBackgroundImage}
+        body { background-image: url('{image:Background}') !important; background-size: cover; background-attachment: fixed; }
+        {/block:IfBackgroundImage}
+
+        a { color: var(--text); text-decoration: none; transition: color 0.3s ease; }
+        a:hover { color: var(--accent); }
+        img, iframe, object, embed { max-width: 100%; height: auto; display: block; }
+        hr { border: none; border-top: 3px solid var(--borders); margin: 15px 0; }
+        .layout-wrapper { display: flex; min-height: 100vh; position: relative; z-index: 1; overflow-x: hidden; }
+
+        .tooltip-wrap { position: relative; }
+        .tooltip-wrap::after {
+            content: attr(data-tip); position: absolute; top: 50%; left: 100%; margin-left: 12px; transform: translateY(-50%);
+            background: var(--text); color: var(--bg); font-family: 'DM Mono', monospace; font-size: 0.6rem; text-transform: uppercase; letter-spacing: 0.1em; padding: 6px 10px; 
+            opacity: 0; pointer-events: none; transition: opacity 0.3s ease, transform 0.3s ease; white-space: nowrap; border-radius: 2px; z-index: 999;
+        }
+        .tooltip-wrap:hover::after { opacity: 1; transform: translateY(-50%) translateX(4px); }
+        .tooltip-left::after { left: auto; right: 100%; margin-left: 0; margin-right: 12px; }
+        .tooltip-left:hover::after { transform: translateY(-50%) translateX(-4px); }
+
+        aside.sidebar { background-color: var(--sidebar-bg); width: var(--sidebar-width); height: 100vh; position: fixed; top: 0; left: 0; border-right: 1px solid var(--borders); z-index: 10; overflow: hidden; transition: background var(--transition), border-color var(--transition); }
+        .sidebar-carousel { display: flex; width: 200%; height: 100%; transition: transform var(--transition); }
+        aside.sidebar.show-nav .sidebar-carousel { transform: translateX(-50%); }
+        
+        .sidebar-panel { 
+            width: 50%; height: 100%; overflow-y: auto; padding: 24px; display: flex; flex-direction: column; 
+            -ms-overflow-style: none; scrollbar-width: none; 
+        }
+        .sidebar-panel::-webkit-scrollbar { display: none; }
+        
+        .profile-photo { width: 100%; aspect-ratio: 1/1; margin-bottom: 16px; border: 1px solid var(--borders); position: relative; transition: border-color 0.3s ease; }
+        .profile-photo img { width: 100%; height: 100%; object-fit: cover; }
+        .profile-photo:hover { border-color: var(--accent); }
+        .blog-title { font-family: 'DM Serif Display', serif; font-size: 1.25rem; font-weight: 400; font-style: italic; margin-bottom: 4px; line-height: 1.2; text-align: center;}
+        .sidebar-rule { width: 100%; height: 1px; background: var(--borders); margin: 10px 0; position: relative; }
+        .sidebar-rule::after { content: ''; position: absolute; left: 0; top: 0; width: 32px; height: 1px; background: var(--accent); }
+        .description { font-size: 0.75rem; color: var(--subtext); margin-bottom: 16px; line-height: 1.5; }
+
+        nav ul { list-style: none; display: flex; flex-direction: column; gap: 6px; }
+        nav li { border: none; }
+        nav li a, nav li button { display: flex; align-items: center; justify-content: center; font-family: 'DM Mono', monospace; font-size: 0.6rem; color: var(--nav-faq-text); text-transform: uppercase; letter-spacing: 0.12em; padding: 10px 14px; background: var(--nav-faq-bg); border: 1px solid var(--borders); width: 100%; text-align: center; border-radius: 4px; transition: all 0.3s ease; cursor: pointer; }
+        nav li a:hover, nav li button:hover { color: var(--bg); background: var(--hover-bg); border-color: var(--hover-bg); transform: translateY(-2px); box-shadow: 0 4px 0 var(--borders); }
+
+        .back-btn { font-family: 'DM Mono', monospace; font-size: 0.6rem; color: var(--nav-faq-text); text-transform: uppercase; letter-spacing: 0.1em; background: var(--nav-faq-bg); border: 1px solid var(--borders); padding: 8px 12px; margin-bottom: 24px; align-self: flex-start; transition: all 0.3s ease; border-radius: 4px; cursor: pointer;}
+        .back-btn:hover { background: var(--hover-bg); color: var(--bg); border-color: var(--hover-bg); }
+        .nav-description { font-size: 0.75rem; color: var(--subtext); margin-bottom: 20px; font-style: italic; }
+        .nav-links-grid { display: flex; flex-direction: column; gap: 8px; }
+        .nav-links-grid a { font-family: 'DM Mono', monospace; font-size: 0.6rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--nav-faq-text); border: 1px solid var(--borders); background: var(--nav-faq-bg); border-radius: 4px; padding: 10px 14px; transition: all 0.3s ease; text-align: center; }
+        .nav-links-grid a:hover { background: var(--hover-bg); color: var(--bg); border-color: var(--hover-bg); transform: translateY(-2px); box-shadow: 0 4px 0 var(--borders); }
+
+        .sidebar-pagination { margin-top: auto; padding-top: 16px; padding-bottom: 16px; display: flex; flex-direction: row; justify-content: center; gap: 6px; flex-wrap: wrap; }
+        .sidebar-pagination a, .sidebar-pagination span.current-page { font-family: 'DM Mono', monospace; font-size: 0.55rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--nav-faq-text); border: 1px solid var(--borders); padding: 8px 12px; text-align: center; transition: all 0.3s ease; text-decoration: none; display: flex; align-items: center; justify-content: center; border-radius: 4px; background: var(--nav-faq-bg); }
+        .sidebar-pagination a:hover { background: var(--hover-bg); color: var(--bg); border-color: var(--hover-bg); }
+        .sidebar-pagination span.current-page { background: var(--accent); color: var(--bg); border-color: var(--accent); }
+
+        .modal-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.85); z-index: 1000; display: flex; align-items: flex-start; justify-content: center; opacity: 0; visibility: hidden; transition: opacity 0.3s, visibility 0.3s; backdrop-filter: blur(4px); overflow-y: auto; padding: 4vh 0; }
+        .modal-overlay.active { opacity: 1; visibility: visible; }
+        .modal-content { background: var(--post-bg); border: 1px solid var(--borders); width: 90%; max-width: 650px; padding: 40px; position: relative; transform: translateY(20px); transition: transform 0.3s; border-radius: 4px; margin: auto; }
+        .modal-overlay.active .modal-content { transform: translateY(0); }
+        .modal-close { position: absolute; top: 16px; right: 16px; background: none; border: none; font-family: 'DM Mono', monospace; font-size: 1.2rem; color: var(--subtext); transition: color var(--transition); cursor: pointer; }
+        .modal-close:hover { color: var(--accent); }
+        .modal-title { font-family: 'DM Serif Display', serif; font-size: 1.8rem; font-style: italic; margin-bottom: 20px; border-bottom: 1px solid var(--borders); padding-bottom: 12px; color: var(--text); }
+        .about-image { float: left; width: 180px; aspect-ratio: 1/1; object-fit: cover; margin: 0 20px 16px 0; border: 1px solid var(--borders); border-radius: 4px;}
+        .modal-body p { margin-bottom: 1.2em; line-height: 1.6; color: var(--text); font-size: 0.95rem; }
+        
+        .faq-item { margin-bottom: 12px; border: 1px solid var(--borders); background: var(--nav-faq-bg); border-radius: 4px; }
+        .faq-item summary { padding: 12px 16px; font-family: 'DM Mono', monospace; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--nav-faq-text); list-style: none; display: flex; justify-content: space-between; cursor: pointer; }
+        .faq-item summary::-webkit-details-marker { display: none; }
+        .faq-item summary::after { content: '+'; color: var(--accent); }
+        .faq-item[open] summary::after { content: '−'; }
+        .faq-item p { padding: 0 16px 16px 16px; margin: 0; font-size: 0.85rem; color: var(--nav-faq-text); }
+        
+        iframe.ask-iframe { width: 100%; height: 250px; border: none; margin-top: 24px; border-top: 1px solid var(--borders); padding-top: 24px; }
+
+        .toolbar { position: fixed; top: 24px; right: 24px; z-index: 99; display: flex; flex-direction: column; gap: 8px; }
+        
+        .theme-btn { width: 36px; height: 36px; background: var(--sidebar-bg); border: 1px solid var(--borders); display: flex; align-items: center; justify-content: center; transition: all 0.3s ease; position: relative; border-radius: 4px; cursor: pointer; padding: 0;}
+        .theme-knob { width: 22px; height: 22px; background: var(--text); display: flex; align-items: center; justify-content: center; transition: transform var(--transition); border-radius: 2px; }
+        .theme-knob svg { width: 10px; height: 10px; fill: var(--bg); }
+        body.light-mode .theme-knob { transform: rotate(180deg); }
+        .theme-btn:hover { border-color: var(--accent); }
+        
+        iframe.tmblr-iframe, iframe[src*="safe-mode"], iframe#tumblr_controls {
+            z-index: 999999 !important;
+            top: 24px !important;
+            right: 60px !important;
+            opacity: 0 !important;
+            visibility: hidden !important;
+            pointer-events: none !important;
+            transform: scale(0.85) !important;
+            transform-origin: top right !important;
+            transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease !important;
+        }
+        body.show-native-iframe iframe.tmblr-iframe, 
+        body.show-native-iframe iframe[src*="safe-mode"], 
+        body.show-native-iframe iframe#tumblr_controls {
+            opacity: 1 !important;
+            visibility: visible !important;
+            pointer-events: auto !important;
+            transform: scale(0.85) !important;
+        }
+        
+        .scroll-top { position: fixed; bottom: 85px; right: 24px; z-index: 98; width: 36px; height: 36px; background: var(--sidebar-bg); border: 1px solid var(--borders); display: flex; align-items: center; justify-content: center; font-family: 'DM Mono', monospace; font-size: 1.2rem; color: var(--text); transition: all 0.3s ease; text-decoration: none; opacity: 0; visibility: hidden; transform: translateY(10px); pointer-events: none; border-radius: 4px; }
+        .scroll-top.show { opacity: 1; visibility: visible; transform: translateY(0); pointer-events: auto; }
+        .scroll-top:hover { background: var(--hover-bg); color: var(--bg); border-color: var(--hover-bg); }
+
+        .floating-w-wrap { position: fixed; bottom: 24px; right: 28px; z-index: 98; display: flex; align-items: center; }
+        .floating-w { font-family: 'DM Serif Display', serif; font-size: 1.8rem; font-style: italic; color: var(--borders); transition: color 0.3s ease; cursor: pointer; line-height: 1; user-select: none; text-decoration: none; }
+        .floating-w:hover { color: var(--accent); }
+
+        main.content { margin-left: var(--sidebar-width); padding: 32px 100px 64px 64px; width: calc(100% - var(--sidebar-width)); display: block; transition: all var(--transition); }
+
+        .post-wrapper { width: 100%; display: inline-block; break-inside: avoid; margin-bottom: 16px; }
+        article.post { background-color: var(--post-bg); padding: 16px; border: 1px solid var(--borders); border-radius: 4px; width: 100%; max-width: 620px; position: relative; transition: border-color 0.3s ease; }
+
+        body.is-permalink main.content { display: flex; flex-direction: column; align-items: center; }
+        body.is-permalink article.post { max-width: 620px !important; }
+
+        article.post::before { content: ''; position: absolute; top: -1px; left: -1px; width: 0; height: 3px; background: var(--post-hover); transition: width 0.4s ease; border-radius: 4px 0 0 0; }
+        article.post:hover::before { width: calc(100% + 2px); }
+        article.post:hover { border-color: var(--post-hover); }
+
+        body.is-grid:not(.is-permalink) main.content {
+            column-count: 2;
+            column-gap: 32px;
+        }
+        body.is-grid:not(.is-permalink) .post-wrapper {
+            width: 100%;
+            margin-bottom: 32px;
+        }
+        body.is-grid:not(.is-permalink) article.post {
+            max-width: 100%;
+        }
+        body.is-grid:not(.is-permalink) .side-controls {
+            left: auto;
+            right: 16px;
+            top: 16px;
+            flex-direction: row;
+            background: var(--bg);
+            padding: 6px;
+            border: 1px solid var(--borders);
+            border-radius: 4px;
+            flex-wrap: wrap;
+            justify-content: flex-end;
+            max-width: calc(100% - 32px);
+        }
+        body.is-grid:not(.is-permalink) article.post:hover .side-controls {
+            transform: translateY(2px);
+        }
+        body.is-grid:not(.is-permalink) .side-tags-list {
+            flex-direction: row;
+            margin-top: 0;
+            margin-left: 6px;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .post-top-meta { 
+            display: flex; justify-content: space-between; align-items: baseline; 
+            margin-bottom: 8px; padding-bottom: 8px; border-bottom: 1px dashed var(--borders); 
+            font-family: 'DM Mono', monospace; font-size: 0.6rem; text-transform: uppercase; 
+            letter-spacing: 0.08em; color: var(--subtext); font-weight: 500;
+            position: relative;
+        }
+        .meta-date { text-align: left; }
+        .meta-notes { text-align: right; font-weight: 600; }
+        .post-top-meta a { color: var(--text); text-decoration: none; transition: color 0.3s ease; }
+        .post-top-meta a:hover { color: var(--accent); }
+
+        .pinned-label-inline {
+            font-weight: 600; 
+            background: var(--text); 
+            color: var(--bg);        
+            display: inline-flex; align-items: center; gap: 4px;
+            padding: 2px 6px; border-radius: 2px;
+            font-size: 0.5rem; letter-spacing: 0.1em;
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        .pinned-label-inline svg { width: 8px; height: 8px; fill: var(--bg); }
+
+        .post-header { margin-bottom: 4px; padding-bottom: 4px; border-bottom: 1px dashed var(--borders); text-align: center; }
+        .post-header h1 a, .post-header h2 a { color: var(--text); text-decoration: none; border: none; }
+        .post-header h1 a:hover, .post-header h2 a:hover { color: var(--accent); }
+
+        .post-header h1, .post-header h2,
+        .caption h1, .caption h2, .caption h3, .caption h4 {
+            font-family: 'DM Serif Display', serif; font-weight: 400; font-style: italic; line-height: 1.3; color: var(--text); margin-top: 0; margin-bottom: 8px; text-align: center;
+        }
+        .post-header h1, .post-header h2 { font-size: 2.2rem; text-align: center; }
+        .caption h1 { font-size: 1.8rem; }
+        .caption h2 { font-size: 1.6rem; }
+        .caption h3 { font-size: 1.4rem; }
+        .caption h4 { font-size: 1.2rem; }
+
+        .photo-container, .photoset-container { width: 100%; margin-bottom: 8px; display: block; }
+        article.post > .photo-container:first-child, article.post > .photoset-container:first-child,
+        article.post > .post-top-meta + .photo-container, article.post > .post-top-meta + .photoset-container { margin-top: 0; }
+        
+        figure.tmblr-full, .npf_row, .npf_col { margin: 0; padding: 0; }
+        .photo-container img, .photoset-container iframe, figure.tmblr-full img { 
+            width: 100% !important; height: auto !important; max-height: none !important; max-width: 100% !important; display: block; 
+        }
+        .npf_row img, .npf_col img { 
+            width: 100% !important; max-width: 100% !important; display: block; 
+        }
+
+        .photo-container:hover img { transform: scale(1.02); filter: grayscale(100%); opacity: 0.9; transition: all 0.3s ease; } 
+
+        .reblog-chain { padding-bottom: 8px; margin-bottom: 8px; border: none; }
+        
+        .reblog-header { 
+            display: inline-flex; 
+            align-items: center; 
+            gap: 8px; 
+            margin-bottom: 2px; 
+            margin-top: 0; 
+            border: 1px solid var(--borders); 
+            padding: 4px 10px; 
+            border-radius: 4px; 
+            background: var(--widget-bg); 
+            width: max-content;
+        }
+        .reblog-header:first-child { margin-top: 0; }
+        .reblog-header a, .reblog-header .reblog-user { border-bottom: none !important; text-decoration: none !important; }
+        .reblog-avatar { width: 16px; height: 16px; border-radius: 2px; }
+        .reblog-user { font-family: 'DM Mono', monospace; font-size: 0.6rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--text); font-weight: 500; }
+        .reblog-user:hover { color: var(--accent); }
+        
+        .photo-reblog-content { display: block; }
+        
+        .caption { font-family: 'DM Sans', sans-serif; font-size: 0.9rem; line-height: 1.6; color: var(--text); }
+        .caption p { margin-bottom: 0.5em; }
+        .caption p:last-of-type { margin-bottom: 0; }
+        .caption b, .caption strong { font-weight: 600; }
+        .caption a { color: var(--text); border-bottom: 1px solid var(--borders); transition: border-color 0.3s ease;}
+        .caption a:hover { border-color: var(--accent); }
+        .caption ul, .caption ol { margin: 10px 0 10px 24px; padding: 0; }
+        .caption li { margin-bottom: 4px; }
+        .caption ul li::marker, .caption ol li::marker { color: var(--accent); font-family: 'DM Mono', monospace; font-size: 0.8em; }
+
+        .npf_color_joey { color: #ff492f !important; } .npf_color_monica { color: #ff8a00 !important; } .npf_color_chandler { color: #973ff4 !important; } .npf_color_phoebe { color: #fcf12b !important; } .npf_color_rachel { color: #00b8ff !important; } .npf_color_ross { color: #00d246 !important; } .npf_color_niles { color: #ff8a00 !important; } .npf_color_frasier { color: #0011ff !important; } .npf_color_mr_heckles { color: #828282 !important; }
+        
+        .post.quote .quote-content, .caption .npf_quote, .caption blockquote.npf_quote, .caption p.npf_quote, .caption h2.npf_quote {
+            display: block !important; border: 1px solid var(--borders) !important; padding: 24px !important; margin: 16px 0 !important; font-family: 'DM Serif Display', serif !important; font-size: 1.5rem !important; line-height: 1.4 !important; color: var(--text) !important; font-style: italic !important; background: var(--widget-bg) !important; border-radius: 4px !important; text-align: center !important; 
+        }
+        .post.quote .quote-content::before, .caption .npf_quote::before { display: none !important; }
+        .quote-source { font-family: 'DM Mono', monospace; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--subtext); text-align: center; margin-top: 12px; padding-top: 12px; border-top: 1px dashed var(--borders); }
+
+        .caption blockquote:not(.quote-content):not(.npf_quote) {
+            border-left: 2px solid var(--accent); padding-left: 16px; margin-left: 16px; margin-top: 10px; margin-bottom: 10px; font-style: italic; display: block; background: transparent; border-radius: 0; text-align: left;
+        }
+        .caption blockquote.tumblr_parent { border: none; padding: 0; margin: 0; font-style: normal; }
+
+        .caption .npf_chat:empty, .caption .npf_chat:has(br:only-child) { display: none !important; border: none !important; padding: 0 !important; }
+        .chat-container { margin-top: 8px; border: none; } 
+        .chat-line, .npf_chat { padding: 6px 0; border-bottom: 1px dashed var(--borders); display: flex; align-items: baseline; gap: 8px; margin: 0; }
+        .chat-line:last-child, .npf_chat:last-child { border-bottom: none; }
+        .chat-label, .npf_chat b { font-family: 'DM Mono', monospace; font-weight: bold; font-size: 0.6rem; color: var(--subtext); text-transform: uppercase; letter-spacing: 0.1em; width: auto; min-width: 50px; flex-shrink: 0; text-align: right; display: inline-block; }
+        .chat-line.even .chat-label { color: var(--accent); }
+        .chat-text, .npf_chat { font-size: 0.85rem; color: var(--text); font-family: 'DM Serif Display', serif; }
+        .caption p.npf_chat { margin-bottom: 0 !important; }
+        .npf_chat:last-of-type, .chat-line:last-of-type { border-bottom: none !important; padding-bottom: 0 !important; }
+        
+        .more_link, a.read_more { display: inline-block; padding: 8px 16px; border: 1px solid var(--borders); font-family: 'DM Mono', monospace; font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--text); background: transparent; border-radius: 4px; transition: all 0.3s ease; margin-top: 12px; font-weight: normal; text-decoration: none; }
+        .more_link:hover, a.read_more:hover { border-color: var(--accent); background: var(--hover-bg); color: var(--bg); }
+
+        .poll-post, .tmblr-iframe-poll, iframe.tmblr-iframe-poll { text-align: center; filter: grayscale(100%); margin: 12px 0; padding: 20px; border: 1px solid var(--borders); border-radius: 4px; background: var(--post-bg) !important; }
+        .poll-question { text-align: center; font-family: 'DM Serif Display', serif; font-size: 1.25rem; margin-bottom: 18px; color: var(--text); font-style: italic; }
+        .poll-row { text-align: center; display: block; position: relative; margin-bottom: 10px; padding: 10px 14px; border: 1px solid var(--borders); border-radius: 4px; text-decoration: none !important; color: var(--text); font-family: 'DM Sans', sans-serif; overflow: hidden; transition: border-color 0.3s; }
+        .poll-row:hover { border-color: var(--accent); }
+
+        .ask-wrap { background: var(--widget-bg); border: 1px solid var(--borders); padding: 16px 20px; border-radius: 12px 12px 12px 4px; margin-bottom: 16px; position: relative; }
+        .ask-header { display: flex; align-items: center; gap: 8px; margin-bottom: 8px; }
+        .ask-avatar { width: 20px; height: 20px; border-radius: 50%; }
+        .ask-info { display: flex; align-items: baseline; }
+        .ask-action { font-family: 'DM Mono', monospace; font-size: 0.55rem; color: var(--subtext); text-transform: uppercase; letter-spacing: 0.1em; }
+        .ask-action-name { color: var(--text); font-weight: bold; }
+        .ask-question { font-family: 'DM Serif Display', serif; font-style: italic; font-size: 0.95rem; color: var(--text); line-height: 1.4; }
+
+        iframe[src*="spotify.com"] { width: 100% !important; height: 80px !important; border-radius: 8px !important; margin-bottom: 12px; }
+
+        .custom-audio { 
+            display: flex !important; align-items: center !important; 
+            background: var(--post-bg) !important; border: 1px solid var(--borders) !important; 
+            padding: 12px 16px !important; width: 100% !important; 
+            box-shadow: none !important; border-radius: 4px !important;
+            margin-bottom: 16px !important; box-sizing: border-box !important;
+        }
+        .custom-audio-art { 
+            width: 64px !important; height: 64px !important; flex-shrink: 0 !important; 
+            border-radius: 2px !important; overflow: hidden !important; 
+            margin-right: 16px !important; 
+        }
+        .custom-audio-art img { width: 100% !important; height: 100% !important; object-fit: cover !important; }
+        .ca-no-art { width: 100% !important; height: 100% !important; background: var(--borders) !important; }
+        
+        .custom-audio-info { 
+            flex-grow: 1 !important; padding-right: 16px !important; 
+            border-right: 2px dashed var(--borders) !important; 
+            overflow: hidden !important; text-align: left !important; 
+        }
+        .custom-audio-title { 
+            font-family: 'DM Serif Display', serif !important; 
+            font-size: 1.15rem !important; 
+            color: var(--text) !important; white-space: nowrap !important; 
+            text-overflow: ellipsis !important; overflow: hidden !important; 
+            line-height: 1.2 !important; margin-bottom: 2px !important; 
+            font-style: normal !important;
+        }
+        .custom-audio-artist { 
+            font-family: 'DM Mono', monospace !important; 
+            font-size: 0.55rem !important; 
+            color: var(--subtext) !important; text-transform: uppercase !important; 
+            letter-spacing: 0.05em !important; 
+        }
+        
+        .custom-audio-buttons { 
+            width: 48px !important; 
+            min-width: 48px !important; 
+            display: flex !important; align-items: center !important; 
+            justify-content: center !important; flex-shrink: 0 !important; cursor: pointer !important; 
+            color: var(--text) !important; margin-left: 8px !important; 
+        }
+        .custom-audio-buttons svg { width: 22px !important; height: 22px !important; fill: currentColor !important; display: block; margin: 0 auto; }
+        .custom-audio-buttons:hover { color: var(--accent) !important; }
+
+        .side-controls { position: absolute; top: 24px; left: calc(100% + 24px); display: flex; flex-direction: column; gap: 6px; align-items: flex-start; z-index: 20; opacity: 0; visibility: hidden; transition: all 0.3s ease; }
+        article.post:hover .side-controls { opacity: 1; visibility: visible; transform: translateX(4px); }
+
+        .control-btn { width: 36px; height: 36px; border: 1px solid var(--borders); background: var(--bg); display: flex; align-items: center; justify-content: center; position: relative; flex-shrink: 0; cursor: pointer; transition: border-color 0.3s ease, background 0.3s ease; border-radius: 4px; }
+        .control-btn:hover { border-color: var(--accent); background: var(--hover-bg); }
+        .control-btn:hover svg { fill: var(--bg); }
+        .control-btn svg { width: 14px; height: 14px; fill: var(--text); transition: fill 0.3s ease; z-index: 1; position: relative; }
+
+        .custom-like .like_button { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 10; opacity: 0; cursor: pointer; }
+        .custom-like .like_button iframe { width: 100%; height: 100%; cursor: pointer; }
+
+        .side-tags-list { display: flex; flex-direction: column; gap: 4px; align-items: flex-start; margin-top: 4px; }
+        .side-tag { font-family: 'DM Mono', monospace; font-size: 0.6rem; color: var(--text); text-transform: uppercase; background: var(--bg); border: 1px solid var(--borders); padding: 4px 6px; text-decoration: none; word-wrap: break-word; text-align: left; transition: all 0.3s ease; white-space: nowrap; border-radius: 4px;}
+        .side-tag:hover { border-color: var(--accent); background: var(--hover-bg); color: var(--bg); }
+        .side-tag::before { content: '#'; opacity: 0.5; margin-right: 2px; }
+        .side-tag:nth-child(n+6) { display: none; }
+        .see-all-tags { font-family: 'DM Mono', monospace; font-size: 0.6rem; color: var(--accent); text-transform: uppercase; background: var(--bg); border: 1px dashed var(--accent); padding: 4px 6px; text-align: center; display: none; transition: all 0.3s ease; text-decoration: none; white-space: nowrap; border-radius: 4px;}
+        .see-all-tags:hover { background: var(--accent); color: var(--bg); border-style: solid; }
+        .side-tag:nth-child(6) ~ .see-all-tags { display: block; }
+
+        .post-footer-meta {
+            margin-top: 15px; padding: 10px 0 0 0; border-top: 1px solid var(--borders);
+            display: flex; flex-wrap: wrap; gap: 12px; align-items: center;
+        }
+        .meta-pill {
+            font-family: 'DM Mono', monospace; font-size: 0.65rem; text-transform: uppercase;
+            letter-spacing: 0.1em; color: var(--subtext); text-decoration: none;
+            display: inline-flex; align-items: center; transition: color 0.3s ease;
+            background: transparent; border: none; padding: 0;
+        }
+        .meta-pill span {
+            overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+            max-width: 250px; display: inline-block; vertical-align: middle;
+        }
+        .meta-pill:hover { color: var(--accent); background: transparent; }
+        .meta-pill svg { display: none; }
+
+        .permalink-tags { margin-top: 16px; padding-bottom: 8px; font-family: 'DM Mono', monospace; font-size: 0.65rem; text-transform: uppercase; color: var(--subtext); display: flex; flex-wrap: wrap; gap: 6px; }
+        .permalink-tags a { color: var(--text); text-decoration: none; border: 1px solid var(--borders); padding: 4px 8px; border-radius: 4px; transition: all 0.3s ease; }
+        .permalink-tags a:hover { border-color: var(--accent); color: var(--accent); }
+        .permalink-tags a::before { content: '#'; opacity: 0.5; margin-right: 2px; }
+
+        .notes-container {
+            margin-top: 16px; padding: 12px; border: 1px solid var(--borders);
+            background: var(--bg); border-radius: 4px; max-height: 250px; overflow-y: auto;
+        }
+        .notes-container::-webkit-scrollbar { width: 4px; }
+        .notes-container::-webkit-scrollbar-thumb { background: var(--borders); }
+        ol.notes { list-style: none; margin: 0; padding: 0; }
+        ol.notes li.note {
+            display: block; clear: both;
+            padding: 12px 0; border-bottom: 1px dashed var(--borders);
+        }
+        ol.notes li.note:last-child { border-bottom: none; }
+        ol.notes li.note img.avatar {
+            float: left; width: 20px; height: 20px; margin-right: 12px;
+            border-radius: 2px; border: 1px solid var(--borders);
+        }
+        ol.notes li.note .action {
+            display: block; font-family: 'DM Mono', monospace; font-size: 0.65rem;
+            text-transform: uppercase; color: var(--text);
+            white-space: nowrap; overflow: hidden; text-overflow: ellipsis; line-height: 20px;
+        }
+        ol.notes li.note .action a { color: var(--text); font-weight: bold; text-decoration: none; border: none; }
+        ol.notes li.note .action a:hover { color: var(--accent); }
+        ol.notes li.note .clear { display: none; }
+        ol.notes li.note blockquote {
+            display: block; clear: both;
+            margin: 8px 0 0 32px; padding: 6px 0 6px 12px;
+            border-left: 3px solid var(--accent); background: transparent;
+            font-family: 'DM Mono', monospace; font-size: 0.65rem;
+            line-height: 1.6; color: var(--subtext); letter-spacing: 0.05em;
+            text-transform: uppercase; box-sizing: border-box;
+        }
+        ol.notes li.note blockquote a { text-decoration: none; color: var(--text); }
+
+        @media screen and (max-width: 1000px) {
+            .layout-wrapper { flex-direction: column; }
+            aside.sidebar { width: 100%; height: auto; position: relative; border-right: none; border-bottom: 1px solid var(--borders); }
+            main.content { margin-left: 0; width: 100%; padding: 32px 20px; overflow-x: hidden; }
+            article.post { padding: 20px; width: 100%; max-width: 100%; }
+            .floating-w-wrap, .scroll-top { display: none; }
+            .side-controls { position: static; opacity: 1; visibility: visible; flex-direction: row; justify-content: flex-end; align-items: center; background: transparent; border: none; margin-bottom: 16px; flex-wrap: wrap; left: auto; transform: none; }
+            .side-tags-list { flex-direction: row; width: auto; flex-wrap: wrap; margin-top: 0; margin-left: 6px; }
+            .photo-container, .photoset-container { width: 100%; margin-left: 0; margin-right: 0; }
+            article.post > .photo-container:first-child, article.post > .photoset-container:first-child,
+            article.post > .post-top-meta + .photo-container, article.post > .post-top-meta + .photoset-container { margin-top: 0; }
+            
+            nav li.more-links-btn { display: none; }
+
+            body.is-grid:not(.is-permalink) main.content { column-count: 1; }
+            body.is-grid:not(.is-permalink) .side-controls { position: static; background: transparent; border: none; padding: 0; margin-bottom: 16px; }
+            body.is-grid:not(.is-permalink) article.post:hover .side-controls { transform: none; }
+        }
+    </style>
+
+</head>
+
+<body class="{block:PermalinkPage}is-permalink{/block:PermalinkPage} {block:IfTwoColumnGrid}is-grid{/block:IfTwoColumnGrid}">
+
+    <div class="toolbar">
+        <div class="theme-btn tooltip-wrap tooltip-left" id="nativeControlsBtn" data-tip="Controls" aria-label="Controls" role="button" tabindex="0">
+            <svg viewBox="0 0 24 24" style="width: 14px; height: 14px; fill: var(--text);"><path d="M19.14,12.94c0.04-0.3,0.06-0.61,0.06-0.94c0-0.32-0.02-0.64-0.06-0.94l2.03-1.58c0.18-0.14,0.23-0.41,0.12-0.61 l-1.92-3.32c-0.12-0.22-0.37-0.29-0.59-0.22l-2.39,0.96c-0.5-0.38-1.03-0.7-1.62-0.94L14.4,2.81c-0.04-0.24-0.24-0.41-0.48-0.41 h-3.84c-0.24,0-0.43,0.17-0.47,0.41L9.25,5.35C8.66,5.59,8.12,5.92,7.63,6.29L5.24,5.33c-0.22-0.08-0.47,0-0.59,0.22L2.73,8.87 C2.62,9.08,2.66,9.34,2.86,9.48l2.03,1.58C4.84,11.36,4.8,11.69,4.8,12s0.02,0.64,0.06,0.94l-2.03,1.58 c-0.18,0.14-0.23,0.41-0.12,0.61l1.92,3.32c0.12,0.22,0.37,0.29,0.59,0.22l2.39-0.96c0.5,0.38,1.03,0.7,1.62,0.94l0.36,2.54 c0.05,0.24,0.24,0.41,0.48,0.41h3.84c0.24,0,0.43-0.17,0.47-0.41l0.36-2.54c0.59-0.24,1.13-0.56,1.62-0.94l2.39,0.96 c0.22,0.08,0.47,0,0.59-0.22l1.92-3.32c0.12-0.22,0.07-0.49-0.12-0.61L19.14,12.94z M12,15.6c-1.98,0-3.6-1.62-3.6-3.6 s1.62-3.6,3.6-3.6s3.6,1.62,3.6,3.6S13.98,15.6,12,15.6z"/></svg>
+        </div>
+        <div class="theme-btn tooltip-wrap tooltip-left" data-tip="Toggle Theme" aria-label="Toggle Theme" role="button" tabindex="0" onclick="toggleTheme()">
+            <div class="theme-knob" id="themeKnob">
+                <svg id="moonIcon" viewBox="0 0 24 24"><path d="M12 3c-4.97 0-9 4.03-9 9s4.03 9 9 9 9-4.03 9-9c0-.46-.04-.92-.1-1.36-.98 1.37-2.58 2.26-4.4 2.26-3.03 0-5.5-2.47-5.5-5.5 0-1.82.89-3.42 2.26-4.4-.44-.06-.9-.1-1.36-.1z"/></svg>
+                <svg id="sunIcon" viewBox="0 0 24 24" style="display:none"><path d="M12 7c-2.76 0-5 2.24-5 5s2.24 5 5 5 5-2.24 5-5-2.24-5-5-5zM2 13h2c.55 0 1-.45 1-1s-.45-1-1-1H2c-.55 0-1 .45-1 1s.45 1 1 1zm18 0h2c.55 0 1-.45 1-1s-.45-1-1h-2c-.55 0-1 .45-1 1s.45 1 1 1zM11 2v2c0 .55.45 1 1 1s1-.45 1-1V2c0-.55-.45-1-1-1s-1 .45-1 1zm0 18v2c0 .55.45 1 1 1s1-.45 1-1v-2c0-.55-.45-1-1-1s-1 .45-1 1zM5.99 4.58c-.39-.39-1.03-.39-1.41 0-.39.39-.39 1.03 0 1.41l1.06 1.06c.39.39 1.03.39 1.41 0s.39-1.03 0-1.41L5.99 4.58zm12.37 12.37c-.39-.39-1.03-.39-1.41 0-.39.39-.39 1.03 0 1.41l1.06 1.06c.39.39 1.03.39 1.41 0 .39-.39.39-1.03 0-1.41l-1.06-1.06zm1.06-12.37l-1.06 1.06c-.39.39-.39 1.03 0 1.41s1.03.39 1.41 0l1.06-1.06c.39-.39.39-1.03 0-1.41s-1.03-.39-1.41 0zM7.05 18.36l-1.06 1.06c-.39.39-.39 1.03 0 1.41s1.03.39 1.41 0l1.06-1.06c.39-.39.39-1.03 0-1.41s-1.03-.39-1.41 0z"/></svg>
+            </div>
+        </div>
+    </div>
+
+    <a href="#" class="scroll-top tooltip-wrap tooltip-left" id="scrollTopBtn" data-tip="Back to Top" aria-label="Back to Top" onclick="window.scrollTo({top: 0, behavior: 'smooth'}); return false;">↑</a>
+    
+    <div class="floating-w-wrap">
+        <a href="https://whereinmnl.tumblr.com" class="floating-w tooltip-wrap tooltip-left" data-tip="theme by whereinmnl" aria-label="Theme by whereinmnl">W</a>
+    </div>
+
+    <div id="aboutModal" class="modal-overlay" onclick="closeModalOnBG(event, 'aboutModal')">
+        <div class="modal-content">
+            <button class="modal-close tooltip-wrap" data-tip="Close" aria-label="Close" onclick="closeModal('aboutModal')">✕</button>
+            <h2 class="modal-title">About Me</h2>
+            <div class="modal-body">
+                {block:IfAboutPhotoImage}
+                <img src="{image:About Photo}" class="about-image" alt="About photo" loading="lazy">
+                {/block:IfAboutPhotoImage}
+                <p>{text:About Text}</p>
+                <div style="clear: both;"></div>
+            </div>
+        </div>
+    </div>
+
+    <div id="askModal" class="modal-overlay" onclick="closeModalOnBG(event, 'askModal')">
+        <div class="modal-content">
+            <button class="modal-close tooltip-wrap" data-tip="Close" aria-label="Close" onclick="closeModal('askModal')">✕</button>
+            <h2 class="modal-title">Ask & FAQ</h2>
+            <div class="modal-body">
+                
+                {block:IfFAQ1Question}
+                <details class="faq-item">
+                    <summary>{text:FAQ 1 Question}</summary>
+                    <p>{text:FAQ 1 Answer}</p>
+                </details>
+                {/block:IfFAQ1Question}
+
+                {block:IfFAQ2Question}
+                <details class="faq-item">
+                    <summary>{text:FAQ 2 Question}</summary>
+                    <p>{text:FAQ 2 Answer}</p>
+                </details>
+                {/block:IfFAQ2Question}
+
+                {block:IfFAQ3Question}
+                <details class="faq-item">
+                    <summary>{text:FAQ 3 Question}</summary>
+                    <p>{text:FAQ 3 Answer}</p>
+                </details>
+                {/block:IfFAQ3Question}
+
+                {block:IfFAQ4Question}
+                <details class="faq-item">
+                    <summary>{text:FAQ 4 Question}</summary>
+                    <p>{text:FAQ 4 Answer}</p>
+                </details>
+                {/block:IfFAQ4Question}
+
+                <iframe src="https://www.tumblr.com/ask_form/{Name}.tumblr.com" class="ask-iframe" id="ask_form" title="Ask me anything"></iframe>
+            </div>
+        </div>
+    </div>
+
+    <div class="layout-wrapper">
+        <aside class="sidebar" id="mainSidebar">
+            <div class="sidebar-carousel">
+                <div class="sidebar-panel main-panel">
+                    {block:IfShowSidebarPhoto}
+                        {block:IfSidebarPhotoImage}
+                        <div class="profile-photo">
+                            <a href="/"><img src="{image:Sidebar Photo}" alt="{Title}" loading="lazy"></a>
+                        </div>
+                        {/block:IfSidebarPhotoImage}
+                    {/block:IfShowSidebarPhoto}
+
+                    <h1 class="blog-title"><a href="/">{Title}</a></h1>
+                    <div class="sidebar-rule"></div>
+
+                    {block:Description}
+                        <div class="description">{Description}</div>
+                    {/block:Description}
+
+                    <nav>
+                        <ul>
+                            <li><a href="/">Home</a></li>
+                            <li><button onclick="openModal('aboutModal')">About</button></li>
+                            {block:AskEnabled}<li><button onclick="openModal('askModal')">Ask</button></li>{/block:AskEnabled}
+                            {block:IfShowArchiveLink}<li><a href="/archive">Archive</a></li>{/block:IfShowArchiveLink}
+                            <li class="more-links-btn"><button onclick="document.getElementById('mainSidebar').classList.add('show-nav')">More Links</button></li>
+                        </ul>
+                    </nav>
+
+                    {block:Pagination}
+                    <div class="sidebar-pagination">
+                        {block:PreviousPage}<a href="{PreviousPage}">Prev</a>{/block:PreviousPage}
+                        
+                        {block:JumpPagination length="5"}
+                            {block:CurrentPage}<span class="current-page">{PageNumber}</span>{/block:CurrentPage}
+                            {block:JumpPage}<a href="{URL}">{PageNumber}</a>{/block:JumpPage}
+                        {/block:JumpPagination}
+                        
+                        {block:NextPage}<a href="{NextPage}">Next</a>{/block:NextPage}
+                    </div>
+                    {/block:Pagination}
+                </div>
+
+                <div class="sidebar-panel links-panel">
+                    <button class="back-btn tooltip-wrap" data-tip="Go Back" aria-label="Go Back" onclick="document.getElementById('mainSidebar').classList.remove('show-nav')">← Back</button>
+                    <div class="nav-description">{text:More Links Description}</div>
+                    
+                    <div class="nav-links-grid">
+                        {block:IfLink1Title}<a href="{text:Link 1 URL}">{text:Link 1 Title}</a>{/block:IfLink1Title}
+                        {block:IfLink2Title}<a href="{text:Link 2 URL}">{text:Link 2 Title}</a>{/block:IfLink2Title}
+                        {block:IfLink3Title}<a href="{text:Link 3 URL}">{text:Link 3 Title}</a>{/block:IfLink3Title}
+                        {block:IfLink4Title}<a href="{text:Link 4 URL}">{text:Link 4 Title}</a>{/block:IfLink4Title}
+                        {block:IfLink5Title}<a href="{text:Link 5 URL}">{text:Link 5 Title}</a>{/block:IfLink5Title}
+                        {block:IfLink6Title}<a href="{text:Link 6 Title}">{text:Link 6 Title}</a>{/block:IfLink6Title}
+                        {block:IfLink7Title}<a href="{text:Link 7 URL}">{text:Link 7 Title}</a>{/block:IfLink7Title}
+                        {block:IfLink8Title}<a href="{text:Link 8 URL}">{text:Link 8 Title}</a>{/block:IfLink8Title}
+                        {block:IfLink9Title}<a href="{text:Link 9 URL}">{text:Link 9 Title}</a>{/block:IfLink9Title}
+                        {block:IfLink10Title}<a href="{text:Link 10 URL}">{text:Link 10 Title}</a>{/block:IfLink10Title}
+                    </div>
+                </div>
+            </div>
+        </aside>
+
+        <main class="content" id="main-content">
+            {block:Posts inlineMediaWidth="1280" inlineNestedMediaWidth="1280"}
+            <div class="post-wrapper">
+                <article class="post {PostType} is-{PostType}-post" post-type="{PostType}">
+
+                    <div class="side-controls">
+                        <div class="control-btn custom-like tooltip-wrap tooltip-left" data-tip="Like" aria-label="Like">
+                            <div class="like_button" data-post-id="{PostID}" id="like_button_{PostID}">
+                                {LikeButton color="white" size="36"}
+                            </div>
+                            <svg class="my-like-icon" viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+                        </div>
+                        
+                        <div class="control-btn tooltip-wrap tooltip-left" data-tip="Reblog" aria-label="Reblog">
+                            <a href="{ReblogURL}" target="_blank" style="display:flex; align-items:center; justify-content:center; width:100%; height:100%;">
+                                <svg viewBox="0 0 24 24"><path d="M19 7h-3V6a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v6a4 4 0 0 0 4 4h3v1a4 4 0 0 0 4 4h4a4 4 0 0 0 4-4v-6a4 4 0 0 0-4-4zm-8-3a2 2 0 0 1 2 2v1H8a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h4zm10 13a2 2 0 0 1-2 2h-4a2 2 0 0 1-2-2v-1h3a4 4 0 0 0 4-4V9a2 2 0 0 1 2 2v6z"/></svg>
+                            </a>
+                        </div>
+                        
+                        {block:HasTags}
+                        <div class="side-tags-list">
+                            {block:Tags}
+                            <a href="{TagURL}" class="side-tag">{Tag}</a>
+                            {/block:Tags}
+                            <a href="{Permalink}" class="see-all-tags">See all tags</a>
+                        </div>
+                        {/block:HasTags}
+                    </div>
+
+                    <div class="post-top-meta">
+                        {block:Date}
+                        <div class="meta-date"><a href="{Permalink}">{DayOfWeek}, {Month} {DayOfMonth}, {Year}</a></div>
+                        {/block:Date}
+                        
+                        {block:PinnedPostLabel}
+                        <div class="pinned-label-inline">
+                            <svg viewBox="0 0 24 24"><path d="M16 12V4h1V2H7v2h1v8l-2 2v2h5.2v6h1.6v-6H18v-2l-2-2z"/></svg> Pinned
+                        </div>
+                        {/block:PinnedPostLabel}
+                        
+                        {block:NoteCount}
+                        <div class="meta-notes"><a href="{Permalink}">{NoteCountWithLabel}</a></div>
+                        {/block:NoteCount}
+                    </div>
+
+                    {block:Text}
+                        {block:Title}<div class="post-header"><h2><a href="{Permalink}">{Title}</a></h2></div>{/block:Title}
+                        {block:Reblogs}
+                            <div class="reblog-chain">
+                                <div class="caption reblog-content">
+                                    <div class="reblog-header">
+                                        <img src="{PortraitURL-64}" class="reblog-avatar" alt="" loading="lazy">
+                                        <a href="{Permalink}" class="reblog-user">{Username}</a>
+                                    </div>
+                                    {Body}
+                                </div>
+                            </div>
+                        {/block:Reblogs}
+                        {block:NotReblog}
+                            <div class="caption original-content">{Body}</div>
+                        {/block:NotReblog}
+                    {/block:Text}
+
+                    {block:Photo}
+                        {block:NotReblog}
+                            <div class="photo-container original-content"><a href="{Permalink}"><img src="{PhotoURL-HighRes}" alt="{PhotoAlt}" loading="lazy"/></a></div>
+                            <div class="caption original-content">
+                                {block:Caption}{Caption}{/block:Caption}
+                            </div>
+                        {/block:NotReblog}
+                        
+                        {block:Reblogs}
+                            <div class="reblog-chain">
+                                <div class="caption photo-reblog-content reblog-content">
+                                    <div class="reblog-header">
+                                        <img src="{PortraitURL-64}" class="reblog-avatar" alt="" loading="lazy">
+                                        <a href="{Permalink}" class="reblog-user">{Username}</a>
+                                    </div>
+                                    {Body}
+                                </div>
+                            </div>
+                        {/block:Reblogs}
+                    {/block:Photo}
+
+                    {block:Photoset}
+                        {block:NotReblog}
+                            <div class="photo-container photoset-container original-content">{Photoset-700}</div>
+                            <div class="caption original-content">
+                                {block:Caption}{Caption}{/block:Caption}
+                            </div>
+                        {/block:NotReblog}
+
+                        {block:Reblogs}
+                            <div class="reblog-chain">
+                                <div class="caption photo-reblog-content reblog-content">
+                                    <div class="reblog-header">
+                                        <img src="{PortraitURL-64}" class="reblog-avatar" alt="" loading="lazy">
+                                        <a href="{Permalink}" class="reblog-user">{Username}</a>
+                                    </div>
+                                    {Body}
+                                </div>
+                            </div>
+                        {/block:Reblogs}
+                    {/block:Photoset}
+
+                    {block:Quote}
+                        <blockquote class="quote-content">{Quote}</blockquote>
+                        {block:Source}
+                        <div class="quote-source"><span class="quote-source-text">{Source}</span></div>
+                        {/block:Source}
+                    {/block:Quote}
+
+                    {block:Chat}
+                        {block:Title}<div class="post-header"><h2><a href="{Permalink}">{Title}</a></h2></div>{/block:Title}
+                        <div class="chat-container">
+                            {block:Lines}
+                            <div class="chat-line {Alt}">
+                                {block:Label}<span class="chat-label">{Label}</span>{/block:Label}
+                                <span class="chat-text">{Line}</span>
+                            </div>
+                            {/block:Lines}
+                        </div>
+                    {/block:Chat}
+
+                    {block:Audio}
+                        <div class="custom-audio">
+                            <div class="custom-audio-art">
+                                {block:AlbumArt}<img src="{AlbumArtURL}" alt="" loading="lazy">{/block:AlbumArt}
+                                {block:NotAlbumArt}<div class="ca-no-art"></div>{/block:NotAlbumArt}
+                            </div>
+                            <div class="custom-audio-info">
+                                <div class="custom-audio-title">{block:TrackName}{TrackName}{/block:TrackName}{block:NotTrackName}Audio Post{/block:NotTrackName}</div>
+                                <div class="custom-audio-artist">{block:Artist}{Artist}{/block:Artist}{block:NotArtist}Unknown Artist{/block:NotArtist}</div>
+                            </div>
+                            <div class="custom-audio-buttons"></div>
+                        </div>
+
+                        {block:Reblogs}
+                            <div class="reblog-chain">
+                                <div class="caption reblog-content">
+                                    <div class="reblog-header">
+                                        <img src="{PortraitURL-64}" class="reblog-avatar" alt="" loading="lazy">
+                                        <a href="{Permalink}" class="reblog-user">{Username}</a>
+                                    </div>
+                                    {Body}
+                                </div>
+                            </div>
+                        {/block:Reblogs}
+                        {block:NotReblog}
+                            <div class="caption original-content">
+                                {block:Caption}{Caption}{/block:Caption}
+                            </div>
+                        {/block:NotReblog}
+                    {/block:Audio}
+
+                    {block:Link}
+                        <a href="{URL}" class="link-wrapper" {Target}>
+                            <div class="link-arrow" aria-hidden="true">→</div>
+                            <div class="link-body">
+                                <h2 class="link-title" style="text-align: center;">{Name}</h2>
+                                {block:Excerpt}<p class="link-excerpt" style="text-align: center;">{Excerpt}</p>{/block:Excerpt}
+                            </div>
+                        </a>
+                        {block:Reblogs}
+                            <div class="reblog-chain">
+                                <div class="caption reblog-content">
+                                    <div class="reblog-header">
+                                        <img src="{PortraitURL-64}" class="reblog-avatar" alt="" loading="lazy">
+                                        <a href="{Permalink}" class="reblog-user">{Username}</a>
+                                    </div>
+                                    {Body}
+                                </div>
+                            </div>
+                        {/block:Reblogs}
+                        {block:NotReblog}
+                            <div class="caption original-content">
+                                {block:Description}{Description}{/block:Description}
+                            </div>
+                        {/block:NotReblog}
+                    {/block:Link}
+
+                   {block:Answer}
+                        <div class="ask-wrap">
+                            <div class="ask-header">
+                                <img src="{AskerPortraitURL-64}" class="ask-avatar" alt="" loading="lazy">
+                                <div class="ask-info"><span class="ask-action"><b class="ask-action-name">{Asker}</b> asked:</span></div>
+                            </div>
+                            <div class="ask-question">{Question}</div>
+                        </div>
+                        
+                        {block:NotReblog}
+                            <div class="caption original-content">
+                                {Answer}
+                            </div>
+                        {/block:NotReblog}
+
+                        <div class="reblog-trail-container">
+                            {block:Answerer}
+                            <div class="reblog-chain legacy-fallback">
+                                <div class="caption reblog-content">
+                                    <div class="reblog-header">
+                                        <img src="{AnswererPortraitURL-64}" class="reblog-avatar" alt="" loading="lazy">
+                                        <a href="{AnswererURL}" class="reblog-user">{Answerer}</a>
+                                    </div>
+                                    <div class="original-content">{Answer}</div>
+                                </div>
+                            </div>
+                            {/block:Answerer}
+
+                            {block:Reblogs}
+                                <div class="reblog-chain modern-chain" data-username="{Username}">
+                                    <div class="caption reblog-content">
+                                        <div class="reblog-header">
+                                            <img src="{PortraitURL-64}" class="reblog-avatar" alt="" loading="lazy">
+                                            <a href="{Permalink}" class="reblog-user">{Username}</a>
+                                        </div>
+                                        {Body}
+                                    </div>
+                                </div>
+                            {/block:Reblogs}
+                        </div>
+                    {/block:Answer}
+
+                    {block:RebloggedFrom}
+                    <div class="post-footer-meta">
+                        <a href="{ReblogParentURL}" class="meta-pill" title="{ReblogParentName}">
+                            <span>via {ReblogParentName}</span>
+                        </a>
+                        
+                        {block:ContentSource}
+                        <a href="{ReblogRootURL}" class="meta-pill" title="{ReblogRootName}">
+                            <span>source {ReblogRootName}</span>
+                        </a>
+                        {/block:ContentSource}
+                    </div>
+                    {/block:RebloggedFrom}
+
+                    {block:PermalinkPage}
+                        {block:HasTags}
+                        <div class="permalink-tags">
+                            {block:Tags}<a href="{TagURL}">#{Tag}</a> {/block:Tags}
+                        </div>
+                        {/block:HasTags}
+                        {block:PostNotes}
+                        <div class="notes-container">
+                            {PostNotes-64}
+                        </div>
+                        {/block:PostNotes}
+                    {/block:PermalinkPage}
+
+                </article>
+            </div>
+            {/block:Posts}
+        </main>
+    </div>
+
+    <script>
+        function toggleTheme() {
+            var isLight = document.body.classList.toggle("light-mode");
+            localStorage.setItem("theme", isLight ? "light" : "dark");
+            document.getElementById("moonIcon").style.display = isLight ? "none" : "block";
+            document.getElementById("sunIcon").style.display  = isLight ? "block" : "none";
+        }
+
+        function openModal(id) { document.getElementById(id).classList.add('active'); }
+        function closeModal(id) { document.getElementById(id).classList.remove('active'); }
+        function closeModalOnBG(e, id) { if(e.target.id === id) closeModal(id); }
+
+        (function() {
+            var savedTheme = localStorage.getItem("theme");
+            var systemPrefersLight = window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches;
+            
+            if (savedTheme === "light" || (!savedTheme && systemPrefersLight)) {
+                document.body.classList.add("light-mode");
+                document.getElementById("moonIcon").style.display = "none";
+                document.getElementById("sunIcon").style.display = "block";
+            }
+        })();
+
+        document.addEventListener('DOMContentLoaded', function() {
+
+            document.querySelectorAll('.photo-reblog-content').forEach(function(content) {
+                var header = content.querySelector('.reblog-header');
+                if (!header) return;
+
+                var firstChild = content.firstChild;
+                while(firstChild) {
+                    var next = firstChild.nextSibling;
+                    if (firstChild.nodeType === 3 && firstChild.textContent.trim() === '') {
+                        firstChild.remove();
+                    } else if (firstChild.tagName === 'BR') {
+                        firstChild.remove();
+                    } else if (firstChild.tagName === 'P' && firstChild.textContent.trim() === '' && !firstChild.querySelector('img, iframe, video')) {
+                        firstChild.remove();
+                    } else {
+                        break;
+                    }
+                    firstChild = next;
+                }
+
+                var article = content.closest('article.post');
+                var chains = article ? article.querySelectorAll('.photo-reblog-content') : [];
+                var isChain = chains.length > 1;
+
+                var children = Array.from(content.children);
+                var lastMediaIndex = -1;
+
+                for (var i = 0; i < children.length; i++) {
+                    var child = children[i];
+                    if (child === header) continue;
+
+                    var isMedia = child.tagName === 'FIGURE' || 
+                                  child.tagName === 'IMG' ||
+                                  child.tagName === 'VIDEO' ||
+                                  child.classList.contains('npf_row') || 
+                                  child.classList.contains('npf_col') || 
+                                  child.classList.contains('photo-container') || 
+                                  child.classList.contains('photoset-container') || 
+                                  (child.tagName === 'IFRAME' && child.classList.contains('photoset')) ||
+                                  (child.tagName === 'P' && child.querySelector('img, iframe, video') && child.textContent.trim() === '');
+
+                    if (isMedia) {
+                        lastMediaIndex = i;
+                    } else {
+                        var textStr = child.textContent.replace(/[\s\u200B-\u200D\uFEFF]/g, '');
+                        if (textStr.length > 0) break;
+                    }
+                }
+
+                if (isChain || lastMediaIndex === -1) {
+                    content.insertBefore(header, content.firstChild);
+                    header.style.marginTop = '0px';
+                    header.style.marginBottom = '2px';
+                } else {
+                    var lastMediaNode = children[lastMediaIndex];
+                    if (lastMediaNode.nextSibling) {
+                        content.insertBefore(header, lastMediaNode.nextSibling);
+                    } else {
+                        content.appendChild(header);
+                    }
+                    header.style.marginTop = '8px';
+                    header.style.marginBottom = '2px';
+                }
+            });
+
+            var playSVG = "<svg viewBox='0 0 24 24'><path d='M8 5v14l11-7z'/></svg>";
+            var pauseSVG = "<svg viewBox='0 0 24 24'><path d='M6 19h4V5H6v14zm8-14v14h4V5h-4z'/></svg>";
+
+            var postContainers = document.querySelectorAll('.reblog-content, .original-content');
+            postContainers.forEach(function(container) {
+                
+                container.querySelectorAll('audio, iframe').forEach(function(player) {
+                    if (player.closest('.custom-audio')) return;
+
+                    var isIframe = player.tagName.toLowerCase() === 'iframe';
+                    var isAudio = player.tagName.toLowerCase() === 'audio';
+
+                    if (isIframe) {
+                        var src = player.src || '';
+                        if (src.includes('spotify.com') || src.includes('soundcloud.com') || src.includes('youtube.com') || src.includes('bandcamp.com')) return; 
+                        if (!src.includes('tumblr.com')) return;
+                    }
+
+                    var target = player;
+                    var curr = player.parentElement;
+                    while (curr && curr.tagName !== 'ARTICLE' && curr !== document.body) {
+                        if (curr.tagName === 'FIGURE' || curr.classList.contains('npf_audio') || curr.hasAttribute('data-npf') || curr.classList.contains('tmblr-audio')) {
+                            target = curr;
+                        }
+                        curr = curr.parentElement;
+                    }
+
+                    if (target.dataset.processed) return;
+                    target.dataset.processed = 'true';
+
+                    var trackName = "Audio Post";
+                    var artistName = "Unknown Artist";
+                    var artUrl = "";
+                    var audioUrl = "";
+
+                    if (target.hasAttribute('data-npf')) {
+                        try {
+                            var npfData = JSON.parse(target.getAttribute('data-npf'));
+                            if (npfData.title) trackName = npfData.title;
+                            if (npfData.artist) artistName = npfData.artist;
+                            if (npfData.poster && npfData.poster[0]) artUrl = npfData.poster[0].url;
+                            if (npfData.url) audioUrl = npfData.url;
+                            if (npfData.media && npfData.media.url) audioUrl = npfData.media.url;
+                        } catch(e) {}
+                    }
+
+                    if (isIframe) {
+                        try {
+                            var urlParams = new URL(player.src).searchParams;
+                            if (trackName === "Audio Post" && urlParams.has('title')) trackName = urlParams.get('title');
+                            if (artistName === "Unknown Artist" && urlParams.has('artist')) artistName = urlParams.get('artist');
+                            if (!artUrl && urlParams.has('poster')) artUrl = urlParams.get('poster');
+                        } catch(e) {}
+                    }
+
+                    if (!audioUrl) {
+                        var srcTag = target.querySelector('audio source');
+                        if (srcTag && srcTag.src) audioUrl = srcTag.src;
+                        else if (isAudio && player.src) audioUrl = player.src;
+                    }
+
+                    if (trackName === "Audio Post" || artistName === "Unknown Artist" || !artUrl) {
+                        if (!artUrl) {
+                            var img = target.querySelector('img');
+                            if (img && img.src) artUrl = img.src;
+                        }
+                        var texts = [];
+                        var walker = document.createTreeWalker(target, NodeFilter.SHOW_TEXT, null, false);
+                        var node;
+                        while ((node = walker.nextNode())) {
+                            var val = node.nodeValue.trim();
+                            if (val.length > 0 && !val.match(/^[\d:\s\/]+$/) && val !== "Audio Post") {
+                                texts.push(val);
+                            }
+                        }
+                        if (texts.length >= 1 && trackName === "Audio Post") trackName = texts[0];
+                        if (texts.length >= 2 && artistName === "Unknown Artist") artistName = texts[1];
+                    }
+
+                    var artHTML = '<div class="ca-no-art"></div>';
+                    if (artUrl) {
+                        artHTML = '<img src="' + artUrl + '" alt="" loading="lazy">';
+                    }
+
+                    var wrap = document.createElement('div');
+                    wrap.className = 'custom-audio';
+                    
+                    wrap.innerHTML = '<div class="custom-audio-art">' + artHTML + '</div>' +
+                                     '<div class="custom-audio-info">' +
+                                         '<div class="custom-audio-title">' + trackName + '</div>' +
+                                         '<div class="custom-audio-artist">' + artistName + '</div>' +
+                                     '</div>' +
+                                     '<div class="custom-audio-buttons">' +
+                                         '<span class="audio-play" style="display:block; width:100%; cursor:pointer;">' + playSVG + '</span>' +
+                                         '<span class="audio-pause" style="display:none; width:100%; cursor:pointer;">' + pauseSVG + '</span>' +
+                                     '</div>';
+
+                    target.parentNode.insertBefore(wrap, target);
+
+                    var actualAudio = null;
+
+                    if (audioUrl) {
+                        actualAudio = new Audio(audioUrl);
+                        actualAudio.style.display = 'none';
+                        wrap.appendChild(actualAudio);
+                    } else if (isAudio) {
+                        actualAudio = player; 
+                        actualAudio.style.display = 'none';
+                        wrap.appendChild(actualAudio);
+                    } else {
+                        var nativeAudio = target.querySelector('audio');
+                        if (nativeAudio) {
+                            actualAudio = nativeAudio;
+                            actualAudio.style.display = 'none';
+                            wrap.appendChild(actualAudio);
+                        }
+                        if (isIframe) {
+                            player.style.display = 'none';
+                            wrap.appendChild(player); 
+                        }
+                    }
+
+                    var btnContainer = wrap.querySelector('.custom-audio-buttons');
+                    var btnPlay = wrap.querySelector('.audio-play');
+                    var btnPause = wrap.querySelector('.audio-pause');
+
+                    btnContainer.addEventListener('click', function() {
+                        if (actualAudio) {
+                            if (actualAudio.paused) {
+                                document.querySelectorAll('audio').forEach(function(a) { a.pause(); });
+                                document.querySelectorAll('.audio-play').forEach(function(b) { b.style.display = 'block'; });
+                                document.querySelectorAll('.audio-pause').forEach(function(b) { b.style.display = 'none'; });
+
+                                actualAudio.play();
+                                btnPlay.style.display = 'none';
+                                btnPause.style.display = 'block';
+                            } else {
+                                actualAudio.pause();
+                                btnPlay.style.display = 'block';
+                                btnPause.style.display = 'none';
+                            }
+                        } else if (isIframe) {
+                            var isPlaying = btnPlay.style.display === 'none';
+                            if (!isPlaying) {
+                                player.contentWindow.postMessage(JSON.stringify({method: 'play'}), '*');
+                                btnPlay.style.display = 'none';
+                                btnPause.style.display = 'block';
+                            } else {
+                                player.contentWindow.postMessage(JSON.stringify({method: 'pause'}), '*');
+                                btnPlay.style.display = 'block';
+                                btnPause.style.display = 'none';
+                            }
+                        }
+                    });
+
+                    if (actualAudio) {
+                        actualAudio.addEventListener('ended', function() {
+                            btnPlay.style.display = 'block';
+                            btnPause.style.display = 'none';
+                        });
+                    }
+
+                    target.style.display = 'none'; 
+                });
+            });
+
+            var nativeBtn = document.getElementById('nativeControlsBtn');
+            if(nativeBtn) {
+                nativeBtn.addEventListener('click', function() {
+                    document.body.classList.toggle('show-native-iframe');
+                });
+            }
+
+            var scrollBtn = document.getElementById('scrollTopBtn');
+            window.addEventListener('scroll', function() {
+                if (window.scrollY > 300) {
+                    scrollBtn.classList.add('show');
+                } else {
+                    scrollBtn.classList.remove('show');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
