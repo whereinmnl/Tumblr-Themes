@@ -1,0 +1,189 @@
+<!----------------------------------------------------
+NOIR ABOUT ME THEME by whereinMNL
+2026 January 08
+
+Do Not Remove Credit:
+Please keep the credit in the footer visible. It helps me grow!
+
+Personal Use Only:
+Do not resell, redistribute, or claim the code as your own.
+
+Base Coding:
+Do not use my themes as a "base" for a release.
+
+Customization:
+Feel free to change colors/fonts! Just keep the credit link.
+
+No Re-hosting:
+Always link back to the original blog post.
+----------------------------------------------------->
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>NOIR // Theme Preview</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+
+<style>
+:root {
+    --bg: #ffffff;
+    --text: #111111;
+    --border: #dcdcdc;
+    --accent: #000000;
+    --soft-gray: #f8f8f8;
+}
+
+body {
+    background-color: var(--bg);
+    background-image: url("https://www.transparenttextures.com/patterns/natural-paper.png");
+    color: var(--text);
+    font-family: 'Inter', sans-serif;
+    margin: 0; padding: 0; line-height: 1.7;
+}
+
+h1, h2, h3, .serif { font-family: 'Playfair Display', serif; font-weight: 700; }
+
+@keyframes slideUp { from { opacity: 0; transform: translateY(15px); } to { opacity: 1; transform: translateY(0); } }
+.fade-in { animation: slideUp 1s ease forwards; }
+
+.container {
+    max-width: 850px;
+    margin: 40px auto;
+    background: #fff;
+    border: 1px solid var(--border);
+    box-shadow: 12px 12px 0px var(--soft-gray);
+}
+
+header { padding: 80px 40px 60px; border-bottom: 1px solid var(--border); position: relative; }
+header::after { content: "NOIR THEME // RELEASE V.1"; position: absolute; top: 20px; right: 40px; font-size: 0.6rem; letter-spacing: 2px; opacity: 0.5; }
+
+.avatar-frame { width: 110px; height: 110px; border: 1px solid var(--accent); padding: 5px; border-radius: 50%; margin-bottom: 25px; transition: 0.5s ease; cursor: crosshair; overflow: hidden;}
+.avatar-frame:hover { transform: scale(1.05) rotate(5deg); border-style: double; border-width: 3px; }
+.avatar-frame img { width: 100%; height: 100%; border-radius: 50%; object-fit: cover; filter: grayscale(100%); transition: 0.5s; }
+.avatar-frame:hover img { filter: grayscale(0%); }
+
+.nav-links { display: flex; flex-wrap: wrap; border-bottom: 1px solid var(--border); }
+.nav-links a { flex: 1; min-width: 100px; text-decoration: none; color: var(--text); text-align: center; padding: 18px 10px; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 2px; border-right: 1px solid var(--border); transition: 0.3s; }
+.nav-links a:hover { background: var(--accent); color: #fff; }
+
+.grid-parent { display: grid; grid-template-columns: 1.6fr 1fr; border-bottom: 1px solid var(--border); }
+.content-block { padding: 50px 40px; border-right: 1px solid var(--border); }
+.sidebar-block { padding: 50px 40px; background: var(--soft-gray); }
+
+.section-label { font-size: 0.6rem; text-transform: uppercase; letter-spacing: 4px; display: block; margin-bottom: 25px; color: #999; border-left: 3px solid var(--accent); padding-left: 10px; }
+
+.tag-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-top: 25px; }
+.tag { font-size: 0.6rem; text-transform: uppercase; text-align: center; padding: 12px 5px; border: 1px solid var(--border); letter-spacing: 1px; background: #fff; }
+
+.stat-row { display: flex; justify-content: space-between; font-size: 0.8rem; padding: 10px 0; border-bottom: 1px solid #e2e2e2; }
+.stat-row span:last-child { font-weight: 600; text-transform: uppercase; font-size: 0.7rem; }
+
+footer { padding: 80px 40px; text-align: center; background: #fff; }
+.socials { margin-bottom: 35px; }
+.socials a { text-decoration: none; color: var(--text); font-weight: 600; margin: 0 15px; font-size: 0.75rem; letter-spacing: 2px; transition: 0.3s; }
+.socials a:hover { text-decoration: line-through; opacity: 0.5; }
+
+.ask-button { display: inline-block; padding: 20px 60px; border: 1px solid var(--accent); text-decoration: none; color: var(--accent); text-transform: uppercase; letter-spacing: 4px; font-size: 0.75rem; font-weight: 600; transition: 0.4s; }
+.ask-button:hover { background: var(--accent); color: #fff; box-shadow: 10px 10px 0px var(--soft-gray); }
+
+.credit-link { color: var(--accent); text-decoration: none; border-bottom: 1px solid var(--accent); padding-bottom: 2px; transition: 0.3s; }
+.credit-link:hover { background: var(--accent); color: #fff; }
+
+@media (max-width: 768px) { 
+    .grid-parent { grid-template-columns: 1fr; } 
+    .content-block { border-right: none; border-bottom: 1px solid var(--border); } 
+    .container { margin: 10px; }
+}
+</style>
+</head>
+<body>
+
+<div class="container fade-in">
+    <header>
+        <div class="avatar-frame">
+            <img src="https://i.pinimg.com/736x/5e/6e/7d/5e6e7d034a5922e9f7092676cc880159.jpg" alt="Noir Avatar">
+        </div>
+        <h1 class="serif" style="font-size: 4.5rem; margin: 0; line-height: 0.8; letter-spacing: -3px;">noir theme.</h1>
+        <p style="letter-spacing: 8px; text-transform: uppercase; font-size: 0.6rem; margin-top: 20px; font-weight: 600;">Editorial About Page // Official Demo</p>
+    </header>
+
+    <nav class="nav-links">
+        <a href="/">Home</a>
+        <a href="#">Install</a>
+        <a href="#">Rules</a>
+        <a href="#">Archive</a>
+        <a href="#">Codes</a>
+        <a href="#">Credits</a>
+    </nav>
+
+    <div class="grid-parent">
+        <div class="content-block">
+            <span class="section-label">01 // Theme Narrative</span>
+            <p class="serif" style="font-size: 1.5rem; margin-bottom: 20px; line-height: 1.2;">Elevated minimalism for the modern curator.</p>
+            <p style="font-size: 0.95rem; opacity: 0.8;">The <b>Noir About Me Theme</b> is a magazine-inspired static page code. It was designed to bridge the gap between K-pop fan culture and high-fashion aesthetics. By utilizing a grid-based hierarchy and a strictly monochromatic palette, your content remains the focus, framed by a timeless editorial structure.</p>
+            
+            <div style="margin-top: 50px;">
+                <span class="section-label">02 // Key Features</span>
+                <div class="tag-grid">
+                    <div class="tag">Mobile Ready</div>
+                    <div class="tag">Zero JS</div>
+                    <div class="tag">Serif Mix</div>
+                    <div class="tag">Monochrome</div>
+                    <div class="tag">Editorial</div>
+                    <div class="tag">Clean Code</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="sidebar-block">
+            <span class="section-label">Technical Specs</span>
+            <div class="stat-row"><span>Version</span> <span>1.0.0</span></div>
+            <div class="stat-row"><span>Type</span> <span>Static Page</span></div>
+            <div class="stat-row"><span>Fonts</span> <span>Google Fonts</span></div>
+            <div class="stat-row"><span>Style</span> <span>Classy Noir</span></div>
+            
+            <div style="margin-top: 50px;">
+                <span class="section-label">Best Suited For...</span>
+                <ul style="padding-left: 15px; font-size: 0.8rem; line-height: 2.5; list-style-type: circle;">
+                    <li>Personal Portfolios</li>
+                    <li>K-Pop Stan Blogs</li>
+                    <li>Aesthetic Archives</li>
+                    <li>Minimalist Resource Blogs</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="grid-parent">
+        <div class="content-block" style="background: #fff;">
+            <span class="section-label">03 // Creator's Voice</span>
+            <p style="font-size: 0.95rem; font-style: italic; opacity: 0.9;">"Noir is a living study of sound and silhouette. This theme is built for those who want their words to carry the weight of an editorial column."</p>
+        </div>
+        <div class="sidebar-block" style="background: #fff; border-left: 1px solid var(--border);">
+            <span class="section-label">Status</span>
+            <div class="stat-row"><span>Browsers</span> <span>All Fluid</span></div>
+            <div class="stat-row"><span>Animations</span> <span>CSS Only</span></div>
+            <div class="stat-row"><span>Responsive</span> <span>Yes</span></div>
+        </div>
+    </div>
+
+    <footer>
+        <span class="section-label" style="margin-bottom: 30px; border: none; padding: 0;">Directory</span>
+        <div class="socials">
+            <a href="#">INSTAGRAM</a> / <a href="#">TWITTER</a> / <a href="#">PINTEREST</a>
+        </div>
+        
+        <div style="margin: 10px 0 50px;">
+            <a href="/ask" class="ask-button">Send an Inquiry</a>
+        </div>
+        
+        <p style="font-size: 0.65rem; color: #999; letter-spacing: 2px; text-transform: uppercase;">
+            Theme Release // Designed by <a href="https://whereinmnl.tumblr.com/" class="credit-link">whereinmnl</a>
+        </p>
+    </footer>
+</div>
+
+</body>
+</html>
