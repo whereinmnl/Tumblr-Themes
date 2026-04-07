@@ -1,0 +1,1090 @@
+<!---------------------------------------------------
+ANIMUS DIRECTORY THEME BY WHEREINMNL
+07 APRIL 2026
+Do Not Remove Credit:
+Please keep the credit. It helps me grow!
+Personal Use Only:
+Do not resell, redistribute, or claim the code as your own.
+Base Coding:
+Do not use my themes as a "base" for a release.
+Customization:
+Feel free to change colors/fonts! Just keep the credit link.
+No Re-hosting:
+Always link back to the original blog post.
+----------------------------------------------------->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ghibli character directory</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=DM+Sans:wght@300;400;500;600&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&display=swap" rel="stylesheet">
+
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html {
+  scroll-behavior: smooth;
+}
+
+:root {
+  --pink:       #333333; 
+  --pink-light: #1a1a1a; 
+  --pink-deep:  #ffffff; 
+  --blush:      #111111; 
+  --mint:       #2a2e2a; 
+  --peach:      #2e2a26; 
+  --lavender:   #2a2a2e; 
+  --lemon:      #2e2e26; 
+  --sky:        #262a2e; 
+  --ink:        #ffffff; 
+  --ink-soft:   #cccccc; 
+  --ink-muted:  #777777; 
+  --cream:      #0a0a0a; 
+  --rule:       #222222; 
+  --serif:      'Playfair Display', Georgia, serif;
+  --sans:       'DM Sans', sans-serif;
+  --italic:     'Cormorant Garamond', serif;
+}
+
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: var(--blush); }
+::-webkit-scrollbar-thumb { background: var(--ink-muted); border-radius: 4px; }
+
+body {
+  background: var(--cream);
+  color: var(--ink);
+  font-family: var(--sans);
+  font-size: 14px;
+  font-weight: 300;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+a {
+  color: var(--ink-soft);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+a:hover { color: var(--pink-deep); }
+
+.top-nav {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 24px;
+  padding: 12px 0;
+  border-bottom: 1px solid var(--rule);
+  background: var(--cream);
+}
+
+.top-nav a, 
+.top-nav .nav-icon {
+  color: var(--ink-muted);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.top-nav a:hover, 
+.top-nav .nav-icon:hover {
+  color: var(--pink-deep);
+  transform: translateY(-2px);
+}
+
+.has-tooltip {
+  position: relative;
+}
+
+.has-tooltip::after {
+  content: attr(data-tooltip);
+  position: absolute;
+  top: 140%; 
+  left: 50%;
+  transform: translateX(-50%) translateY(-5px);
+  background: var(--pink-deep);
+  color: var(--cream);
+  padding: 6px 10px;
+  border-radius: 4px;
+  font-family: var(--sans);
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: all 0.3s ease;
+  z-index: 100;
+}
+
+.has-tooltip:hover::after {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(-50%) translateY(0);
+}
+
+.nav-dropdown-wrapper {
+  position: relative;
+  display: inline-block;
+}
+
+.nav-dropdown-content {
+  position: absolute;
+  top: calc(100% + 16px);
+  left: 50%;
+  transform: translateX(-50%) translateY(10px);
+  background: var(--blush);
+  border: 1px solid var(--rule);
+  min-width: 120px;
+  padding: 10px 0;
+  border-radius: 4px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.5); 
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+  z-index: 100;
+}
+
+.nav-dropdown-content::before {
+  content: '';
+  position: absolute;
+  top: -16px;
+  left: 0;
+  width: 100%;
+  height: 16px;
+}
+
+.nav-dropdown-wrapper:hover .nav-dropdown-content {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(-50%) translateY(0);
+}
+
+.nav-dropdown-content a {
+  display: block;
+  font-family: var(--sans);
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 8px 16px;
+  text-align: center;
+}
+
+.nav-dropdown-content a:hover {
+  background: var(--pink-light);
+  color: var(--pink-deep);
+  transform: none;
+}
+
+.status-dropdown-content {
+  width: 280px; 
+  max-height: 220px; 
+  overflow-y: auto;
+  padding: 16px;
+  text-align: left;
+  cursor: default;
+}
+
+.status-dropdown-content h4 {
+  font-family: var(--sans);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--pink-deep);
+  margin-bottom: 12px;
+  border-bottom: 1px solid var(--rule);
+  padding-bottom: 8px;
+}
+
+.update-item {
+  margin-bottom: 12px;
+  padding-bottom: 12px;
+  border-bottom: 1px dashed var(--rule);
+}
+
+.update-item:last-child {
+  margin-bottom: 0;
+  padding-bottom: 0;
+  border-bottom: none;
+}
+
+.update-date {
+  display: block;
+  font-family: var(--sans);
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  color: var(--ink-muted);
+  text-transform: uppercase;
+  margin-bottom: 4px;
+}
+
+.update-desc {
+  font-family: var(--sans);
+  font-size: 12px;
+  color: var(--ink-soft);
+  line-height: 1.5;
+}
+
+#container {
+  max-width: 1000px; 
+  margin: 0 auto;
+  padding: 0 24px 60px;
+}
+
+.masthead {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 20px 0 12px; 
+  gap: 8px; 
+}
+
+.masthead-title {
+  font-family: var(--serif);
+  font-size: 22px; 
+  font-weight: 900;
+  font-style: italic;
+  line-height: 1.1;
+  color: var(--ink);
+}
+
+.masthead-title em {
+  color: var(--pink-deep);
+  font-style: italic;
+}
+
+.global-update-tag {
+  font-family: var(--sans);
+  font-size: 8px;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--cream);
+  background: var(--pink-deep);
+  padding: 4px 10px;
+  border-radius: 20px;
+}
+
+.deco-pullquote {
+  text-align: center;
+  padding: 8px 0;
+  margin: 0 auto 20px;
+  max-width: 600px;
+}
+
+.deco-pullquote p {
+  font-family: var(--serif);
+  font-size: 14px;
+  font-style: italic;
+  color: var(--ink-soft);
+}
+
+.deco-pullquote span {
+  font-family: var(--sans);
+  font-size: 9px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ink-muted);
+  display: block;
+  margin-top: 4px;
+}
+
+.section-label {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 28px 0 16px 0; 
+}
+
+.section-label-text {
+  font-family: var(--sans);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--ink-muted);
+}
+
+.section-label-line {
+  flex: 1;
+  height: 1px;
+  background: var(--rule);
+}
+
+.columns {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); 
+  gap: 16px; 
+  align-items: start; 
+}
+
+@media (max-width: 850px) {
+  .columns { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 600px) {
+  .columns { grid-template-columns: 1fr; }
+}
+
+.accordion-toggle { display: none; }
+
+.film-accordion { 
+  display: flex; 
+  flex-direction: column; 
+  background: var(--pink-light);
+  border: 1px solid var(--rule);
+  border-radius: 6px; 
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.film-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 12px; 
+  cursor: pointer;
+  transition: background 0.3s ease;
+  user-select: none;
+}
+
+.film-header-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.film-title-group {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.genre-tag {
+  font-family: var(--sans);
+  font-size: 7px; 
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--ink-muted);
+  margin-bottom: 2px;
+}
+
+.film-header-right {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.season-number {
+  font-family: var(--serif);
+  font-size: 22px; 
+  font-weight: 700;
+  color: var(--pink-deep);
+  line-height: 1;
+  font-style: italic;
+}
+
+.season-name {
+  font-family: var(--sans);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--ink);
+  line-height: 1.2; 
+}
+
+.season-icon {
+  font-size: 12px;
+  width: 26px; 
+  height: 26px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: var(--blush); 
+}
+
+.box:nth-child(5n+1) .season-icon { background: var(--mint); }
+.box:nth-child(5n+2) .season-icon { background: var(--peach); }
+.box:nth-child(5n+3) .season-icon { background: var(--lavender); }
+.box:nth-child(5n+4) .season-icon { background: var(--lemon); }
+.box:nth-child(5n+5) .season-icon { background: var(--sky); }
+
+.dropt-arrow {
+  font-size: 9px;
+  color: var(--ink-muted);
+  transition: transform 0.3s ease;
+}
+
+.film-body {
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  padding: 0 12px;
+  background: #000000;
+  transition: all 0.4s ease-in-out;
+}
+
+.film-accordion:has(.accordion-toggle.outer:checked) {
+  border-color: var(--pink-deep);
+  box-shadow: 0 6px 15px rgba(255,255,255,0.05); 
+}
+
+.accordion-toggle.outer:checked ~ .film-header {
+  background: #000000;
+}
+
+.accordion-toggle.outer:checked ~ .film-body {
+  max-height: 1200px; 
+  opacity: 1;
+  padding: 2px 12px 12px 12px; 
+}
+
+.accordion-toggle.outer:checked ~ .film-header .dropt-arrow {
+  transform: rotate(180deg);
+}
+
+.episode { 
+  margin-top: 6px; 
+  background: var(--blush); 
+  border: 1px solid var(--rule); 
+  border-left: 3px solid var(--rule); 
+  border-radius: 4px;
+  overflow: hidden;
+  transition: all 0.3s ease; 
+}
+
+.dropt {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+  padding: 8px 12px; 
+  transition: all 0.2s ease;
+  color: var(--ink);
+  user-select: none;
+}
+
+.dropt-name {
+  font-family: var(--sans);
+  font-size: 11px; 
+  font-weight: 600;
+}
+
+.dropl {
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  padding: 0 12px 0 20px;
+  background: #000000; 
+  border-top: 1px solid transparent;
+  transition: all 0.3s ease-in-out; 
+}
+
+.dropl a {
+  display: block;
+  padding: 3px 0; 
+  font-family: var(--sans); 
+  font-size: 11px;
+  font-weight: 400; 
+  color: var(--ink-soft);
+  position: relative;
+  transition: color 0.2s;
+}
+
+.dropl a::before {
+  content: '—';
+  color: var(--pink-deep);
+  position: absolute;
+  left: -14px;
+  opacity: 0.5;
+  transition: opacity 0.2s;
+}
+
+.dropl a:hover { color: var(--pink-deep); }
+.dropl a:hover::before { opacity: 1; }
+
+.episode:has(.accordion-toggle.inner:checked) {
+  border-left-color: var(--pink-deep); 
+}
+
+.accordion-toggle.inner:checked ~ .dropt {
+  background: #000000;
+}
+
+.accordion-toggle.inner:checked ~ .dropl {
+  max-height: 350px; 
+  opacity: 1;
+  padding: 6px 12px 10px 20px; 
+  border-top: 1px solid var(--rule);
+}
+
+.accordion-toggle.inner:checked ~ .dropt .dropt-arrow {
+  transform: rotate(180deg);
+}
+
+.standalone-link {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 6px;
+  padding: 8px 12px; 
+  background: var(--blush);
+  border: 1px solid var(--rule);
+  border-left: 3px solid var(--rule);
+  border-radius: 4px;
+  font-family: var(--sans);
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--ink);
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.standalone-link:hover {
+  transform: translateX(3px);
+  border-left-color: var(--pink-deep);
+  background: #000000;
+  color: var(--pink-deep);
+}
+
+.standalone-link svg {
+  width: 11px;
+  height: 11px;
+  opacity: 0.6;
+  transition: opacity 0.2s ease;
+  color: var(--ink-muted);
+}
+
+.standalone-link:hover svg {
+  opacity: 1;
+  color: var(--pink-deep);
+}
+
+.site-footer {
+  border-top: 1px solid var(--rule);
+  margin-top: 30px;
+  padding-top: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  align-items: center;
+  text-align: center;
+}
+
+.footer-text {
+  font-family: var(--italic);
+  font-size: 14px;
+  color: var(--ink-muted);
+}
+
+.footer-text em {
+  color: var(--pink-deep);
+  font-style: italic;
+}
+
+.floating-widgets {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  z-index: 999;
+}
+
+.float-btn {
+  width: 36px;
+  height: 36px;
+  background: var(--blush);
+  color: var(--ink-soft);
+  border: 1px solid var(--rule);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.5);
+  transition: all 0.3s ease;
+  font-family: var(--sans);
+  text-decoration: none;
+  position: relative; 
+}
+
+.float-btn:hover {
+  background: var(--pink-deep);
+  color: var(--cream);
+  border-color: var(--pink-deep);
+  transform: translateY(-2px);
+}
+
+.float-btn svg { width: 14px; height: 14px; }
+
+.btn-w {
+  font-family: var(--serif);
+  font-style: italic;
+  font-weight: 700;
+  font-size: 15px;
+}
+
+.float-btn::after {
+  content: attr(data-tooltip);
+  position: absolute;
+  right: 120%; 
+  top: 50%;
+  transform: translateY(-50%) translateX(10px);
+  background: var(--pink-deep);
+  color: var(--cream);
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-family: var(--sans);
+  font-size: 8px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: all 0.3s ease;
+  z-index: 999;
+}
+
+.float-btn:hover::after {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(-50%) translateX(0);
+}
+</style>
+</head>
+<body id="top">
+
+<div class="top-nav">
+  <a href="/" class="nav-icon has-tooltip" data-tooltip="Home">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="16" height="16"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+  </a>
+  
+  <a href="/ask" class="nav-icon has-tooltip" data-tooltip="Message">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="16" height="16"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
+  </a>
+
+  <a href="/faq" class="nav-icon has-tooltip" data-tooltip="FAQ">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="16" height="16"><circle cx="12" cy="12" r="10"></circle><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>
+  </a>
+
+  <div class="nav-dropdown-wrapper">
+    <div class="nav-icon has-tooltip" data-tooltip="Updates">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="16" height="16"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path><path d="M13.73 21a2 2 0 0 1-3.46 0"></path></svg>
+    </div>
+    <div class="nav-dropdown-content status-dropdown-content">
+      <h4>Changelog</h4>
+      <div class="update-item">
+        <span class="update-date">April 2026</span>
+        <div class="update-desc">Added new tooltips and updated the color palette for a softer, minimalistic vibe.</div>
+      </div>
+      <div class="update-item">
+        <span class="update-date">March 2026</span>
+        <div class="update-desc">Converted the theme layout to a strict 3-column grid for better readability. Added a floating back-to-top button.</div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="nav-dropdown-wrapper">
+    <div class="nav-icon has-tooltip" data-tooltip="More">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="16" height="16"><circle cx="12" cy="12" r="1"></circle><circle cx="19" cy="12" r="1"></circle><circle cx="5" cy="12" r="1"></circle></svg>
+    </div>
+    <div class="nav-dropdown-content">
+      <a href="#">About</a>
+      <a href="#">Archive</a>
+      <a href="#">Themes</a>
+      <a href="#">Credits</a>
+    </div>
+  </div>
+</div>
+
+<div id="container">
+
+  <div class="masthead">
+    <div class="masthead-title">ghibli <em>character</em> directory</div>
+    <div class="global-update-tag">Updated Last April 2026</div>
+  </div>
+
+  <div class="deco-pullquote">
+    <p>"I think I can trust them to the wind."</p>
+    <span>— Nausicaä of the Valley of the Wind</span>
+  </div>
+
+  <div class="section-label" style="margin-top: 0;">
+    <div class="section-label-line"></div>
+    <div class="section-label-text">1980s & 1990s Ghibli Movies</div>
+    <div class="section-label-line"></div>
+  </div>
+
+  <div class="columns">
+      <div class="box film-accordion">
+        <input type="checkbox" id="m1" class="accordion-toggle outer">
+        <label for="m1" class="film-header">
+          <div class="film-header-left">
+            <div class="season-number">01</div>
+            <div class="film-title-group">
+              <div class="genre-tag">Fantasy / Family</div>
+              <div class="season-name">My Neighbor<br>Totoro</div>
+            </div>
+          </div>
+          <div class="film-header-right">
+            <div class="season-icon">🌰</div>
+            <span class="dropt-arrow film-arrow-outer">▾</span>
+          </div>
+        </label>
+
+        <div class="film-body">
+          <div class="episode">
+            <input type="checkbox" id="m1-e1" class="accordion-toggle inner">
+            <label for="m1-e1" class="dropt">
+              <span class="dropt-name">Main Cast</span>
+              <span class="dropt-arrow">▾</span>
+            </label>
+            <div class="dropl">
+              <a href="#">Satsuki Kusakabe</a>
+              <a href="#">Mei Kusakabe</a>
+              <a href="#">Totoro</a>
+            </div>
+          </div>
+
+          <div class="episode">
+            <input type="checkbox" id="m1-e2" class="accordion-toggle inner">
+            <label for="m1-e2" class="dropt">
+              <span class="dropt-name">Side Characters</span>
+              <span class="dropt-arrow">▾</span>
+            </label>
+            <div class="dropl">
+              <a href="#">Catbus</a>
+              <a href="#">Kanta Okaki</a>
+              <a href="#">Granny</a>
+            </div>
+          </div>
+          
+          <a href="#" class="standalone-link" target="_blank">
+            <span>Watch Trailer</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+          </a>
+        </div>
+      </div>
+
+      <div class="box film-accordion">
+        <input type="checkbox" id="m2" class="accordion-toggle outer">
+        <label for="m2" class="film-header">
+          <div class="film-header-left">
+            <div class="season-number">02</div>
+            <div class="film-title-group">
+              <div class="genre-tag">Coming-of-age</div>
+              <div class="season-name">Kiki's Delivery<br>Service</div>
+            </div>
+          </div>
+          <div class="film-header-right">
+            <div class="season-icon">🐈‍⬛</div>
+            <span class="dropt-arrow film-arrow-outer">▾</span>
+          </div>
+        </label>
+
+        <div class="film-body">
+          <div class="episode">
+            <input type="checkbox" id="m2-e1" class="accordion-toggle inner">
+            <label for="m2-e1" class="dropt">
+              <span class="dropt-name">Main Cast</span>
+              <span class="dropt-arrow">▾</span>
+            </label>
+            <div class="dropl">
+              <a href="#">Kiki</a>
+              <a href="#">Jiji</a>
+            </div>
+          </div>
+
+          <div class="episode">
+            <input type="checkbox" id="m2-e2" class="accordion-toggle inner">
+            <label for="m2-e2" class="dropt">
+              <span class="dropt-name">Side Characters</span>
+              <span class="dropt-arrow">▾</span>
+            </label>
+            <div class="dropl">
+              <a href="#">Tombo</a>
+              <a href="#">Osono</a>
+              <a href="#">Ursula</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="box film-accordion">
+        <input type="checkbox" id="m3" class="accordion-toggle outer">
+        <label for="m3" class="film-header">
+          <div class="film-header-left">
+            <div class="season-number">03</div>
+            <div class="film-title-group">
+              <div class="genre-tag">Fantasy / Action</div>
+              <div class="season-name">Princess<br>Mononoke</div>
+            </div>
+          </div>
+          <div class="film-header-right">
+            <div class="season-icon">🐺</div>
+            <span class="dropt-arrow film-arrow-outer">▾</span>
+          </div>
+        </label>
+
+        <div class="film-body">
+          <div class="episode">
+            <input type="checkbox" id="m3-e1" class="accordion-toggle inner">
+            <label for="m3-e1" class="dropt">
+              <span class="dropt-name">Main Cast</span>
+              <span class="dropt-arrow">▾</span>
+            </label>
+            <div class="dropl">
+              <a href="#">San</a>
+              <a href="#">Ashitaka</a>
+            </div>
+          </div>
+
+          <div class="episode">
+            <input type="checkbox" id="m3-e2" class="accordion-toggle inner">
+            <label for="m3-e2" class="dropt">
+              <span class="dropt-name">Side Characters</span>
+              <span class="dropt-arrow">▾</span>
+            </label>
+            <div class="dropl">
+              <a href="#">Lady Eboshi</a>
+              <a href="#">Jigo</a>
+              <a href="#">Moro</a>
+            </div>
+          </div>
+        </div>
+      </div>
+  </div>
+
+  <div class="section-label">
+    <div class="section-label-line"></div>
+    <div class="section-label-text">2000s Ghibli Movies</div>
+    <div class="section-label-line"></div>
+  </div>
+
+  <div class="columns">
+      <div class="box film-accordion">
+        <input type="checkbox" id="m4" class="accordion-toggle outer">
+        <label for="m4" class="film-header">
+          <div class="film-header-left">
+            <div class="season-number">04</div>
+            <div class="film-title-group">
+              <div class="genre-tag">Fantasy / Adventure</div>
+              <div class="season-name">Spirited<br>Away</div>
+            </div>
+          </div>
+          <div class="film-header-right">
+            <div class="season-icon">🐉</div>
+            <span class="dropt-arrow film-arrow-outer">▾</span>
+          </div>
+        </label>
+
+        <div class="film-body">
+          <div class="episode">
+            <input type="checkbox" id="m4-e1" class="accordion-toggle inner">
+            <label for="m4-e1" class="dropt">
+              <span class="dropt-name">Main Cast</span>
+              <span class="dropt-arrow">▾</span>
+            </label>
+            <div class="dropl">
+              <a href="#">Chihiro / Sen</a>
+              <a href="#">Haku</a>
+            </div>
+          </div>
+
+          <div class="episode">
+            <input type="checkbox" id="m4-e2" class="accordion-toggle inner">
+            <label for="m4-e2" class="dropt">
+              <span class="dropt-name">Side Characters</span>
+              <span class="dropt-arrow">▾</span>
+            </label>
+            <div class="dropl">
+              <a href="#">Lin</a>
+              <a href="#">Kamaji</a>
+              <a href="#">No-Face</a>
+              <a href="#">Yubaba</a>
+            </div>
+          </div>
+          
+          <a href="#" class="standalone-link" target="_blank">
+            <span>Official Soundtrack</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+          </a>
+        </div>
+      </div>
+
+      <div class="box film-accordion">
+        <input type="checkbox" id="m5" class="accordion-toggle outer">
+        <label for="m5" class="film-header">
+          <div class="film-header-left">
+            <div class="season-number">05</div>
+            <div class="film-title-group">
+              <div class="genre-tag">Fantasy / Romance</div>
+              <div class="season-name">Howl's Moving<br>Castle</div>
+            </div>
+          </div>
+          <div class="film-header-right">
+            <div class="season-icon">🔥</div>
+            <span class="dropt-arrow film-arrow-outer">▾</span>
+          </div>
+        </label>
+        
+        <div class="film-body">
+          <div class="episode">
+            <input type="checkbox" id="m5-e1" class="accordion-toggle inner">
+            <label for="m5-e1" class="dropt">
+              <span class="dropt-name">Main Cast</span>
+              <span class="dropt-arrow">▾</span>
+            </label>
+            <div class="dropl">
+              <a href="#">Howl Jenkins Pendragon</a>
+              <a href="#">Sophie Hatter</a>
+              <a href="#">Calcifer</a>
+            </div>
+          </div>
+          
+          <div class="episode">
+            <input type="checkbox" id="m5-e2" class="accordion-toggle inner">
+            <label for="m5-e2" class="dropt">
+              <span class="dropt-name">Side Characters</span>
+              <span class="dropt-arrow">▾</span>
+            </label>
+            <div class="dropl">
+              <a href="#">Markl</a>
+              <a href="#">Witch of the Waste</a>
+              <a href="#">Turnip Head</a>
+              <a href="#">Madame Suliman</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="box film-accordion">
+        <input type="checkbox" id="m6" class="accordion-toggle outer">
+        <label for="m6" class="film-header">
+          <div class="film-header-left">
+            <div class="season-number">06</div>
+            <div class="film-title-group">
+              <div class="genre-tag">Fantasy / Family</div>
+              <div class="season-name">Ponyo on the<br>Cliff by the Sea</div>
+            </div>
+          </div>
+          <div class="film-header-right">
+            <div class="season-icon">🐟</div>
+            <span class="dropt-arrow film-arrow-outer">▾</span>
+          </div>
+        </label>
+
+        <div class="film-body">
+          <div class="episode">
+            <input type="checkbox" id="m6-e1" class="accordion-toggle inner">
+            <label for="m6-e1" class="dropt">
+              <span class="dropt-name">Main Cast</span>
+              <span class="dropt-arrow">▾</span>
+            </label>
+            <div class="dropl">
+              <a href="#">Ponyo / Brunhilde</a>
+              <a href="#">Sosuke</a>
+            </div>
+          </div>
+
+          <div class="episode">
+            <input type="checkbox" id="m6-e2" class="accordion-toggle inner">
+            <label for="m6-e2" class="dropt">
+              <span class="dropt-name">Side Characters</span>
+              <span class="dropt-arrow">▾</span>
+            </label>
+            <div class="dropl">
+              <a href="#">Lisa</a>
+              <a href="#">Koichi</a>
+              <a href="#">Fujimoto</a>
+              <a href="#">Gran Mamare</a>
+            </div>
+          </div>
+        </div>
+      </div>
+  </div>
+
+  <div class="section-label">
+    <div class="section-label-line"></div>
+    <div class="section-label-text">2010s Ghibli Movies</div>
+    <div class="section-label-line"></div>
+  </div>
+
+  <div class="columns">
+      <div class="box film-accordion">
+        <input type="checkbox" id="m7" class="accordion-toggle outer">
+        <label for="m7" class="film-header">
+          <div class="film-header-left">
+            <div class="season-number">07</div>
+            <div class="film-title-group">
+              <div class="genre-tag">Drama / Historical</div>
+              <div class="season-name">The Wind<br>Rises</div>
+            </div>
+          </div>
+          <div class="film-header-right">
+            <div class="season-icon">✈️</div>
+            <span class="dropt-arrow film-arrow-outer">▾</span>
+          </div>
+        </label>
+
+        <div class="film-body">
+          <div class="episode">
+            <input type="checkbox" id="m7-e1" class="accordion-toggle inner">
+            <label for="m7-e1" class="dropt">
+              <span class="dropt-name">Main Cast</span>
+              <span class="dropt-arrow">▾</span>
+            </label>
+            <div class="dropl">
+              <a href="#">Jiro Horikoshi</a>
+              <a href="#">Naoko Satomi</a>
+            </div>
+          </div>
+
+          <div class="episode">
+            <input type="checkbox" id="m7-e2" class="accordion-toggle inner">
+            <label for="m7-e2" class="dropt">
+              <span class="dropt-name">Side Characters</span>
+              <span class="dropt-arrow">▾</span>
+            </label>
+            <div class="dropl">
+              <a href="#">Honjo</a>
+              <a href="#">Kayo Horikoshi</a>
+              <a href="#">Kurokawa</a>
+            </div>
+          </div>
+        </div>
+      </div>
+  </div>
+
+  <div class="site-footer">
+    <div class="footer-text">ghibli <em>character</em> directory</div>
+  </div>
+
+</div>
+
+<div class="floating-widgets">
+  <a href="#top" class="float-btn" data-tooltip="BACK TO TOP">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="19" x2="12" y2="5"></line><polyline points="5 12 12 5 19 12"></polyline></svg>
+  </a>
+  <a href="https://whereinmnl.tumblr.com/" class="float-btn btn-w" data-tooltip="THEME">
+    W
+  </a>
+</div>
+
+</body>
+</html>
+
