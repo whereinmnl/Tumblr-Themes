@@ -3,7 +3,7 @@
 NIMBUS THEME BY RELA OF WHEREINMNL
 
 First Version - 02 January 2026
-Latest Version - 01 April 2026
+Latest Version - 06 June 2026
 
 Do Not Remove Credit:
 Please keep the credit in the footer visible. It helps me grow!
@@ -16,13 +16,12 @@ Feel free to change colors/fonts! Just keep the credit link.
 No Re-hosting:
 Always link back to the original blog post.
 ----------------------------------------------------->
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{Title}{block:PostSummary} — {PostSummary}{/block:PostSummary}</title>
+    <title>{Title}</title>
     <link rel="shortcut icon" href="{Favicon}">
     <link rel="alternate" type="application/rss+xml" href="{RSS}">
     <meta name="description" content="{MetaDescription}" />
@@ -300,13 +299,12 @@ Always link back to the original blog post.
         body.is-grid:not(.is-permalink) article.post:hover .side-controls {
             transform: translateY(2px);
         }
+        
+        body.is-grid:not(.is-permalink) .tags-toggle-wrap { margin-left: 6px; }
         body.is-grid:not(.is-permalink) .side-tags-list {
-            flex-direction: row;
-            margin-top: 0;
-            margin-left: 6px;
-            align-items: center;
-            flex-wrap: wrap;
+            flex-direction: column; top: 100%; left: auto; right: 0; margin-top: 8px; transform: translateY(-10px);
         }
+        body.is-grid:not(.is-permalink) .side-tags-list.active { transform: translateY(0); }
 
         .post-top-meta { 
             display: flex; justify-content: space-between; align-items: baseline; 
@@ -319,6 +317,10 @@ Always link back to the original blog post.
         .meta-notes { text-align: right; font-weight: 600; }
         .post-top-meta a { color: var(--text); text-decoration: none; transition: color 0.3s ease; }
         .post-top-meta a:hover { color: var(--accent); }
+
+        body.is-grid:not(.is-permalink) .post-top-meta { justify-content: flex-start; }
+        body.is-grid:not(.is-permalink) .meta-notes { text-align: left; }
+        body.is-grid:not(.is-permalink) .meta-notes::before { content: '|'; margin: 0 8px; color: var(--borders); font-weight: normal; }
 
         .pinned-label-inline {
             font-weight: 600; 
@@ -490,12 +492,34 @@ Always link back to the original blog post.
         .custom-like .like_button { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 10; opacity: 0; cursor: pointer; }
         .custom-like .like_button iframe { width: 100%; height: 100%; cursor: pointer; }
 
-        .side-tags-list { display: flex; flex-direction: column; gap: 4px; align-items: flex-start; margin-top: 4px; }
-        .side-tag { font-family: 'DM Mono', monospace; font-size: 0.6rem; color: var(--text); text-transform: uppercase; background: var(--bg); border: 1px solid var(--borders); padding: 4px 6px; text-decoration: none; word-wrap: break-word; text-align: left; transition: all 0.3s ease; white-space: nowrap; border-radius: 4px;}
+        .tags-toggle-wrap { position: relative; display: flex; align-items: center; }
+        .toggle-tags-btn svg { width: 14px; height: 14px; fill: var(--text); transition: fill 0.3s ease; }
+        .toggle-tags-btn:hover svg { fill: var(--bg); }
+        
+        .side-tags-list { 
+            display: flex; flex-direction: column; gap: 4px; align-items: flex-start; 
+            position: absolute; top: 0; left: calc(100% + 8px); 
+            opacity: 0; visibility: hidden; transform: translateX(-10px); 
+            transition: all 0.3s ease; z-index: 30; 
+        }
+        .side-tags-list.active { opacity: 1; visibility: visible; transform: translateX(0); }
+
+        .side-tag { 
+            font-family: 'DM Mono', monospace; font-size: 0.6rem; color: var(--text); text-transform: uppercase; 
+            background: var(--bg); border: 1px solid var(--borders); padding: 4px 6px; 
+            text-decoration: none; text-align: left; transition: all 0.3s ease; border-radius: 4px;
+            max-width: 180px; display: block; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+        }
         .side-tag:hover { border-color: var(--accent); background: var(--hover-bg); color: var(--bg); }
         .side-tag::before { content: '#'; opacity: 0.5; margin-right: 2px; }
         .side-tag:nth-child(n+6) { display: none; }
-        .see-all-tags { font-family: 'DM Mono', monospace; font-size: 0.6rem; color: var(--accent); text-transform: uppercase; background: var(--bg); border: 1px dashed var(--accent); padding: 4px 6px; text-align: center; display: none; transition: all 0.3s ease; text-decoration: none; white-space: nowrap; border-radius: 4px;}
+        
+        .see-all-tags { 
+            font-family: 'DM Mono', monospace; font-size: 0.6rem; color: var(--accent); text-transform: uppercase; 
+            background: var(--bg); border: 1px dashed var(--accent); padding: 4px 6px; text-align: center; 
+            display: none; transition: all 0.3s ease; text-decoration: none; border-radius: 4px;
+            max-width: 180px; display: block; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+        }
         .see-all-tags:hover { background: var(--accent); color: var(--bg); border-style: solid; }
         .side-tag:nth-child(6) ~ .see-all-tags { display: block; }
 
@@ -562,7 +586,14 @@ Always link back to the original blog post.
             article.post { padding: 20px; width: 100%; max-width: 100%; }
             .floating-w-wrap, .scroll-top { display: none; }
             .side-controls { position: static; opacity: 1; visibility: visible; flex-direction: row; justify-content: flex-end; align-items: center; background: transparent; border: none; margin-bottom: 16px; flex-wrap: wrap; left: auto; transform: none; }
-            .side-tags-list { flex-direction: row; width: auto; flex-wrap: wrap; margin-top: 0; margin-left: 6px; }
+            
+            .tags-toggle-wrap { margin-left: 6px; }
+            .side-tags-list { 
+                flex-direction: column; width: auto; flex-wrap: nowrap; margin-top: 8px; margin-left: 0; 
+                top: 100%; left: auto; right: 0; transform: translateY(-10px);
+            }
+            .side-tags-list.active { transform: translateY(0); }
+            
             .photo-container, .photoset-container { width: 100%; margin-left: 0; margin-right: 0; }
             article.post > .photo-container:first-child, article.post > .photoset-container:first-child,
             article.post > .post-top-meta + .photo-container, article.post > .post-top-meta + .photoset-container { margin-top: 0; }
@@ -733,11 +764,16 @@ Always link back to the original blog post.
                         </div>
                         
                         {block:HasTags}
-                        <div class="side-tags-list">
-                            {block:Tags}
-                            <a href="{TagURL}" class="side-tag">{Tag}</a>
-                            {/block:Tags}
-                            <a href="{Permalink}" class="see-all-tags">See all tags</a>
+                        <div class="tags-toggle-wrap">
+                            <div class="control-btn toggle-tags-btn tooltip-wrap tooltip-left" data-tip="Tags" aria-label="Tags" onclick="this.nextElementSibling.classList.toggle('active')">
+                                <svg viewBox="0 0 24 24"><path d="M21.41 11.58l-9-9C12.05 2.22 11.55 2 11 2H4c-1.1 0-2 .9-2 2v7c0 .55.22 1.05.59 1.41l9 9c.36.36.86.59 1.41.59s1.05-.23 1.41-.59l7-7c.38-.38.59-.88.59-1.41s-.21-1.04-.59-1.42zM5.5 7C4.67 7 4 6.33 4 5.5S4.67 4 5.5 4 7 4.67 7 5.5 6.33 7 5.5 7z"/></svg>
+                            </div>
+                            <div class="side-tags-list">
+                                {block:Tags}
+                                <a href="{TagURL}" class="side-tag">{Tag}</a>
+                                {/block:Tags}
+                                <a href="{Permalink}" class="see-all-tags">See all tags</a>
+                            </div>
                         </div>
                         {/block:HasTags}
                     </div>
