@@ -1,0 +1,1588 @@
+<!---------------------------------------------------
+ALA-ALA THEME BY RELA OF WHEREINMNL
+
+First Version - 16 January 2026
+Latest Version - 27 June 2026
+
+Do Not Remove Credit:
+Please keep the credit in the footer visible. It helps me grow!
+Personal Use Only:
+Do not resell, redistribute, or claim the code as your own.
+Base Coding:
+Do not use my themes as a "base" for a release.
+Customization:
+Feel free to change colors/fonts! Just keep the credit link.
+No Re-hosting:
+Always link back to the original blog post.
+----------------------------------------------------->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{Title}</title>
+    <link rel="shortcut icon" href="{Favicon}">
+    <link rel="alternate" type="application/rss+xml" href="{RSS}">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    {block:Description}
+        <meta name="description" content="{MetaDescription}" />
+    {/block:Description}
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.4.2/css/all.css">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;800&family=VT323&display=swap" rel="stylesheet">
+    <link href="//static.tumblr.com/gtjt4bo/mXBrpdj0n/unblue-polls.css" rel="stylesheet">
+
+    <meta name="color:Background" content="#e0e7ff"/>
+    <meta name="color:Window Background" content="#ffffff"/>
+    <meta name="color:Text" content="#2d3436"/>
+    <meta name="color:Accent Blue" content="#4834d4"/>
+    <meta name="color:Accent Green" content="#badc58"/>
+    <meta name="color:Accent Pink" content="#ff9ff3"/>
+    <meta name="color:Borders" content="#2d3436"/>
+    <meta name="color:Dark Background" content="#0d0d1a"/>
+    <meta name="color:Dark Window Background" content="#1a1a2e"/>
+    <meta name="color:Dark Text" content="#e2e2ea"/>
+    <meta name="color:Dark Accent Blue" content="#7b61ff"/>
+    <meta name="color:Dark Accent Green" content="#a8e6cf"/>
+    <meta name="color:Dark Accent Pink" content="#ff7eb3"/>
+    <meta name="color:Dark Borders" content="#4a4a6a"/>
+    <meta name="font:Body" content="Nunito"/>
+    <meta name="font:Accent" content="VT323"/>
+    
+    <meta name="image:Sidebar" content=""/>
+    <meta name="text:About Text" content="Write your detailed About Me description here! This panel will show up when visitors click the person icon on the left."/>
+    <meta name="text:Status Text" content="Add your status text here! You can type as much as you want in your theme HTML. If it gets too long, this cute little box will automatically pop up a custom scrollbar for your visitors."/>
+    
+    <meta name="text:Link 1 Title" content="Twitter"/>
+    <meta name="text:Link 1 URL" content="/"/>
+    <meta name="text:Link 2 Title" content="Instagram"/>
+    <meta name="text:Link 2 URL" content="/"/>
+    <meta name="text:Link 3 Title" content="Spotify"/>
+    <meta name="text:Link 3 URL" content="/"/>
+    <meta name="text:Link 4 Title" content="Discord"/>
+    <meta name="text:Link 4 URL" content="/"/>
+    <meta name="text:Link 5 Title" content=""/>
+    <meta name="text:Link 5 URL" content=""/>
+    <meta name="text:Link 6 Title" content=""/>
+    <meta name="text:Link 6 URL" content=""/>
+    <meta name="text:Link 7 Title" content=""/>
+    <meta name="text:Link 7 URL" content=""/>
+    <meta name="text:Link 8 Title" content=""/>
+    <meta name="text:Link 8 URL" content=""/>
+    <meta name="text:Link 9 Title" content=""/>
+    <meta name="text:Link 9 URL" content=""/>
+    <meta name="text:Link 10 Title" content=""/>
+    <meta name="text:Link 10 URL" content=""/>
+
+<style>
+* { box-sizing: border-box; }
+
+:root {
+    --bg-color: {color:Background};
+    --window-bg: {color:Window Background};
+    --text-main: {color:Text};
+    --accent-blue: {color:Accent Blue};
+    --accent-green: {color:Accent Green};
+    --accent-pink: {color:Accent Pink};
+    --border-color: {color:Borders};
+    --border: 2px solid var(--border-color);
+    --shadow: 4px 4px 0px var(--border-color);
+    --font-body: {font:Body};
+    --font-accent: {font:Accent};
+}
+body.dark-mode {
+    --bg-color: {color:Dark Background}; --window-bg: {color:Dark Window Background};
+    --text-main: {color:Dark Text}; --accent-blue: {color:Dark Accent Blue};
+    --accent-green: {color:Dark Accent Green}; --accent-pink: {color:Dark Accent Pink};
+    --border-color: {color:Dark Borders};
+}
+body.dark-mode .ask-wrapper, body.dark-mode .post-footer, body.dark-mode .tags-container, body.dark-mode .y2k-link, body.dark-mode .avatar { background: var(--window-bg) !important; }
+body.dark-mode .npf-link-block:hover { background: var(--bg-color); }
+body.dark-mode blockquote { background: rgba(255, 255, 255, 0.05) !important; }
+
+body.dark-mode .window-bar, body.dark-mode .tags-top-row a { background: var(--border-color) !important; color: var(--text-main) !important; }
+body.dark-mode .ask-content, body.dark-mode .ask-content p, body.dark-mode .ask-content span, body.dark-mode .post-content p, body.dark-mode .reblog-content p, body.dark-mode .caption p { color: var(--text-main) !important; }
+
+body.dark-mode .sidebar-pagination .page-btn { color: #fff !important; }
+body.dark-mode .sidebar-pagination .current-page { background: var(--accent-green) !important; color: #000 !important; }
+
+body.dark-mode .ask-header, body.dark-mode .ask-header a { background: var(--accent-blue) !important; color: #fff !important; }
+
+body.dark-mode .ask-wrapper[style*="accent-green"] .ask-header, 
+body.dark-mode .ask-wrapper[style*="accent-green"] .ask-header a { 
+    background: var(--accent-green) !important; 
+    color: #000 !important; 
+}
+
+body.dark-mode a.read_more { background: var(--accent-blue) !important; color: var(--text-main) !important; }
+body.dark-mode .action-buttons svg { fill: var(--text-main) !important; stroke: var(--text-main) !important; }
+body.dark-mode .action-buttons svg:hover { fill: var(--accent-pink) !important; stroke: var(--accent-pink) !important; }
+body.dark-mode .like_button iframe {
+    filter: invert(1) brightness(2);
+}
+body.dark-mode .nav-btn {
+    color: #000 !important;
+}
+body {
+    cursor: crosshair; 
+    background-color: var(--bg-color);
+    background-image: radial-gradient(var(--accent-blue) 1px, transparent 1px);
+    background-size: 20px 20px;
+    color: var(--text-main);
+    font-family: var(--font-body);
+    margin: 0;
+    font-size: 14px;
+    line-height: 1.5;
+    word-wrap: break-word;
+}
+
+a { cursor: help; color: var(--accent-blue); text-decoration: none; font-weight: 800; transition: 0.2s; }
+a:hover { background-color: var(--accent-pink); color: #fff; }
+
+::-webkit-scrollbar { width: 10px; }
+::-webkit-scrollbar-track { background: var(--bg-color); border-left: var(--border); }
+::-webkit-scrollbar-thumb { 
+    background: var(--accent-blue); 
+    border: 2px solid var(--bg-color); 
+    border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover { background: var(--accent-pink); }
+
+#wrapper {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    max-width: 1000px;
+    margin: 60px auto 30px auto;
+}
+
+#sidebar-container {
+    display: flex;
+    gap: 15px;
+    position: sticky;
+    top: 60px; 
+    height: fit-content;
+    z-index: 10;
+    width: 340px;
+}
+
+#sidebar-nav {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 45px;
+    flex-shrink: 0;
+}
+
+.nav-icon {
+    background: var(--window-bg);
+    border: var(--border);
+    box-shadow: 2px 2px 0px var(--border-color);
+    width: 45px;
+    height: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 20px;
+    transition: 0.2s;
+    text-decoration: none;
+    color: var(--text-main);
+    position: relative;
+}
+.nav-icon:hover {
+    background: var(--accent-pink);
+    color: #fff;
+    transform: translate(-2px, -2px);
+    box-shadow: 4px 4px 0px var(--accent-blue);
+}
+
+.nav-icon::after {
+    content: attr(data-tooltip);
+    position: absolute;
+    right: 60px;
+    left: auto;
+    background: var(--accent-blue);
+    color: #fff;
+    padding: 4px 10px;
+    border-radius: 6px;
+    font-family: var(--font-accent);
+    font-size: 16px;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateX(10px);
+    transition: 0.3s;
+    white-space: nowrap;
+    border: 1px solid var(--border-color);
+    z-index: 100;
+    box-shadow: 2px 2px 0px var(--border-color);
+}
+.nav-icon:hover::after {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(0);
+}
+
+.tab-radio { display: none; }
+
+#tab-home:checked ~ #sidebar-nav .home-icon,
+#tab-about:checked ~ #sidebar-nav label[for="tab-about"],
+#tab-ask:checked ~ #sidebar-nav label[for="tab-ask"],
+#tab-status:checked ~ #sidebar-nav label[for="tab-status"],
+#tab-links:checked ~ #sidebar-nav label[for="tab-links"] {
+    background: var(--accent-green);
+    box-shadow: inset 2px 2px 0px rgba(0,0,0,0.1);
+    transform: translate(2px, 2px);
+}
+
+#sidebar {
+    width: 280px; 
+}
+
+.y2k-box {
+    background: var(--window-bg);
+    border: var(--border);
+    box-shadow: 4px 4px 0px var(--accent-pink); 
+    padding: 20px; 
+    text-align: center;
+    border-radius: 12px;
+    margin-bottom: 15px; 
+    display: flex;
+    flex-direction: column;
+}
+
+.y2k-content-box {
+    height: 250px;
+    display: block;
+    overflow-y: auto;
+    position: relative;
+    box-shadow: 4px 4px 0px var(--border-color); 
+}
+
+.y2k-content-box::-webkit-scrollbar { width: 6px; }
+.y2k-content-box::-webkit-scrollbar-track { background: var(--bg-color); border-radius: 4px; border: none; }
+.y2k-content-box::-webkit-scrollbar-thumb { background: var(--accent-blue); border-radius: 4px; border: none; }
+
+.id-header {
+    background: var(--accent-blue);
+    color: #fff;
+    font-family: var(--font-accent);
+    font-size: 24px;
+    padding: 8px;
+    margin: -20px -20px 15px -20px; 
+    border-bottom: var(--border);
+    border-radius: 10px 10px 0 0;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.avatar {
+    width: 140px;
+    height: 140px;
+    border: 3px dashed var(--accent-blue); 
+    background: #fff;
+    padding: 5px; 
+    border-radius: 15px;
+    margin: 0 auto;
+    object-fit: cover;
+    display: block;
+}
+
+.desc {
+    font-size: 14px;
+    line-height: 1.6;
+    width: 100%;
+}
+
+.nav-btn {
+    background: var(--accent-green);
+    border: var(--border);
+    padding: 6px 10px;
+    font-family: var(--font-accent);
+    font-size: 16px;
+    color: var(--text-main);
+    box-shadow: 2px 2px 0px var(--border-color);
+    cursor: pointer;
+    display: block;
+    text-align: center;
+    position: relative;
+    z-index: 2;
+    transition: 0.1s;
+    text-transform: uppercase;
+    width: 100%;
+    flex-shrink: 0;
+}
+.nav-btn:hover { background: var(--accent-pink); color: #fff; transform: translate(-2px, -2px); box-shadow: 4px 4px 0px var(--border-color); }
+.nav-btn:active { transform: translate(2px, 2px); box-shadow: none; }
+
+.tab-content {
+    display: none;
+    animation: fadeIn 0.3s ease;
+    width: 100%;
+    min-height: 100%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-5px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+#tab-home:checked ~ #sidebar #content-home,
+#tab-about:checked ~ #sidebar #content-about,
+#tab-ask:checked ~ #sidebar #content-ask,
+#tab-status:checked ~ #sidebar #content-status,
+#tab-links:checked ~ #sidebar #content-links {
+    display: flex;
+}
+
+.y2k-link {
+    display: block;
+    font-family: var(--font-accent);
+    font-size: 18px;
+    text-transform: uppercase;
+    color: var(--accent-blue);
+    background: #fff;
+    text-decoration: none;
+    border: 2px solid var(--border-color);
+    box-shadow: 2px 2px 0 var(--accent-blue);
+    margin-bottom: 10px;
+    padding: 4px;
+    text-align: center;
+    transition: 0.1s;
+    letter-spacing: 1px;
+    width: 100%;
+}
+.y2k-link:hover {
+    background: var(--accent-pink);
+    color: #fff;
+    box-shadow: 4px 4px 0 var(--accent-green);
+    transform: translate(-2px, -2px) rotate(-1deg);
+}
+
+.status-title {
+    font-family: var(--font-accent);
+    font-size: 18px;
+    color: var(--accent-blue);
+    text-transform: uppercase;
+    border-bottom: 2px dashed var(--accent-pink);
+    margin-bottom: 12px;
+    padding-bottom: 2px;
+    text-align: center;
+    width: 100%;
+    flex-shrink: 0;
+}
+.status-content {
+    font-family: var(--font-body);
+    font-size: 13px;
+    color: var(--text-main);
+    text-align: left;
+    width: 100%;
+}
+
+.sidebar-pagination {
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+    gap: 0px; 
+    margin-top: 15px;
+    border: var(--border);
+    background: var(--window-bg); 
+    box-shadow: 3px 3px 0px var(--border-color);
+    border-radius: 4px;
+    overflow: hidden;
+    padding: 2px;
+}
+
+.sidebar-pagination .page-btn {
+    background: transparent;
+    color: var(--accent-blue);
+    font-family: var(--font-accent);
+    font-size: 16px;
+    padding: 6px 12px; 
+    border: none;
+    box-shadow: none;
+    text-transform: uppercase;
+    font-weight: bold;
+    text-decoration: none;
+    transition: 0.1s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 35px; 
+}
+
+.sidebar-pagination .page-btn:hover {
+    background: var(--accent-pink);
+    color: #fff;
+}
+
+.sidebar-pagination .current-page {
+    background: var(--accent-green) !important;
+    color: #000 !important;
+    pointer-events: none; 
+    border-right: 2px solid var(--border-color);
+    border-left: 2px solid var(--border-color);
+}
+
+#posts { width: 540px; }
+
+.post {
+    background-color: var(--window-bg);
+    border: var(--border);
+    box-shadow: var(--shadow);
+    margin-bottom: 40px; 
+    border-radius: 8px;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+.post:hover {
+    transform: translateY(-3px);
+    box-shadow: 4px 4px 0px var(--accent-pink);
+}
+
+.window-bar {
+    background: linear-gradient(90deg, #e0e7ff, #fff0f5);
+    border-bottom: var(--border);
+    padding: 6px 12px; 
+    display: flex; justify-content: space-between; align-items: center;
+    font-family: var(--font-accent);
+    font-size: 14px;
+    color: #555;
+    text-transform: uppercase;
+    border-radius: 6px 6px 0 0;
+}
+.permalink-btn { color: var(--accent-blue); text-decoration: none; font-weight: bold; padding: 0 5px; }
+.permalink-btn:hover { background: var(--accent-blue); color: #fff; }
+
+.window-dots { display: flex; gap: 5px; }
+.dot { width: 10px; height: 10px; border: 2px solid var(--border-color); border-radius: 50%; background: #fff; }
+
+.post-content { 
+    padding: 20px; 
+    position: relative; 
+}
+
+.photos-post .post-content, 
+.photo-post .post-content { 
+    padding: 0; 
+}
+
+.photos-post .caption, .photo-post .caption,
+.photos-post .reblog-header, .photo-post .reblog-header,
+.photos-post .reblog-content, .photo-post .reblog-content,
+.photos-post .original-post > .title, .photo-post .original-post > .title {
+    padding-left: 20px;
+    padding-right: 20px;
+}
+.photos-post .reblog-header, .photo-post .reblog-header {
+    padding-top: 15px; 
+}
+.photos-post .caption, .photo-post .caption {
+    padding-bottom: 20px;
+}
+
+.npf-photos { display: flex; flex-direction: column; gap: 10px; margin-bottom: 0; }
+.photos-post .npf-photos img, 
+.photo-post .npf-photos img,
+.photos-post .legacy-photo img, 
+.photo-post .legacy-photo img {
+    border: none !important;
+    border-radius: 0 !important; 
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.post-content iframe { max-width: 100%; }
+.legacy-photo, .legacy-photoset { margin-bottom: 10px; }
+
+.reblogs { margin-bottom: 20px; }
+
+.reblog-header { 
+    display: flex; align-items: center; gap: 8px; 
+    font-family: var(--font-accent); font-size: 16px; 
+    margin: 0 0 12px 0;
+    text-transform: uppercase; 
+}
+.reblog-header img { max-width: 24px; border-radius: 5px; border: 2px solid var(--border-color); margin: 0; }
+.reblog-header:not(.original) { 
+    border-top: 1px dashed var(--border-color); 
+    padding-top: 12px; 
+    margin-top: 15px;
+}
+.reblog-header a { color: var(--text-main); }
+.reblog-header a:hover { background: transparent; color: var(--accent-pink); }
+
+.reblog-content { 
+    white-space: pre-wrap; 
+    margin-bottom: 15px;
+}
+.reblog-content p:last-of-type, .caption:last-child p { padding-bottom: 0; margin-bottom: 0; }
+
+a.read_more {
+    display: block !important;
+    width: max-content;
+    margin: 20px auto !important; 
+    background: var(--accent-green);
+    color: var(--text-main);
+    padding: 6px 18px;
+    font-family: 'VT323', monospace !important;
+    font-size: 16px !important;
+    text-transform: uppercase;
+    font-weight: bold;
+    border: var(--border);
+    box-shadow: 4px 4px 0px var(--border-color);
+    border-radius: 8px;
+    text-align: center;
+    text-decoration: none;
+    transition: 0.2s;
+}
+a.read_more:hover {
+    background: var(--accent-pink);
+    color: #fff;
+    transform: translate(-2px, -2px);
+    box-shadow: 6px 6px 0px var(--accent-blue);
+}
+
+.title, .post-content h1, .post-content h2, .post-content h3 {
+    font-family: 'VT323', monospace !important;
+    font-size: 30px !important; 
+    text-align: center;
+    margin-top: 0;
+    margin-bottom: 12px;
+    color: var(--accent-blue);
+    text-transform: uppercase;
+    line-height: 1.1;
+    border-bottom: 4px double var(--accent-pink); 
+    padding-bottom: 5px;
+    display: block;
+    font-weight: normal;
+}
+
+.quote, .post-content p.npf_quote { 
+    font-family: 'VT323', monospace !important; 
+    font-size: 22px !important; 
+    color: var(--accent-blue); 
+    border-left: 4px solid var(--accent-pink); 
+    padding-left: 10px; 
+    font-style: italic; 
+    margin-bottom: 8px; 
+    line-height: 1.2; 
+}
+.source { text-align: right; font-weight: bold; font-family: var(--font-accent); font-size: 14px; color: #aaa; text-transform: uppercase; }
+
+blockquote {
+    border-left: 3px dotted var(--accent-blue) !important;
+    padding-left: 15px !important;
+    margin: 10px 0 10px 15px !important;
+    background: rgba(0,0,0,0.03) !important;
+}
+
+.npf_row { display: flex; gap: 10px; width: 100%; }
+.npf_col { flex: 1; display: flex; }
+
+.npf-link-block {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    background: var(--bg-color);
+    border: 1px solid var(--accent-blue);
+    padding: 6px 12px;
+    border-radius: 8px;
+    text-decoration: none;
+    color: var(--text-main);
+    box-shadow: 2px 2px 0px rgba(0,0,0,0.1);
+    transition: 0.2s;
+    overflow: hidden;
+    gap: 8px;
+}
+.npf-link-block:hover {
+    transform: translate(-2px, -2px);
+    box-shadow: 4px 4px 0px var(--accent-pink);
+    border-color: var(--accent-pink);
+    background: #fff;
+}
+.npf-link-block .title {
+    font-family: 'VT323', monospace !important;
+    font-size: 16px !important;
+    color: var(--accent-blue);
+    text-align: left;
+    border: none;
+    padding: 0;
+    margin-bottom: 0;
+    text-transform: none;
+    line-height: 1.1;
+}
+.npf-link-block .description { display: none; }
+.npf-link-block .site-name {
+    font-family: var(--font-accent);
+    font-size: 14px;
+    text-transform: uppercase;
+    color: #aaa;
+    margin-top: 0;
+    white-space: nowrap;
+}
+
+b, strong {
+    font-weight: 800;
+    color: var(--accent-blue);
+}
+
+i, em {
+    font-style: italic;
+    color: var(--accent-pink);
+}
+
+u {
+    text-decoration: none;
+    border-bottom: 2px dashed var(--accent-green);
+    padding-bottom: 1px;
+}
+
+s, strike, del {
+    text-decoration: line-through;
+    text-decoration-color: var(--accent-pink);
+    text-decoration-thickness: 2px;
+}
+
+ul:not(.chat) {
+    list-style-type: square;
+    padding-left: 25px;
+    margin: 15px 0;
+}
+
+ul:not(.chat) li::marker {
+    color: var(--accent-blue);
+}
+
+ol:not(.notes) {
+    padding-left: 25px;
+    margin: 15px 0;
+}
+
+ol:not(.notes) li::marker {
+    color: var(--accent-pink);
+    font-family: var(--font-accent);
+    font-size: 16px;
+}
+
+ul:not(.chat) li, 
+ol:not(.notes) li {
+    margin-bottom: 6px;
+    line-height: 1.5;
+}
+
+ul.chat { 
+    list-style: none;
+    padding: 4px 15px !important;
+    display: flex;
+    flex-direction: column;
+    border: 1px dashed var(--accent-blue) !important;
+    background: transparent;
+    border-radius: 4px;
+    margin: 15px 0 !important;
+}
+
+.npf_chat {
+    border-left: 1px dashed var(--accent-blue) !important;
+    border-right: 1px dashed var(--accent-blue) !important;
+    padding-left: 15px !important;
+    padding-right: 15px !important;
+}
+.npf_chat:first-of-type {
+    border-top: 1px dashed var(--accent-blue) !important;
+    border-top-left-radius: 4px !important;
+    border-top-right-radius: 4px !important;
+    padding-top: 14px !important;
+    margin-top: 15px !important;
+}
+.npf_chat:last-of-type {
+    border-bottom: 1px dashed var(--accent-blue) !important;
+    border-bottom-left-radius: 4px !important;
+    border-bottom-right-radius: 4px !important;
+    padding-bottom: 14px !important;
+    margin-bottom: 15px !important;
+}
+
+ul.chat li, .npf_chat {
+    padding-top: 10px !important;
+    padding-bottom: 10px !important;
+    width: 100%;
+    font-family: var(--font-accent);
+    font-size: 14px;
+    margin: 0;
+    background: transparent !important;
+    box-shadow: none !important;
+    display: grid !important;
+    grid-template-columns: auto 1fr;
+    gap: 15px;
+    align-items: baseline;
+}
+
+ul.chat li:not(:last-child), .npf_chat:not(:last-of-type) {
+    border-bottom: 1px dotted var(--accent-blue) !important;
+}
+
+ul.chat li:last-child {
+    border-bottom: none !important;
+}
+
+ul.chat li b, .npf_chat b { 
+    font-family: var(--font-accent); 
+    font-size: 16px; 
+    margin: 0 !important;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: var(--accent-blue) !important;
+    white-space: nowrap; 
+}
+ul.chat li:first-child, .npf_chat:first-of-type {
+    padding-top: 10px !important;
+}
+
+.minimal-audio-player {
+    display: flex;
+    align-items: center;
+    padding: 10px 15px;
+    border: 3px dashed var(--accent-blue);
+    background: var(--window-bg);
+    border-radius: 50px;
+    width: 100%;
+    box-sizing: border-box;
+    margin: 15px 0;
+    gap: 15px;
+    transition: transform 0.3s ease, border-color 0.3s ease;
+}
+.minimal-audio-player:hover { border-color: var(--accent-pink); }
+.ma-art {
+    width: 55px;
+    height: 55px;
+    object-fit: cover;
+    flex-shrink: 0;
+    border-radius: 50%;
+}
+.ma-info { flex-grow: 1; min-width: 0; display: flex; flex-direction: column; align-items: flex-start; }
+.ma-track {
+    font-family: var(--font-accent);
+    font-size: 22px;
+    color: var(--accent-blue);
+    line-height: 1;
+    text-transform: none;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-weight: normal;
+}
+.ma-artist {
+    font-family: var(--font-body);
+    font-size: 14px;
+    color: #888;
+    font-weight: 600;
+    margin-top: 2px;
+}
+.unify-play-pause {
+    width: 45px;
+    height: 45px;
+    border: none !important;
+    border-radius: 50%;
+    background: var(--bg-color) !important;
+    box-shadow: 0 0 0 2px var(--accent-blue) !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    flex-shrink: 0;
+    transition: 0.2s !important;
+    outline: none;
+}
+.unify-play-pause i { font-size: 14px; color: var(--accent-blue) !important; margin-left: 2px; }
+.unify-play-pause:hover { background: var(--accent-pink) !important; box-shadow: 0 0 0 2px var(--accent-pink) !important; transform: scale(1.05); }
+.unify-play-pause:hover i { color: #fff !important; }
+
+.poll-post {
+    --Poll-Question-Font-Size: 20px;
+    --Poll-Option-Background-Color: var(--bg-color);
+    --Poll-Option-Corner-Rounding: 10px;
+    --Poll-Option-Border-Size: 2px;
+    --Poll-Option-Border-Color: var(--accent-blue);
+    --Poll-Option-Padding: 10px;
+    --Poll-Option-Font-Size: 14px;
+    --Poll-Option-Spacing: 8px;
+    --Poll-Option-Text-Color: var(--text-main);
+
+    --Poll-Option-HOVER-Border-Color: var(--accent-pink);
+    --Poll-Option-HOVER-Background-Color: var(--accent-pink);
+    --Poll-Option-HOVER-Text-Color: #fff;
+    --Poll-Option-HOVER-Speed: 0.2s;
+}
+.poll-question {
+    font-family: 'VT323', monospace !important;
+    color: var(--accent-blue) !important;
+    line-height: 1.2;
+    margin-bottom: 12px;
+}
+.poll-option { font-family: 'Nunito', sans-serif !important; font-weight: bold; }
+
+.ask-wrapper {
+    border: 2px solid var(--accent-blue);
+    background: #fff; 
+    box-shadow: 4px 4px 0px rgba(0,0,0,0.05);
+    border-radius: 8px;
+    margin-bottom: 15px;
+}
+.ask-header {
+    background: var(--accent-blue); color: #fff;
+    font-family: var(--font-accent); padding: 3px 10px;
+    font-size: 15px; text-transform: uppercase;
+    display: flex; justify-content: space-between; align-items: center;
+    border-radius: 4px 4px 0 0;
+}
+.ask-header a { color: #fff !important; text-decoration: none; }
+.ask-header a:hover { color: var(--accent-pink) !important; background: transparent; }
+.ask-content { padding: 12px; font-size: 13px; }
+.replies { margin-top: 12px; }
+
+.post-footer {
+    border-top: 2px dashed #ccc;
+    padding: 10px 20px; 
+    background: #fff;
+    display: flex; 
+    flex-direction: column; 
+    gap: 6px;
+}
+
+.footer-bottom-row {
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center;
+    width: 100%;
+}
+
+.reblog-meta {
+    font-family: var(--font-accent);
+    font-size: 13px;
+    color: #aaa;
+    text-transform: uppercase;
+    display: flex;
+    gap: 12px;
+}
+.reblog-meta a { 
+    color: var(--accent-blue); 
+    font-weight: 400; 
+    text-decoration: none;
+    background: transparent;
+}
+.reblog-meta a:hover { 
+    color: var(--accent-pink); 
+    background: transparent;
+    text-decoration: underline;
+}
+.action-buttons { 
+    display: flex; 
+    align-items: center; 
+    justify-content: flex-end; 
+    gap: 10px; 
+    height: 35px; 
+}
+
+.y2k-action-btn {
+    background: var(--window-bg);
+    border: 2px solid var(--border-color);
+    box-shadow: 2px 2px 0px var(--border-color);
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.2s;
+    padding: 0;
+}
+
+.y2k-action-btn:hover {
+    background: var(--accent-pink);
+    transform: translate(-1px, -1px);
+    box-shadow: 3px 3px 0px var(--accent-blue);
+}
+
+.y2k-action-btn iframe {
+    display: block !important;
+    vertical-align: middle !important;
+}
+
+.tag-btn {
+    font-size: 14px;
+    color: var(--text-main);
+}
+.tags-container {
+    display: none;
+    background: #fff;
+    border-top: 2px dashed #ccc;
+    padding: 10px 20px;
+    border-radius: 0 0 8px 8px;
+    animation: fadeIn 0.2s ease;
+}
+.tags-container.show-tags { display: block; }
+.permalink-page .tags-container { display: block; }
+
+.tags-top-row {
+    font-family: var(--font-accent); 
+    font-size: 13px; 
+    color: #aaa;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+    width: 100%;
+}
+.tags-top-row a { 
+    color: var(--text-main); 
+    background: #e0e7ff;
+    padding: 2px 8px;
+    border-radius: 10px;
+    border: 1px solid transparent;
+    font-weight: 400; 
+    display: inline-block;
+    text-decoration: none;
+}
+.tags-top-row a:before { content:'#'; color:var(--accent-blue); margin-right:2px; }
+.tags-top-row a:hover { 
+    background: var(--accent-pink); 
+    color: #fff; 
+    border: 1px solid var(--border-color);
+}
+
+ol.notes {
+    list-style-type: none; 
+    margin: 0 20px 20px 20px; 
+    padding: 12px;
+    font-family: var(--font-accent); 
+    font-size: 14px;
+    border: 2px solid var(--border-color);
+    border-radius: 12px;
+    background: var(--bg-color);
+    max-height: 250px;
+    overflow-y: auto;
+    box-shadow: inset 3px 3px 8px rgba(0,0,0,0.05);
+}
+ol.notes::-webkit-scrollbar { width: 8px; }
+ol.notes::-webkit-scrollbar-track { background: transparent; border: none; }
+ol.notes::-webkit-scrollbar-thumb { background: var(--accent-blue); border-radius: 10px; border: none; }
+
+ol.notes li.note { padding: 4px 0; border-bottom: 1px dashed #ddd; }
+ol.notes li.note:last-child { border-bottom: none; }
+ol.notes img.avatar { display: none; }
+
+.scroll-top {
+    position: fixed; bottom: 30px; 
+    right: 30px;
+    width: 40px; height: 40px;
+    background: var(--window-bg); color: var(--accent-blue);
+    border: 2px solid var(--accent-blue); border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 20px; font-weight: bold;
+    box-shadow: 4px 4px 0px var(--accent-blue);
+    cursor: pointer; z-index: 89;
+    transition: 0.3s; opacity: 0; pointer-events: none; transform: translateY(10px);
+}
+.scroll-top.visible { opacity: 1; pointer-events: auto; transform: translateY(0); }
+.scroll-top:hover { background: var(--accent-blue); color: #fff; transform: translate(2px, 2px); box-shadow: 2px 2px 0px #000; }
+
+.credit-float {
+    position: fixed; bottom: 30px; left: 30px; 
+    width: 30px; height: 30px;
+    background: transparent; color: var(--text-main);
+    border: 1px solid var(--text-main); border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-family: var(--font-accent); font-size: 18px;
+    cursor: help; z-index: 90; transition: 0.3s;
+    text-decoration: none;
+    opacity: 0.3;
+}
+.credit-float::after {
+    content: attr(data-tooltip);
+    position: absolute;
+    left: 40px;
+    background: var(--accent-blue);
+    color: #fff;
+    padding: 4px 10px;
+    border-radius: 6px;
+    font-family: var(--font-accent);
+    font-size: 16px;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateX(-10px);
+    transition: 0.3s;
+    white-space: nowrap;
+    border: 1px solid var(--border-color);
+}
+.credit-float:hover { 
+    opacity: 1;
+    background: var(--accent-pink); 
+    color: #fff;
+    border-color: var(--accent-pink);
+    transform: scale(1.1);
+}
+.credit-float:hover::after {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(0);
+}
+
+@media only screen and (max-width: 900px) {
+    #wrapper { flex-direction: column; align-items: center; margin-top: 15px; }
+    
+    #sidebar-container { 
+        position: relative; 
+        width: 92%; 
+        max-width: 400px;
+        top: 0; 
+        flex-direction: column; 
+        align-items: center;
+    }
+    
+    #sidebar-nav {
+        flex-direction: row;
+        width: 100%;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+    
+    #sidebar { width: 100%; }
+    
+    .nav-icon::after { display: none; }
+    
+    #posts { width: 92%; }
+}
+
+::selection {
+    background-color: var(--accent-pink);
+    color: #000000; 
+}
+
+::-moz-selection {
+    background-color: var(--accent-pink);
+    color: #000000;
+}
+
+iframe[src*="spotify.com"] {
+    width: 100% !important;         
+    height: 152px !important; 
+    border-radius: 12px !important; 
+    margin: 15px 0 !important;      
+    border: none !important; 
+    overflow: hidden !important; 
+    transition: transform 0.3s ease, box-shadow 0.3s ease !important;
+}
+iframe[src*="spotify.com"]:hover { transform: translateY(-2px) !important; box-shadow: 0 8px 20px rgba(0,0,0,0.15) !important; }
+
+iframe[src*="youtube.com/embed"] {
+    width: 100% !important;         
+    height: 80px !important;        
+    border-radius: 12px !important; 
+    margin: 15px 0 !important;      
+    box-sizing: border-box !important;
+    border: 4px solid transparent !important; 
+    transition: transform 0.3s ease, box-shadow 0.3s ease !important;
+}
+iframe[src*="youtube.com/embed"]:hover { transform: translateY(-2px) !important; box-shadow: 0 8px 20px rgba(0,0,0,0.15) !important; }
+
+article.post.is-pinned {
+    border: 4px solid var(--accent-pink) !important;
+    position: relative !important;
+}
+
+article.post.is-pinned .pinned-label {
+    display: block !important;
+    position: absolute !important;
+    top: -25px !important;
+    left: 50% !important; 
+    background: var(--accent-pink) !important;
+    color: #fff !important;
+    font-family: 'VT323', monospace !important;
+    padding: 4px 10px !important;
+    border-radius: 4px !important;
+    font-size: 14px !important;
+    z-index: 999 !important; 
+    box-shadow: 2px 2px 0px var(--border-color) !important;
+transform: translateX(-50%) rotate(-3deg);}
+.tmblr-iframe {
+    transform: scale(0.8) !important; 
+    transform-origin: top right !important;
+}
+
+#posts {
+    overflow: visible !important;
+}
+
+article.post.is-pinned {
+    overflow: visible !important;
+}
+</style>
+</head>
+<body class="{block:IndexPage}index-page{/block:IndexPage} {block:PermalinkPage}permalink-page{/block:PermalinkPage}">
+
+
+    <div id="wrapper">
+        
+        <div id="sidebar-container">
+            <input type="radio" name="side-tab" id="tab-home" class="tab-radio" checked>
+            <input type="radio" name="side-tab" id="tab-about" class="tab-radio">
+            <input type="radio" name="side-tab" id="tab-ask" class="tab-radio">
+            <input type="radio" name="side-tab" id="tab-status" class="tab-radio">
+            <input type="radio" name="side-tab" id="tab-links" class="tab-radio">
+
+            <div id="sidebar-nav">
+                <a href="/" class="nav-icon home-icon" data-tooltip="Home / Refresh">🏠</a>
+                <label for="tab-about" class="nav-icon" data-tooltip="About Me">👤</label>
+                <label for="tab-ask" class="nav-icon" data-tooltip="Ask">✉️</label>
+                <label for="tab-status" class="nav-icon" data-tooltip="Status">💬</label>
+                <label for="tab-links" class="nav-icon" data-tooltip="More Links">🌐</label>
+<div class="nav-icon" id="darkModeToggle" data-tooltip="Dark Mode" style="cursor:pointer;">🌙</div>
+            </div>
+
+            <div id="sidebar">
+                
+                <div class="y2k-box">
+                    <div class="id-header">{Title}</div>
+                    
+                    {block:ifSidebarImage}
+                        <img src="{image:Sidebar}" class="avatar">
+                    {/block:ifSidebarImage}
+                </div>
+
+                <div class="y2k-box y2k-content-box">
+                    <div class="tab-content" id="content-home">
+                        {block:Description}
+                            <div class="desc">{Description}</div>
+                        {/block:Description}
+                    </div>
+
+                    <div class="tab-content" id="content-about">
+                        <label for="tab-home" class="nav-btn" style="border-radius: 6px; margin-bottom: 15px; border-bottom: var(--border);">« Back to Home</label>
+                        <div class="desc">
+                            {text:About Text}
+                        </div>
+                    </div>
+
+                    <div class="tab-content" id="content-ask">
+                        <label for="tab-home" class="nav-btn" style="border-radius: 6px; margin-bottom: 15px; border-bottom: var(--border);">« Back to Home</label>
+                        <iframe src="/ask_form" frameborder="0" scrolling="no" width="100%" height="190" style="display:block; background:transparent;"></iframe>
+                    </div>
+
+                    <div class="tab-content" id="content-status">
+                        <label for="tab-home" class="nav-btn" style="border-radius: 6px; margin-bottom: 15px; border-bottom: var(--border);">« Back to Home</label>
+                        <div class="status-title">STATUS LOG</div>
+                        <div class="status-content">
+                            {text:Status Text}
+                        </div>
+                    </div>
+
+                    <div class="tab-content" id="content-links">
+                        <label for="tab-home" class="nav-btn" style="border-radius: 6px; margin-bottom: 15px; border-bottom: var(--border);">« Back to Home</label>
+                        {block:IfLink1Title}<a href="{text:Link 1 URL}" class="y2k-link">{text:Link 1 Title}</a>{/block:IfLink1Title}
+                        {block:IfLink2Title}<a href="{text:Link 2 URL}" class="y2k-link">{text:Link 2 Title}</a>{/block:IfLink2Title}
+                        {block:IfLink3Title}<a href="{text:Link 3 URL}" class="y2k-link">{text:Link 3 Title}</a>{/block:IfLink3Title}
+                        {block:IfLink4Title}<a href="{text:Link 4 URL}" class="y2k-link">{text:Link 4 Title}</a>{/block:IfLink4Title}
+                        {block:IfLink5Title}<a href="{text:Link 5 URL}" class="y2k-link">{text:Link 5 Title}</a>{/block:IfLink5Title}
+                        {block:IfLink6Title}<a href="{text:Link 6 URL}" class="y2k-link">{text:Link 6 Title}</a>{/block:IfLink6Title}
+                        {block:IfLink7Title}<a href="{text:Link 7 URL}" class="y2k-link">{text:Link 7 Title}</a>{/block:IfLink7Title}
+                        {block:IfLink8Title}<a href="{text:Link 8 URL}" class="y2k-link">{text:Link 8 Title}</a>{/block:IfLink8Title}
+                        {block:IfLink9Title}<a href="{text:Link 9 URL}" class="y2k-link">{text:Link 9 Title}</a>{/block:IfLink9Title}
+                        {block:IfLink10Title}<a href="{text:Link 10 URL}" class="y2k-link">{text:Link 10 Title}</a>{/block:IfLink10Title}
+                    </div>
+                </div>
+
+                {block:Pagination}
+                <div class="sidebar-pagination">
+                    {block:PreviousPage}
+                        <a href="{PreviousPage}" class="page-btn" title="Previous">«</a>
+                    {/block:PreviousPage}
+
+                    {block:JumpPagination length="5"}
+                        {block:CurrentPage}
+                            <span class="page-btn current-page">{PageNumber}</span>
+                        {/block:CurrentPage}
+
+                        {block:JumpPage}
+                            <a href="{URL}" class="page-btn jump-page">{PageNumber}</a>
+                        {/block:JumpPage}
+                    {/block:JumpPagination}
+
+                    {block:NextPage}
+                        <a href="{NextPage}" class="page-btn" title="Next">»</a>
+                    {/block:NextPage}
+                </div>
+                {/block:Pagination}
+                
+            </div>
+        </div>
+
+        <div id="posts">
+            {block:Posts}
+<article class="post {PostType}-post posts {block:PinnedPostLabel}is-pinned{/block:PinnedPostLabel}" id="post-{PostID}">
+{block:PinnedPostLabel}
+    <div class="pinned-label">★ PINNED</div>
+{/block:PinnedPostLabel}
+
+                <div class="window-bar">
+                    <div style="display:flex; align-items:center; gap:5px;">
+                        <a href="{Permalink}" class="permalink-btn">★ {NoteCountWithLabel}</a>
+                        <span style="color:#aaa;">|</span>
+                        <span>{TimeAgo}</span>
+                    </div>
+                    <div class="window-dots">
+                        <div class="dot" style="background:{color:Accent Pink};"></div>
+                        <div class="dot" style="background:{color:Accent Green};"></div>
+                    </div>
+                </div>
+
+                <div class="post-content">
+                    
+                    {block:Photo}
+                        <div class="legacy-photo"><img src="{PhotoURL-HighRes}" alt="{photoalt}" class="photos"></div>
+                    {/block:Photo}
+
+                    {block:Photoset}
+                        <div class="legacy-photoset">{Photoset}</div> 
+                    {/block:Photoset}
+                        
+
+                    {block:Quote}
+                        <div class="quote">"{Quote}"</div>
+                        <div class="source">- {Source}</div>
+                    {/block:Quote}
+
+                    {block:Chat}
+                        <ul class="chat">
+                            {block:Lines}
+                                <li>{block:Label}<b>{Label}</b>{/block:Label} {Line}</li>
+                            {/block:Lines}
+                        </ul>
+                    {/block:Chat}
+
+                    {block:link}
+                        <a href="{URL}" class="npf-link-block">
+                            <div class="title">{Name}</div>
+                            <div class="site-name">→ VISIT LINK</div>
+                        </a>
+                    {/block:link}
+
+                    {block:Video}{Video-500}{/block:Video}
+                    
+                    {block:Audio}
+                        {AudioEmbed}
+                    {/block:Audio}         
+                    
+                    {block:Answer}
+                        <div class="ask-wrapper">
+                            <div class="ask-header">
+                                <span>Message from {Asker}</span>
+                                <span style="font-size:12px;">X</span>
+                            </div>
+                            <div class="ask-content">{Question}</div>
+                        </div>
+                        {block:Answerer}
+                        <div class="ask-wrapper" style="border-color: var(--accent-green);">
+                            <div class="ask-header" style="background: var(--accent-green); color: var(--text-main);">
+                                <span>Reply from {Answerer}</span>
+                            </div>
+                            <div class="ask-content">{Answer}</div>
+                        </div>
+                        {/block:Answerer}
+                        {block:NotReblog}
+                            <div class="replies">{Replies}</div>
+                        {/block:NotReblog}
+                    {/block:Answer}
+
+                    <div class="caption {block:notreblog} original-post {/block:notreblog}">
+                        {block:Text}
+                            {block:Title}<div class="title">{Title}</div>{/block:Title}
+                        {/block:Text}
+                        
+                        {block:notreblog}
+                            {block:caption}{Caption}{/block:caption}
+                            {block:Text}{body}{/block:Text}
+                        {/block:notreblog}
+                        
+                        {block:Rebloggedfrom}
+                            {block:Reblogs}
+                            <div class="reblogs">
+                                <div class="reblog-header {block:IsOriginalEntry}original{/block:IsOriginalEntry}">
+                                    <a href="{permalink}" target="_blank"><img src="{PortraitURL-64}" alt="{username}'s avatar"></a>
+                                    <a href="{permalink}" target="_blank" {block:isdeactivated}class="inactive"{/block:isdeactivated}>
+                                        {username}
+                                    </a>
+                                </div>
+                                <div class="reblog-content">
+                                    {Body}
+                                </div>
+                            </div>
+                            {/block:Reblogs}
+                        {/block:RebloggedFrom}
+                    </div>
+
+                </div>
+
+                {block:Date}
+                <div class="post-footer">
+                    <div class="footer-bottom-row">
+                        <div class="reblog-meta">
+                            {block:RebloggedFrom}
+                                <span>VIA <a href="{ReblogParentURL}">{ReblogParentName}</a></span>
+                                {block:ContentSource}
+                                <span>SRC <a href="{SourceURL}">{SourceTitle}</a></span>
+                                {/block:ContentSource}
+                            {/block:RebloggedFrom}
+                        </div>
+
+                        <div class="action-buttons">
+    <button class="y2k-action-btn tag-btn" onclick="this.closest('.post').querySelector('.tags-container').classList.toggle('show-tags')" title="Toggle Tags">🏷️</button>
+    <div class="y2k-action-btn">{LikeButton size="14"}</div>
+    <div class="y2k-action-btn">{ReblogButton size="14"}</div>
+</div>
+                    </div>
+                </div>
+                {/block:Date}
+
+                {block:HasTags}
+                <div class="tags-container">
+                    <div class="tags-top-row">
+                        {block:Tags}<a href="{TagURL}">{Tag}</a>{/block:Tags}
+                    </div>
+                </div>
+                {/block:HasTags}
+
+                {PostNotes}
+            </article>
+            {/block:Posts}
+
+        </div>
+    </div>
+
+    <div id="scrollTopBtn" class="scroll-top" onclick="scrollToTop()">↑</div>
+    
+    <a href="https://whereinmnl.tumblr.com" class="credit-float" title="whereinmnl" data-tooltip="whereinmnl">W</a>
+
+    <script>
+        window.addEventListener('scroll', function() {
+            var scrollBtn = document.getElementById('scrollTopBtn');
+            if (window.scrollY > 300) {
+                scrollBtn.classList.add('visible');
+            } else {
+                scrollBtn.classList.remove('visible');
+            }
+        });
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        
+        let posts = []
+        {block:Posts} 
+            posts.push({ npf: JSON.parse({JSNPF}), id: {JSPostId}}) 
+        {/block:Posts}
+
+        function updateTypes(type, article) {
+            article.classList.remove('text-post')
+            article.classList.add(`${type}-post`, 'npf-post')
+        }
+
+        for (const post of posts) {
+           let npf = post.npf
+           let article = document.getElementById(`post-${post.id}`)
+           if (!article) continue;
+           
+           let caption = article.querySelector('.caption:is(:not(:empty))')
+           if (caption != null && article.classList.contains('text-post')) {
+              if (npf.trail.length || npf.content.length) {
+                    switch (npf.trail[0]?.content[0]?.type ?? npf.content[0].type) {
+                    case 'image':
+                       updateTypes('photos', article)
+                       break
+                    case 'video':
+                       updateTypes('video', article)
+                       break
+                    case 'link':
+                      updateTypes('link', article)
+                      break
+                    case 'audio':
+                       updateTypes('audio', article)
+                        break
+                    case 'quote':
+                        updateTypes('quote', article)
+                        break
+                    }
+                  
+                 if (article.classList.contains('photos-post')) {
+                    let photoset = document.createElement('div');
+                    photoset.classList.add('npf-photos');
+                    
+                    let firstImg = article.querySelector('.npf_row, figure.tmblr-full:not(:has(audio))');
+                    
+                    if (firstImg) {
+                        firstImg.parentNode.insertBefore(photoset, firstImg);
+                        
+                        let photoBreak = article.querySelector('.reblog-content p, .reblog-content h1, .reblog-content h2');
+                        let elements = [];
+                        
+                        if (photoBreak && firstImg.parentNode === photoBreak.parentNode) {
+                           let current = firstImg;
+                           while (current && current !== photoBreak) {
+                              let next = current.nextElementSibling;
+                              if (current.matches('.npf_row, figure.tmblr-full:not(:has(audio))')) {
+                                  elements.push(current);
+                              }
+                              current = next;
+                           }
+                        } else {
+                           article.querySelectorAll('.npf_row, figure.tmblr-full:not(:has(audio))').forEach(el => elements.push(el));
+                        }
+                        
+                        elements.forEach(el => photoset.append(el));
+                        
+                        if (elements.length > 1) {
+                            updateTypes('photoset', article);
+                        } else {
+                            updateTypes('photo', article);
+                        }
+                    }
+                 }
+                 
+                 let reblogHeader = article.querySelector('.reblog-header')
+                 let reblogContent = article.querySelector('.reblog-content')
+                 if (reblogHeader?.nextElementSibling === reblogContent && reblogContent?.childElementCount === 0) {
+                    reblogHeader.remove()
+                    reblogContent.remove()
+                 }
+              }
+           }
+        }
+        
+        document.addEventListener('DOMContentLoaded', () => {
+            document.querySelectorAll('figure.tmblr-full').forEach(figure => {
+                const audio = figure.querySelector('audio');
+                if (!audio || figure.classList.contains('unify-done')) return;
+                figure.classList.add('unify-done');
+                audio.removeAttribute('controls');
+                audio.style.display = 'none';
+
+                let title = '';
+                let artist = '';
+                let albumArt = '';
+
+                const npfAttr = figure.getAttribute('data-npf');
+                if (npfAttr) {
+                    try {
+                        const npfData = JSON.parse(npfAttr);
+                        if (npfData.title) title = npfData.title;
+                        if (npfData.artist) artist = npfData.artist;
+                        if (npfData.poster && npfData.poster[0]) albumArt = npfData.poster[0].url;
+                    } catch (e) {}
+                }
+
+                if (!title) {
+                    const titleEl = figure.querySelector('.tmblr-audio-title, .title');
+                    if (titleEl) title = titleEl.textContent.trim();
+                }
+                if (!artist) {
+                    const artistEl = figure.querySelector('.tmblr-audio-artist, .artist');
+                    if (artistEl) artist = artistEl.textContent.trim();
+                }
+                
+                if (!albumArt) {
+                    const posterEl = figure.querySelector('.poster, .album-cover, figcaption img, .tmblr-audio-meta img');
+                    if (posterEl) albumArt = posterEl.src || posterEl.getAttribute('src');
+                }
+
+                if (!title && !artist) {
+                    const figcaption = figure.querySelector('figcaption');
+                    if (figcaption) {
+                        const allSpans = figcaption.querySelectorAll('span');
+                        const texts = [...allSpans].map(s => s.textContent.trim()).filter(Boolean);
+                        if (texts[0]) title = texts[0];
+                        if (texts[1]) artist = texts[1];
+                        const img = figcaption.querySelector('img');
+                        if (img && img.src && !albumArt) albumArt = img.src;
+                    }
+                }
+
+                if (!title) title = 'Unknown Track';
+                if (!artist) artist = 'Unknown Artist';
+            
+
+                const player = document.createElement('div');
+                player.className = 'minimal-audio-player';
+                
+                let artHTML = albumArt ? '<img src="' + albumArt + '" class="ma-art">' : '';
+                let titleHTML = title ? '<div class="ma-track">' + title + '</div>' : '';
+                let artistHTML = artist ? '<div class="ma-artist">' + artist + '</div>' : '';
+
+                player.innerHTML = artHTML + 
+                                   '<div class="ma-info">' + 
+                                   titleHTML + 
+                                   artistHTML + 
+                                   '</div>' + 
+                                   '<button class="unify-play-pause"><i class="fas fa-play"></i></button>';
+
+                figure.parentNode.insertBefore(player, figure);
+                figure.style.display = 'none';
+
+                const btn = player.querySelector('.unify-play-pause');
+                const icon = btn.querySelector('i');
+
+                btn.addEventListener('click', () => {
+                    if (audio.paused) {
+                        document.querySelectorAll('figure.tmblr-full audio').forEach(a => a.pause());
+                        document.querySelectorAll('.unify-play-pause i').forEach(i => {
+                            i.className = 'fas fa-play';
+                            i.style.marginLeft = '2px';
+                        });
+                        audio.play();
+                        icon.className = 'fas fa-pause';
+                        icon.style.marginLeft = '0px';
+                    } else {
+                        audio.pause();
+                        icon.className = 'fas fa-play';
+                        icon.style.marginLeft = '2px';
+                    }
+                });
+
+                audio.addEventListener('ended', () => {
+                    icon.className = 'fas fa-play';
+                    icon.style.marginLeft = '2px';
+                });
+            });
+        });
+    </script>
+    
+    <script>
+        const toggleBtn = document.getElementById('darkModeToggle');
+        const bodyElement = document.body;
+        
+        if (localStorage.getItem('y2k_dark_mode') === 'enabled') {
+            bodyElement.classList.add('dark-mode');
+            toggleBtn.textContent = '☀️';
+            toggleBtn.setAttribute('data-tooltip', 'Light Mode');
+        }
+
+        toggleBtn.addEventListener('click', () => {
+            bodyElement.classList.toggle('dark-mode');
+            
+            if (bodyElement.classList.contains('dark-mode')) {
+                localStorage.setItem('y2k_dark_mode', 'enabled');
+                toggleBtn.textContent = '☀️';
+                toggleBtn.setAttribute('data-tooltip', 'Light Mode');
+            } 
+            else {
+                localStorage.setItem('y2k_dark_mode', 'disabled');
+                toggleBtn.textContent = '🌙';
+                toggleBtn.setAttribute('data-tooltip', 'Dark Mode');
+            }
+        });
+    </script>
+</body>
+</html>
