@@ -1,0 +1,602 @@
+<!----------------------------------------------------
+VERDANT THEME V3 by whereinMNL (Modified with NPF Support)
+Modified: consolidated ask/faq, compact posts, un-blue polls, specific post stylings.
+
+First Version - 25 January 2026
+Latest Version - 01 July 2026
+
+Do Not Remove Credit:
+Please keep the credit in the footer visible. It helps me grow!
+Personal Use Only:
+Do not resell, redistribute, or claim the code as your own.
+Base Coding:
+Do not use my themes as a "base" for a release.
+Customization:
+Feel free to change colors/fonts! Just keep the credit link.
+No Re-hosting:
+Always link back to the original blog post.
+----------------------------------------------------->
+<!DOCTYPE html>
+<html>
+<head>
+<title>{Title}</title>
+<link rel="shortcut icon" href="{Favicon}">
+<link rel="alternate" type="application/rss+xml" href="{RSS}">
+{block:Description}<meta name="description" content="{MetaDescription}" />{/block:Description}
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
+{NewPostStyles}
+
+<meta name="color:Sidebar Background" content="#f2f0e6"/>
+<meta name="color:Post Background" content="#ffffff"/>
+<meta name="color:Text" content="#333333"/>
+<meta name="color:Accent" content="#405d27"/>
+<meta name="color:Links" content="#405d27"/>
+<meta name="color:Meta Text" content="#aaaaaa"/>
+
+<meta name="font:Title" content="'Playfair Display', serif"/>
+<meta name="font:Body" content="'Cormorant Garamond', serif"/>
+<meta name="font:UI" content="'Montserrat', sans-serif"/>
+
+<meta name="image:Sidebar" content=""/>
+
+<meta name="if:Show Archive Link" content="1"/>
+<meta name="if:Hover Effects On Media" content="1"/>
+
+<meta name="text:About Title" content="About Me" />
+<meta name="text:About Text 1" content="Welcome to my little corner of the internet. This is where I share the things I love: snippets of daily life, things that catch my eye, and whatever else is living in my head rent-free." />
+<meta name="text:About Text 2" content="Feel free to send me a message anytime. I don't bite." />
+
+<meta name="text:FAQ Question 1" content="Can I ask you anything?"/>
+<meta name="text:FAQ Answer 1" content="Of course! My ask box is always open. I try to answer everything, though it may take me a while."/>
+<meta name="text:FAQ Question 2" content="Do you take requests?"/>
+<meta name="text:FAQ Answer 2" content="Sometimes! It depends on what it is. Send it over and I'll let you know."/>
+<meta name="text:FAQ Question 3" content="What are you into?"/>
+<meta name="text:FAQ Answer 3" content="A lot of things — check the tags on my posts for a better picture. I'm an open book."/>
+<meta name="text:FAQ Question 4" content="Can I use your posts?"/>
+<meta name="text:FAQ Answer 4" content="Please don't repost without credit. Reblogging is always welcome though!"/>
+<meta name="text:FAQ Question 5" content=""/>
+<meta name="text:FAQ Answer 5" content=""/>
+
+<meta name="text:Links Description" content="Find me on the rest of the web:" />
+<meta name="text:Custom Link 1 Title" content="Twitter"/>
+<meta name="text:Custom Link 1 URL" content=""/>
+<meta name="text:Custom Link 2 Title" content="Instagram"/>
+<meta name="text:Custom Link 2 URL" content=""/>
+<meta name="text:Custom Link 3 Title" content="Pinterest"/>
+<meta name="text:Custom Link 3 URL" content=""/>
+<meta name="text:Custom Link 4 Title" content=""/>
+<meta name="text:Custom Link 4 URL" content=""/>
+<meta name="text:Custom Link 5 Title" content=""/>
+<meta name="text:Custom Link 5 URL" content=""/>
+<meta name="text:Custom Link 6 Title" content=""/>
+<meta name="text:Custom Link 6 URL" content=""/>
+<meta name="text:Custom Link 7 Title" content=""/>
+<meta name="text:Custom Link 7 URL" content=""/>
+<meta name="text:Custom Link 8 Title" content=""/>
+<meta name="text:Custom Link 8 URL" content=""/>
+<meta name="text:Custom Link 9 Title" content=""/>
+<meta name="text:Custom Link 9 URL" content=""/>
+<meta name="text:Custom Link 10 Title" content=""/>
+<meta name="text:Custom Link 10 URL" content=""/>
+
+<script>
+(function(){
+    var extractFont = function(str) { return str.split(',')[0].replace(/['"]/g, '').trim(); };
+    var fontTitle = extractFont("{font:Title}");
+    var fontBody = extractFont("{font:Body}");
+    var fontUI = extractFont("{font:UI}");
+    var fontUrl = 'https://fonts.googleapis.com/css?family=' + fontTitle.replace(/ /g, '+') + ':ital,wght@0,400;0,700;1,400;1,700|' + fontBody.replace(/ /g, '+') + '|' + fontUI.replace(/ /g, '+') + '&display=swap';
+    var link = document.createElement('link'); link.rel = 'stylesheet'; link.href = fontUrl;
+    document.head.appendChild(link);
+})();
+</script>
+
+<link rel="stylesheet" type="text/css" href="https://assets.tumblr.com/fonts/favorit/stylesheet.css?v=1">
+<link href="//static.tumblr.com/gtjt4bo/mXBrpdj0n/unblue-polls.css" rel="stylesheet">
+
+<style type="text/css">
+:root {
+    --font-title: {font:Title};
+    --font-body: {font:Body};
+    --font-ui: {font:UI};
+}
+
+*{box-sizing:border-box}
+body{cursor:crosshair;background:{color:Sidebar Background};color:{color:Text};font-family:var(--font-body);font-size:16px;line-height:1.7;margin:0;padding:0;overflow-x:hidden}
+a{cursor:help;color:{color:Links};text-decoration:none;transition:all .3s ease;border-bottom:1px solid transparent}
+a:hover{color:{color:Text}}
+::selection{background:#000;color:#fff}::-moz-selection{background:#000;color:#fff}
+::-webkit-scrollbar{width:12px}::-webkit-scrollbar-track{background:{color:Sidebar Background}}::-webkit-scrollbar-thumb{background:{color:Accent};border:3px solid {color:Sidebar Background}}
+body::before{content:"";position:fixed;top:0;left:0;width:100%;height:100%;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='https://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.05'/%3E%3C/svg%3E");opacity:.4;pointer-events:none;z-index:9999}
+.whereinmnl-branding{position:fixed;top:25px;left:30px;font-family:var(--font-title);font-weight:600;font-style:italic;font-size:25px;color:{color:Accent};opacity:.5;z-index:10000;text-decoration:none;transition:all .3s ease;cursor:help}
+.whereinmnl-branding:hover{transform:scale(1.1);opacity:1}
+.whereinmnl-branding::after{content:attr(data-tooltip);position:absolute;top:80%;left:45px;white-space:nowrap;font-family:var(--font-ui);font-size:10px;text-transform:uppercase;letter-spacing:2px;margin-top:5px;opacity:0;transition:opacity .3s ease;color:{color:Text};pointer-events:none;background:#fff;padding:2px 5px;border:1px solid {color:Accent}}
+.whereinmnl-branding:hover::after{opacity:1}
+iframe.tmblr-iframe{transform:scale(.7);transform-origin:100% 0;top:0!important;right:0!important;position:fixed!important;z-index:9999999!important}
+#container{display:flex;width:100%;min-height:100vh}
+#sidebar{width:50%;height:100vh;position:fixed;left:0;top:0;background:{color:Sidebar Background};display:flex;flex-direction:column;justify-content:center;align-items:center;padding:40px;text-align:center;border-right:1px solid {color:Accent};z-index:10}
+#sidebar-image{width:160px;height:160px;margin-bottom:30px;padding:5px;border:1px solid {color:Accent};border-radius:50%;perspective:100px}
+#sidebar-image img{width:100%;height:100%;border-radius:50%;object-fit:cover;transition:transform .1s ease-out}
+h1.blog-title{font-family:var(--font-title);font-size:48px;font-weight:700;font-style:italic;margin:0 0 15px 0;line-height:1;color:{color:Text}}
+.description{font-family:var(--font-ui);font-size:10px;line-height:1.8;text-transform:uppercase;letter-spacing:1px;max-width:350px;margin-bottom:40px;color:{color:Text}}
+.nav-wrapper-generic{display:flex;align-items:flex-start;gap:18px}
+.nav-track-generic{display:flex;flex-direction:column;align-items:center;position:relative;width:12px;flex-shrink:0}
+.nav-line-generic{width:1px;background:{color:Accent};opacity:.3;position:absolute;top:6px;bottom:6px;left:50%;transform:translateX(-50%)}
+.nav-dot-generic{width:8px;height:8px;border-radius:50%;background:{color:Accent};position:absolute;left:50%;transform:translateX(-50%);top:0;transition:top .35s cubic-bezier(.4,0,.2,1);box-shadow:0 0 0 3px {color:Sidebar Background},0 0 0 4px {color:Accent};z-index:2}
+.nav-links-generic{display:flex;flex-direction:column;gap:0;align-items:flex-start;text-align:left}
+.nav-item{font-family:var(--font-ui);text-transform:uppercase;letter-spacing:3px;font-size:10px;font-weight:600;color:{color:Accent};padding:8px 0;cursor:help;transition:color .25s ease,letter-spacing .25s ease;display:block;text-decoration:none;border-bottom:none;line-height:1;text-align:left}
+.nav-item:hover{color:{color:Text};letter-spacing:4px}
+.nav-item.active{color:{color:Text}}
+.nav-item.drawer-trigger::after{content:" \2192";opacity:0;transition:opacity .2s ease;font-size:9px}
+.nav-item.drawer-trigger:hover::after{opacity:.5}
+#drawer-overlay{position:fixed;inset:0;background:transparent;z-index:999;pointer-events:none;transition:background .4s ease}
+#drawer-overlay.open{background:rgba(0,0,0,.35);pointer-events:all}
+#side-drawer{position:fixed;top:0;right:0;width:50%;max-width:50%;height:100vh;background:{color:Sidebar Background};border-left:1px solid {color:Accent};z-index:1000;transform:translateX(100%);transition:transform .45s cubic-bezier(.4,0,.2,1);display:flex;flex-direction:column;overflow-y:auto;padding:50px 40px 60px 40px}
+#side-drawer.open{transform:translateX(0)}
+#drawer-close{position:absolute;top:70px;right:40px;background:none;border:1px solid {color:Accent};color:{color:Accent};font-family:var(--font-ui);font-size:10px;letter-spacing:2px;text-transform:uppercase;padding:6px 12px;cursor:pointer;transition:all .25s ease}
+#drawer-close:hover{background:{color:Accent};color:{color:Sidebar Background}}
+#drawer-label{font-family:var(--font-ui);font-size:9px;text-transform:uppercase;letter-spacing:3px;color:{color:Meta Text};margin-bottom:8px}
+#drawer-title{font-family:var(--font-title);font-size:36px;font-weight:400;font-style:italic;color:{color:Text};margin:0 0 40px 0;line-height:1.1;border-bottom:1px solid {color:Accent};padding-bottom:24px}
+#drawer-content{flex:1;font-family:var(--font-body);font-size:16px;line-height:1.75;color:{color:Text}}
+#drawer-content p{margin:0 0 18px 0}
+#drawer-content a{color:{color:Accent};border-bottom:1px solid {color:Accent}}
+#drawer-content a:hover{color:{color:Text}}
+.animate-up{opacity:0;transform:translateY(20px);animation:slideUp .5s forwards}
+.delay-1{animation-delay:.1s}
+.delay-2{animation-delay:.2s}
+@keyframes slideUp{to{opacity:1;transform:translateY(0)}}
+.about-wrapper{display:flex;align-items:flex-start;gap:30px;margin-bottom:20px}
+.about-box{background:{color:Post Background};border:1px solid {color:Accent};padding:25px;margin-bottom:15px;border-radius:6px;box-shadow:2px 2px 0 rgba(64,93,39,0.1)}
+.about-box strong{font-family:var(--font-ui);font-size:12px;text-transform:uppercase;letter-spacing:2px;color:{color:Accent};display:block;margin-bottom:10px}
+.drawer-about-img{width:140px;height:140px;border-radius:50%;object-fit:cover;border:2px solid {color:Accent};padding:4px;flex-shrink:0}
+.about-text-content{flex:1}
+details{background:{color:Post Background};border:1px solid {color:Accent};border-radius:6px;margin-bottom:12px;overflow:hidden;box-shadow:2px 2px 0 rgba(64,93,39,0.1)}
+summary{font-family:var(--font-ui);font-size:11px;text-transform:uppercase;letter-spacing:2px;font-weight:600;color:{color:Accent};padding:15px;cursor:pointer;outline:none;background:{color:Sidebar Background};transition:all .3s ease;list-style:none}
+summary::-webkit-details-marker{display:none}
+summary::after{content:'+';float:right;font-size:14px}
+details[open] summary{border-bottom:1px solid {color:Accent};color:{color:Text}}
+details[open] summary::after{content:'-'}
+.faq-ans{padding:20px;font-family:var(--font-body);font-size:16px;line-height:1.75;color:{color:Text}}
+.drawer-links-desc{font-family:var(--font-body);font-size:16px;color:{color:Text};margin-bottom:20px;font-style:italic}
+.links-grid{display:grid;grid-template-columns:repeat(2, 1fr);gap:15px;margin-top:10px}
+.drawer-nav-item{font-family:var(--font-ui);text-transform:uppercase;letter-spacing:2px;font-size:11px;font-weight:600;color:{color:Text};background:{color:Post Background};border:1px solid {color:Accent};padding:18px 15px;border-radius:6px;cursor:help;transition:all .3s ease;display:block;text-decoration:none;line-height:1;text-align:center;box-shadow:2px 2px 0 rgba(64,93,39,0.1)}
+.drawer-nav-item:hover{background:{color:Accent};color:{color:Sidebar Background};transform:translateY(-2px);box-shadow:4px 4px 0 rgba(64,93,39,0.2)}
+#posts-container{width:50%;margin-left:50%;background:{color:Post Background};min-height:100vh}
+#posts{width:90%;max-width:800px;margin:50px auto 0 auto}
+.reblog-content h1,.reblog-content h2,.post-title{font-family:var(--font-title);font-size:28px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:{color:Text};margin-bottom:20px;line-height:1.2;text-align:center}
+.reblog-content h1 a,.reblog-content h2 a,.post-title a{color:{color:Text}}
+.post{margin-bottom:45px;padding-bottom:10px;opacity:0;transform:translateY(30px);transition:opacity .8s ease-out,transform .8s ease-out}
+.post.visible{opacity:1;transform:translateY(0)}
+.post img,.post iframe{width:92%;margin-left:auto;margin-right:auto;height:auto;display:block;margin-bottom:25px;transition:filter .6s ease,opacity .3s ease;max-width:100%}
+{block:IfHoverEffectsOnMedia}
+.post img:hover,.post iframe:hover{filter:sepia(80%);opacity:.9}
+{/block:IfHoverEffectsOnMedia}
+.caption{padding:0 8px}
+.reblog-content{padding:0 10px;white-space:normal}
+.reblog-header{display:flex;align-items:center;padding:12px 10px 2px 10px;font-family:var(--font-ui);font-size:11px;text-transform:uppercase;letter-spacing:2px;font-weight:600;color:{color:Text}}
+.reblog-content>p:first-child{margin-top:4px}
+.post.photo-post img,.post.photoset-post img,.post.photos-post img,.npf-photos img,.legacy-photo img,.legacy-photoset img,.npf_row img{width:100%!important;max-width:100%!important;margin-left:0!important;margin-right:0!important;margin-bottom:0!important;display:block}
+.reblog-header img,.question-box img,.custom-audio-player img{width:auto!important}
+.caption ul,.reblog-content ul{list-style:none;padding-left:0;margin:10px 0 15px 0;font-family:var(--font-body);font-size:16px;line-height:1.7;color:{color:Text}}
+.caption ul li,.reblog-content ul li{position:relative;padding-left:20px;margin-bottom:6px}
+.caption ul li::before,.reblog-content ul li::before{content:"\2726";color:{color:Accent};position:absolute;left:0;top:0;font-size:12px;line-height:1.7}
+.caption ol,.reblog-content ol{counter-reset:custom-counter;list-style:none;padding-left:0;margin:10px 0 15px 0;font-family:var(--font-body);font-size:16px;line-height:1.7;color:{color:Text}}
+.caption ol li,.reblog-content ol li{counter-increment:custom-counter;position:relative;padding-left:24px;margin-bottom:6px}
+.caption ol li::before,.reblog-content ol li::before{content:counter(custom-counter) ".";color:{color:Accent};font-family:var(--font-ui);font-weight:600;font-size:12px;position:absolute;left:0;top:2px}
+
+.ask-layout{display:flex;flex-direction:column;gap:15px;margin:10px 8px;font-family:var(--font-body);font-size:16px;color:{color:Text}}
+.ask-row{display:flex;align-items:flex-start;gap:15px}
+.asker-row .ask-bubble{background:{color:Sidebar Background};padding:15px 18px;border-radius:6px;border:1px solid rgba(0,0,0,.05);flex:1}
+.answerer-row .ask-bubble{background:transparent;border:none;padding:0;flex:1;text-align:right}
+.ask-avatar{width:36px!important;height:36px!important;min-width:36px!important;max-width:36px!important;border-radius:50%!important;border:1px solid {color:Accent}!important;object-fit:cover!important;flex-shrink:0!important;margin:0!important;display:block!important;filter:none!important;opacity:1!important}
+.ask-header{display:block;text-transform:uppercase;font-family:var(--font-ui);font-size:9px;letter-spacing:2px;color:{color:Accent};margin-bottom:5px;font-weight:600}
+.ask-content p:first-child{margin-top:0}
+.ask-content p:last-child{margin-bottom:0}
+
+.post b,.post strong{font-weight:600}
+.post i,.post em{font-style:italic}
+.post u{text-decoration:underline;text-decoration-color:{color:Accent};text-underline-offset:3px}
+.post s,.post strike{text-decoration:line-through;opacity:.6}
+.read_more{display:block;width:fit-content;margin:15px auto 0 auto;font-family:var(--font-ui);font-size:13px;text-transform:uppercase;letter-spacing:2px;font-weight:600;color:{color:Accent};border-bottom:1px solid {color:Accent};padding-bottom:2px;transition:all .3s ease}
+.read_more:hover{color:{color:Text};border-color:{color:Text}}
+.poll-post{--Poll-Question-Font-Size:13px;--Poll-Option-Background-Color:{color:Sidebar Background};--Poll-Option-Corner-Rounding:4px;--Poll-Option-Border-Size:1px;--Poll-Option-Border-Color:{color:Accent};--Poll-Option-Padding:8px 12px;--Poll-Option-Font-Size:11px;--Poll-Option-Spacing:6px;--Poll-Option-Text-Color:{color:Accent};--Poll-Option-HOVER-Border-Color:{color:Accent};--Poll-Option-HOVER-Background-Color:{color:Accent};--Poll-Option-HOVER-Text-Color:{color:Sidebar Background};--Poll-Option-HOVER-Speed:0.2s}
+.poll-row p,.poll-row span{text-transform:uppercase!important;letter-spacing:1px;font-family:var(--font-ui)}
+.poll-question{font-family:var(--font-ui);font-size:12px;text-transform:uppercase;letter-spacing:1px;color:#333;margin-bottom:10px;text-align:center}
+.reblog-header:is(:not(.original)){border-top:1px solid rgba(64,93,39,0.15)}
+.reblog-header img{width:24px;height:24px;border-radius:50%;margin-right:12px;margin-bottom:0!important}
+.reblog-header a{color:{color:Accent};border:none}
+.reblog-header a:hover{color:{color:Text}}
+
+blockquote{padding:10px;margin:10px;border-left:2px solid {color:Accent}}
+blockquote p{padding:0!important}
+.quote-content{font-family:var(--font-title);font-size:26px;font-style:italic;text-align:center;line-height:1.4;color:#333;padding:10px 20px;}
+.quote-source{font-family:var(--font-ui);font-size:10px;text-transform:uppercase;letter-spacing:2px;text-align:center;margin-top:15px;color:#333;}
+p.npf_quote{font-family:var(--font-title);font-size:26px;font-style:italic;text-align:center;line-height:1.4;color:#333;padding:10px 20px;border:none;margin:0;}
+
+p.npf_chat{display:flex;gap:20px;padding:12px 10px;border-bottom:1px solid rgba(64,93,39,0.15);font-family:var(--font-body);font-size:16px;line-height:1.5;margin:0!important}
+p.npf_chat b{font-family:var(--font-ui);font-size:10px;text-transform:uppercase;letter-spacing:2px;color:{color:Accent};flex-shrink:0;min-width:80px;padding-top:3px}
+.link-post-wrapper{text-align:center;padding:20px}
+.link-post-title{display:inline-block;font-size:24px;font-weight:bold;color:{color:Accent};text-decoration:none;position:relative;transition:color .3s ease}
+.link-post-title::after{content:'';position:absolute;width:100%;height:2px;bottom:-2px;left:0;background-color:{color:Text};visibility:hidden;transform:scaleX(0);transition:all .3s ease-in-out}
+.link-post-title:hover{color:{color:Text}}
+.link-post-title:hover::after{visibility:visible;transform:scaleX(1)}
+
+ol.notes{padding:0;margin:30px 0 0 0;list-style-type:none;font-family:var(--font-ui);font-size:10px;text-transform:uppercase;border-top:1px solid #eee;max-height:350px;overflow-y:auto;padding-right:10px}
+ol.notes::-webkit-scrollbar{width:6px}
+ol.notes::-webkit-scrollbar-track{background:transparent}
+ol.notes::-webkit-scrollbar-thumb{background:rgba(64,93,39,0.3);border-radius:4px;border:none}
+ol.notes::-webkit-scrollbar-thumb:hover{background:{color:Accent}}
+ol.notes li.note{padding:10px 0;border-bottom:1px solid #eee;color:#999}
+ol.notes li.note img.avatar{display:none}
+ol.notes li.note a{color:{color:Accent};font-weight:500}
+
+.post-meta{margin-top:25px;padding:15px 8px;border-top:1px solid #f0f0f0;display:flex;justify-content:space-between;align-items:center;flex-wrap:nowrap;width:100%;font-family:var(--font-ui);font-size:9px;text-transform:uppercase;letter-spacing:1px;color:{color:Meta Text}}
+.meta-left{display:flex;align-items:center;flex:1;min-width:0;white-space:nowrap;overflow:hidden;margin-right:15px}
+.meta-left a{color:{color:Accent};text-decoration:none;display:inline-block;vertical-align:bottom;max-width:110px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.meta-left a.date-link{max-width:none;}
+.meta-left a:hover{color:{color:Text}}
+.meta-left span{margin:0 6px;flex-shrink:0;color:#ddd}
+.meta-right{display:flex;align-items:center;gap:15px;flex-shrink:0}
+.meta-controls{display:flex;align-items:center;gap:12px;height:16px;}
+.meta-controls .like_button iframe, .meta-controls .like_button, .meta-controls .reblog_button, .meta-controls .reblog_button svg {width:16px!important;height:16px!important;display:block!important;}
+.meta-controls svg{fill:{color:Meta Text};transition:fill .3s ease;cursor:pointer}
+.meta-controls svg:hover{fill:{color:Accent}}
+.tag-btn{background:none;border:none;font-family:var(--font-ui);font-size:9px;font-weight:600;text-transform:uppercase;letter-spacing:1px;color:{color:Meta Text};cursor:pointer;padding:0;transition:color .3s ease;outline:none}
+.tag-btn:hover, .tag-btn.active{color:{color:Accent}}
+.post-tags{display:none;padding:10px 8px;text-align:right;border-top:1px dashed #f0f0f0}
+.post-tags.show{display:block;animation:fadeIn .3s ease-in-out}
+.post-tags a{display:inline-block;margin-left:8px;color:{color:Meta Text};font-size:9px;font-family:var(--font-ui);text-transform:uppercase;letter-spacing:1px}
+.post-tags a:hover{color:{color:Accent}}
+@keyframes fadeIn{from{opacity:0;transform:translateY(-5px)}to{opacity:1;transform:translateY(0)}}
+.pagination{width:100%;padding:20px 0 80px 0;text-align:center;font-family:var(--font-ui);font-size:11px;text-transform:uppercase;letter-spacing:2px;display:flex;justify-content:center;gap:30px}
+.pagination a{color:{color:Meta Text};border-bottom:1px solid transparent}
+.pagination a:hover{color:{color:Accent};border-bottom:1px solid {color:Accent}}
+.pagination span.current-page{color:{color:Text};font-weight:bold;border-bottom:1px solid {color:Text}}
+#back-to-top{position:fixed;bottom:30px;right:30px;background:{color:Accent};color:#fff;width:40px;height:40px;text-align:center;line-height:40px;cursor:pointer;font-size:20px;opacity:0;transition:opacity .3s ease,background .3s ease;z-index:100;font-family:var(--font-title)}
+#back-to-top.show{opacity:1}
+#back-to-top:hover{background:#000}
+@media screen and (max-width:900px){#container{flex-direction:column}#sidebar{width:100%;height:auto;position:relative;padding:50px 20px;border-right:none;border-bottom:1px solid {color:Accent}}#posts-container{width:100%;margin-left:0}#posts{width:92%;margin-top:40px}#side-drawer{width:100vw;max-width:100vw}}
+figure.tmblr-full:has(audio) audio{display:none!important}
+.custom-audio-player{display:flex;align-items:center;justify-content:space-between;gap:12px;background:#f2f0e6;border:1px solid {color:Accent};border-radius:4px;padding:12px 16px;margin:10px auto;max-width:96%;min-height:60px}
+.custom-audio-player .album-cover-thumb{width:48px;height:48px;object-fit:cover;border-radius:3px;flex-shrink:0;margin:0}
+.custom-audio-player .audio-info{flex:1;display:flex;flex-direction:column;justify-content:center;gap:2px}
+.custom-audio-play-btn{align-self:center;flex-shrink:0}
+.custom-audio-player .audio-title{font-family:var(--font-ui);font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:#333}
+.custom-audio-player .audio-artist{font-family:var(--font-ui);font-size:10px;text-transform:uppercase;letter-spacing:2px;color:{color:Accent}}
+.custom-audio-play-btn{width:36px;height:36px;border-radius:50%;background:{color:Accent};border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:background .2s ease}
+.custom-audio-play-btn:hover{background:#333}
+.custom-audio-play-btn svg{fill:#f2f0e6;width:14px;height:14px;margin-left:2px}
+.custom-audio-play-btn.playing svg{margin-left:0}
+.caption a,.reblog-content a,.ask-content a{border-bottom:1px solid currentColor;text-decoration:none}
+.caption a:hover,.reblog-content a:hover,.ask-content a:hover{opacity:.7}
+.nav-item,.meta-left a,.reblog-header a,.post-tags a,.post-meta a{border-bottom:none!important;text-decoration:none!important}
+{CustomCSS}
+</style>
+</head>
+<body class="{block:homepage}home{/block:homepage}{block:tagpage}tag{/block:tagpage}{block:searchpage}search{/block:searchpage}{block:submitpage}submit-{/block:submitpage}{block:AskPage}ask{/block:AskPage}-page">
+
+<a href="https://whereinmnl.tumblr.com" target="_blank" class="whereinmnl-branding" data-tooltip="theme by whereinmnl">W</a>
+
+<div id="drawer-overlay"></div>
+
+<div id="side-drawer" role="dialog" aria-modal="true" aria-label="Navigation drawer">
+    <button id="drawer-close" aria-label="Close drawer">&#10005; Close</button>
+    <div id="drawer-label">Navigation</div>
+    <h2 id="drawer-title">Menu</h2>
+    <div id="drawer-content"></div>
+</div>
+
+<div id="container">
+
+    <aside id="sidebar">
+        <div id="sidebar-image">
+            <a href="/">
+                {block:IfSidebarImage}
+                    <img src="{image:Sidebar}" alt="Profile" id="parallax-img">
+                {/block:IfSidebarImage}
+                {block:IfNotSidebarImage}
+                    <img src="{PortraitURL-128}" alt="Profile" id="parallax-img">
+                {/block:IfNotSidebarImage}
+            </a>
+        </div>
+
+        <h1 class="blog-title"><a href="/">{Title}</a></h1>
+        <div class="description">{Description}</div>
+
+        <div class="nav-wrapper-generic" id="nav-wrapper">
+            <div class="nav-track-generic" id="nav-track">
+                <div class="nav-line-generic" id="nav-track-line"></div>
+                <div class="nav-dot-generic" id="nav-track-dot"></div>
+            </div>
+            <nav class="nav-links-generic" id="nav-links">
+                <a href="/" class="nav-item" data-nav="home">Home</a>
+                {block:IfShowArchiveLink}<a href="/archive" class="nav-item" data-nav="archive">Archive</a>{/block:IfShowArchiveLink}
+                <span class="nav-item drawer-trigger" data-drawer="about" role="button" tabindex="0">About</span>
+                <span class="nav-item drawer-trigger" data-drawer="askfaq" role="button" tabindex="0">Ask / FAQ</span>
+                <span class="nav-item drawer-trigger" data-drawer="links" role="button" tabindex="0">More Links</span>
+                {block:HasPages}{block:Pages}<a href="{URL}" class="nav-item" data-nav="page">{Label}</a>{/block:Pages}{/block:HasPages}
+            </nav>
+        </div>
+    </aside>
+
+    <div id="posts-container">
+        <main id="posts">
+            {block:Posts}
+            <article id="post-{PostID}" class="post {PostType}-post npf-post">
+
+                {block:Photo}<div class="legacy-photo"><img src="{PhotoURL-HighRes}" alt="{photoalt}" class="photos"></div>{/block:Photo}
+                {block:Photoset}<div class="legacy-photoset">{Photoset}</div>{/block:Photoset}
+                {block:Panorama}<div class="legacy-photo"><img src="{photourl-panorama}" alt="{photoalt}"></div>{/block:Panorama}
+                {block:Video}<div class="video-container">{Video-700}</div>{/block:Video}
+                {block:Audio}{audioembed}{/block:Audio} 
+                
+                <div class="caption {block:notreblog} original-post {/block:notreblog}">
+                    
+                    {block:Quote}
+                        <div class="quote-content">{Quote}</div>
+                        {block:Source}<div class="quote-source">&mdash; {Source}</div>{/block:Source}
+                    {/block:Quote}
+                    
+                    {block:Chat}
+                        {block:Title}<h2 class="post-title">{Title}</h2>{/block:Title}
+                        <div class="chat-lines">
+                            {block:Lines}
+                                <div class="line {Alt}">
+                                    {block:Label}<span class="label">{Label}</span>{/block:Label} 
+                                    <span class="chat-text">{Line}</span>
+                                </div>
+                            {/block:Lines}
+                        </div>
+                    {/block:Chat}
+                    
+                    {block:link}
+                        <div class="link-post-wrapper">
+                            <a href="{URL}" target="_blank" class="link-post-title">{Name}</a>
+                        </div>
+                        {block:Description}<div class="caption" style="text-align:center;">{Description}</div>{/block:Description}
+                    {/block:link}
+                    
+                    {block:Answer}
+                    <div class="ask-layout">
+                        <div class="ask-row asker-row">
+                            <img src="{AskerPortraitURL-64}" class="ask-avatar" alt="">
+                            <div class="ask-bubble">
+                                <div class="ask-header">{Asker} asked</div>
+                                <div class="ask-content">{Question}</div>
+                            </div>
+                        </div>
+                        
+                        {block:Answerer}
+                        <div class="ask-row answerer-row">
+                            <div class="ask-bubble">
+                                <div class="ask-header">{Answerer} answered</div>
+                                <div class="ask-content">{Answer}</div>
+                            </div>
+                            <img src="{AnswererPortraitURL-64}" class="ask-avatar" alt="">
+                        </div>
+                        {/block:Answerer}
+                        
+                        {block:NotReblog}
+                        <div class="ask-row answerer-row">
+                            <div class="ask-bubble">
+                                <div class="ask-content">{Replies}</div>
+                            </div>
+                            <img src="{PortraitURL-64}" class="ask-avatar" alt="">
+                        </div>
+                        {/block:NotReblog}
+                    </div>
+                    {/block:Answer}
+
+                    {block:Text}{block:Title}<h2 class="post-title"><a href="{Permalink}">{Title}</a></h2>{/block:Title}{/block:Text}
+                    {block:notreblog}{block:caption}{Caption}{/block:caption}{block:Text}{body}{/block:Text}{/block:notreblog}
+                    
+                    {block:Rebloggedfrom}
+                        {block:Reblogs}
+                        <div class="reblogs">
+                            <div class="reblog-header {block:IsOriginalEntry}original{/block:IsOriginalEntry} flex align-center">
+                                <a href="{permalink}" target="_blank"><img src="{PortraitURL-64}" alt="{username}'s avatar"></a>
+                                <a href="{permalink}" target="_blank" {block:isdeactivated}class="inactive"{/block:isdeactivated}>{username}</a>
+                            </div>
+                            <div class="reblog-content">{Body}</div>
+                        </div>
+                        {/block:Reblogs}
+                    {/block:RebloggedFrom}
+                </div>
+
+                <div class="post-meta">
+                    <div class="meta-left">
+                        <a href="{Permalink}" class="date-link">{DayOfWeek}, {Month} {DayOfMonth} {Year} at {12Hour}:{Minutes} {AmPm}</a>
+                        <span>/</span>
+                        <a href="{Permalink}">{NoteCountWithLabel}</a>
+                        {block:RebloggedFrom}
+                            <span>/</span>
+                            <a href="{ReblogParentURL}" title="Via {ReblogParentName}">Via {ReblogParentName}</a>
+                            <span>/</span>
+                            <a href="{ReblogRootURL}" title="Source {ReblogRootName}">Src {ReblogRootName}</a>
+                        {/block:RebloggedFrom}
+                    </div>
+                    <div class="meta-right">
+                        {block:HasTags}<button class="tag-btn" title="Toggle Tags">Tags</button>{/block:HasTags}
+                        <div class="meta-controls">
+                            {LikeButton size="16"}
+                            {ReblogButton size="16"}
+                        </div>
+                    </div>
+                </div>
+
+                {block:HasTags}
+                <div class="post-tags">
+                    {block:Tags}<a href="{TagURL}">#{Tag}</a>{/block:Tags}
+                </div>
+                {/block:HasTags}
+
+                {block:PermalinkPage}
+                    {block:PostNotes}{PostNotes}{/block:PostNotes}
+                {/block:PermalinkPage}
+
+            </article>
+            {/block:Posts}
+
+            {block:Pagination}
+            <nav class="pagination">
+                {block:PreviousPage}<a href="{PreviousPage}" class="prev-page">&larr; Newer</a>{/block:PreviousPage}
+                {block:JumpPagination length="5"}
+                    {block:CurrentPage}<span class="current-page">{PageNumber}</span>{/block:CurrentPage}
+                    {block:JumpPage}<a class="jump-page" href="{URL}">{PageNumber}</a>{/block:JumpPage}
+                {/block:JumpPagination}
+                {block:NextPage}<a href="{NextPage}" class="next-page">Older &rarr;</a>{/block:NextPage}
+            </nav>
+            {/block:Pagination}
+
+        </main>
+    </div>
+
+</div>
+
+<div id="back-to-top" onclick="window.scrollTo({top: 0, behavior: 'smooth'});">&uarr;</div>
+
+<script type="text/template" id="tpl-about">
+  <div class="about-wrapper">
+      <img src="{PortraitURL-128}" alt="Profile" class="drawer-about-img animate-up">
+      <div class="about-text-content">
+          <div class="about-box animate-up delay-1">
+              <strong>{text:About Title}</strong>
+              <p>{text:About Text 1}</p>
+          </div>
+          <div class="about-box animate-up delay-2">
+              <p>{text:About Text 2}</p>
+          </div>
+      </div>
+  </div>
+</script>
+
+<script type="text/template" id="tpl-askfaq">
+  <iframe frameborder="0" scrolling="no" width="100%" height="190" src="/ask_form" id="ask_form" style="background:{color:Post Background};border-radius:6px;border:1px solid rgba(0,0,0,0.05);margin-bottom:20px;box-shadow:2px 2px 0 rgba(64,93,39,0.1);"></iframe>
+  <div class="accordion">
+    {block:IfFAQQuestion1}<details><summary>{text:FAQ Question 1}</summary><div class="faq-ans">{text:FAQ Answer 1}</div></details>{/block:IfFAQQuestion1}
+    {block:IfFAQQuestion2}<details><summary>{text:FAQ Question 2}</summary><div class="faq-ans">{text:FAQ Answer 2}</div></details>{/block:IfFAQQuestion2}
+    {block:IfFAQQuestion3}<details><summary>{text:FAQ Question 3}</summary><div class="faq-ans">{text:FAQ Answer 3}</div></details>{/block:IfFAQQuestion3}
+    {block:IfFAQQuestion4}<details><summary>{text:FAQ Question 4}</summary><div class="faq-ans">{text:FAQ Answer 4}</div></details>{/block:IfFAQQuestion4}
+    {block:IfFAQQuestion5}<details><summary>{text:FAQ Question 5}</summary><div class="faq-ans">{text:FAQ Answer 5}</div></details>{/block:IfFAQQuestion5}
+  </div>
+</script>
+
+<script type="text/template" id="tpl-links">
+  <div class="drawer-links-desc">{text:Links Description}</div>
+  <div class="links-grid">
+        {block:IfCustomLink1Title}<a href="{text:Custom Link 1 URL}" class="drawer-nav-item">{text:Custom Link 1 Title}</a>{/block:IfCustomLink1Title}
+        {block:IfCustomLink2Title}<a href="{text:Custom Link 2 URL}" class="drawer-nav-item">{text:Custom Link 2 Title}</a>{/block:IfCustomLink2Title}
+        {block:IfCustomLink3Title}<a href="{text:Custom Link 3 URL}" class="drawer-nav-item">{text:Custom Link 3 Title}</a>{/block:IfCustomLink3Title}
+        {block:IfCustomLink4Title}<a href="{text:Custom Link 4 URL}" class="drawer-nav-item">{text:Custom Link 4 Title}</a>{/block:IfCustomLink4Title}
+        {block:IfCustomLink5Title}<a href="{text:Custom Link 5 URL}" class="drawer-nav-item">{text:Custom Link 5 Title}</a>{/block:IfCustomLink5Title}
+        {block:IfCustomLink6Title}<a href="{text:Custom Link 6 URL}" class="drawer-nav-item">{text:Custom Link 6 Title}</a>{/block:IfCustomLink6Title}
+        {block:IfCustomLink7Title}<a href="{text:Custom Link 7 URL}" class="drawer-nav-item">{text:Custom Link 7 Title}</a>{/block:IfCustomLink7Title}
+        {block:IfCustomLink8Title}<a href="{text:Custom Link 8 URL}" class="drawer-nav-item">{text:Custom Link 8 Title}</a>{/block:IfCustomLink8Title}
+        {block:IfCustomLink9Title}<a href="{text:Custom Link 9 URL}" class="drawer-nav-item">{text:Custom Link 9 Title}</a>{/block:IfCustomLink9Title}
+        {block:IfCustomLink10Title}<a href="{text:Custom Link 10 URL}" class="drawer-nav-item">{text:Custom Link 10 Title}</a>{/block:IfCustomLink10Title}
+  </div>
+</script>
+
+<script>
+document.addEventListener("DOMContentLoaded",function(){
+    document.querySelectorAll('.tag-btn').forEach(btn => {
+        btn.addEventListener('click', function(e) {
+            e.preventDefault();
+            const tagsDiv = this.closest('article').querySelector('.post-tags');
+            if (tagsDiv) {
+                tagsDiv.classList.toggle('show');
+                this.classList.toggle('active');
+            }
+        });
+    });
+
+    const posts=document.querySelectorAll(".post");
+    const observer=new IntersectionObserver((entries)=>{entries.forEach(entry=>{if(entry.isIntersecting)entry.target.classList.add("visible");});},{threshold:0.1});
+    posts.forEach(post=>observer.observe(post));
+    const backToTopBtn=document.getElementById("back-to-top");
+    window.addEventListener("scroll",()=>{backToTopBtn.classList.toggle("show",window.scrollY>300);});
+    const sidebarImg=document.getElementById("parallax-img");
+    if(sidebarImg){document.addEventListener("mousemove",(e)=>{const x=(window.innerWidth-e.pageX*2)/50;const y=(window.innerHeight-e.pageY*2)/50;sidebarImg.style.transform=`translateX(${x}px) translateY(${y}px)`;});}
+    const navItems=document.querySelectorAll("#nav-links .nav-item");
+    const dot=document.getElementById("nav-track-dot");
+    const trackLine=document.getElementById("nav-track-line");
+    function moveDotTo(el, d, container){if(!el||!d)return;const cRect=container.getBoundingClientRect();const eRect=el.getBoundingClientRect();d.style.top=(eRect.top-cRect.top+eRect.height/2-4)+"px";}
+    function syncTrackHeight(){if(!trackLine||!document.getElementById("nav-links"))return;trackLine.style.height=document.getElementById("nav-links").offsetHeight+"px";}
+    syncTrackHeight();
+    window.addEventListener("resize",syncTrackHeight);
+    const firstNavItem=document.querySelector("#nav-links .nav-item:not(.drawer-trigger)");
+    if(firstNavItem){setTimeout(()=>moveDotTo(firstNavItem,dot,document.getElementById("nav-links")),100);}
+    navItems.forEach(item=>{item.addEventListener("mouseenter",()=>moveDotTo(item,dot,document.getElementById("nav-links")));});
+    document.getElementById("nav-links").addEventListener("mouseleave",()=>{const active=document.querySelector("#nav-links .nav-item.active")||firstNavItem;if(active)moveDotTo(active,dot,document.getElementById("nav-links"));});
+    const drawer=document.getElementById("side-drawer"),drawerOverlay=document.getElementById("drawer-overlay"),drawerTitle=document.getElementById("drawer-title"),drawerLabel=document.getElementById("drawer-label"),drawerContent=document.getElementById("drawer-content"),drawerClose=document.getElementById("drawer-close");
+    const drawerTitles={about:"About me",askfaq:"Ask & FAQ",links:"More Places"};
+    const drawerLabels={about:"Introduction",askfaq:"Get in touch / Info",links:"Find me elsewhere"};
+    function openDrawer(type){
+        const tpl=document.getElementById("tpl-"+type);if(!tpl)return;
+        drawerTitle.textContent=drawerTitles[type]||"Menu";drawerLabel.textContent=drawerLabels[type]||"Navigation";drawerContent.innerHTML=tpl.innerHTML;
+        drawer.classList.add("open");drawerOverlay.classList.add("open");document.body.style.overflow="hidden";drawerClose.focus();
+    }
+    function closeDrawer(){drawer.classList.remove("open");drawerOverlay.classList.remove("open");document.body.style.overflow="";}
+    document.querySelectorAll(".drawer-trigger").forEach(trigger=>{trigger.addEventListener("click",()=>openDrawer(trigger.dataset.drawer));trigger.addEventListener("keydown",(e)=>{if(e.key==="Enter"||e.key===" "){e.preventDefault();openDrawer(trigger.dataset.drawer);}});});
+    drawerClose.addEventListener("click",closeDrawer);drawerOverlay.addEventListener("click",closeDrawer);document.addEventListener("keydown",(e)=>{if(e.key==="Escape")closeDrawer();});
+});
+</script>
+
+<script>
+for(const p of document.querySelectorAll('p')){if(p.innerHTML.trim()===''){p.remove()}}
+let posts=[]
+{block:Posts}posts.push({npf:JSON.parse('{JSNPF}'),id:'{JSPostId}'}){/block:Posts}
+function updateTypes(type,article){article.classList.remove('text-post');article.classList.add(`${type}-post`,'npf-post');}
+for(const post of posts){
+   if(!post.npf)continue;let npf=post.npf;let article=document.getElementById(`post-${post.id}`);if(!article)continue;
+   let caption=article.querySelector('.caption:is(:not(:empty))');
+   if(caption!=null&&article.classList.contains('text-post')){
+      if(npf.trail?.length||npf.content?.length){
+         switch(npf.trail[0]?.content[0]?.type??npf.content[0]?.type){
+            case 'image':updateTypes('photos',article);if(article.querySelector('.npf_row')==null){caption.prepend(article.querySelector('figure'));}break;
+            case 'video':updateTypes('video',article);let video=article.querySelector('figure');if(video)caption.prepend(video);break;
+            case 'link':updateTypes('link',article);break;
+            case 'audio':updateTypes('audio',article);break;
+            case 'quote':updateTypes('quote',article);
+         }
+         if(article.classList.contains('photos-post')){
+            let photoset=document.createElement('div');photoset.classList.add('npf-photos');caption.prepend(photoset);
+            let photoBreak=article.querySelector('.reblog-content p, .reblog-content h1, .reblog-content h2');let elements=[];
+            if(photoBreak){let prevElement=photoBreak.parentNode.firstElementChild;while(prevElement!==photoBreak&&prevElement){elements.push(prevElement);prevElement=prevElement.nextElementSibling;}}
+            else{elements=article.querySelectorAll('.npf_row');}
+            for(const el of elements){if(el)photoset.append(el);}
+            if(article.querySelectorAll('.npf_row').length>1){updateTypes('photoset',article);}else{updateTypes('photo',article);}
+         }
+         let reblogHeader=article.querySelector('.reblog-header');let reblogContent=article.querySelector('.reblog-content');
+         if(reblogHeader?.nextElementSibling===reblogContent&&reblogContent?.childElementCount===0){reblogHeader.remove();reblogContent.remove();}
+      }
+   }
+}
+</script>
+
+<script>
+document.addEventListener("DOMContentLoaded",function(){
+    document.querySelectorAll('figure.tmblr-full').forEach(function(fig){
+        var audio=fig.querySelector('audio');if(!audio)return;
+        var titleEl=fig.querySelector('.tmblr-audio-meta.title');var artistEl=fig.querySelector('.tmblr-audio-meta.artist');var coverEl=fig.querySelector('.album-cover');
+        var title=titleEl?titleEl.textContent:'';var artist=artistEl?artistEl.textContent:'';var coverSrc=coverEl?coverEl.src:'';
+        var player=document.createElement('div');player.className='custom-audio-player';
+        player.innerHTML=(coverSrc?'<img class="album-cover-thumb" src="'+coverSrc+'" alt="cover">':'')+'<div class="audio-info"><span class="audio-title">'+title+'</span><span class="audio-artist">'+artist+'</span></div><button class="custom-audio-play-btn" aria-label="Play"><svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg></button>';
+        var btn=player.querySelector('.custom-audio-play-btn');
+        btn.addEventListener('click',function(){
+            if(audio.paused){
+                document.querySelectorAll('.post-audio').forEach(function(a){
+                    if(a!==audio){a.pause();var b=a._playerBtn;if(b){b.classList.remove('playing');b.innerHTML='<svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg>';b.setAttribute('aria-label','Play');}}
+                });audio.play();
+            }else{audio.pause();}
+        });
+        audio.classList.add('post-audio');audio._playerBtn=btn;
+        audio.addEventListener('play',function(){btn.classList.add('playing');btn.innerHTML='<svg viewBox="0 0 24 24"><rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/></svg>';btn.setAttribute('aria-label','Pause');});
+        audio.addEventListener('pause',function(){btn.classList.remove('playing');btn.innerHTML='<svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg>';btn.setAttribute('aria-label','Play');});
+        fig.innerHTML='';fig.appendChild(audio);fig.appendChild(player);
+    });
+});
+</script>
+
+</body>
+</html>
