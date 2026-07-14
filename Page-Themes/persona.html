@@ -1,0 +1,1127 @@
+<!----------------------------------------------------
+PERSONA THEME by RELA OF whereinMNL - 14 JULY 2026
+
+Do Not Remove Credit: Please keep the credit in the footer visible. It helps me grow!
+Personal Use Only: Do not resell, redistribute, or claim the code as your own.
+Base Coding: Do not use my themes as a "base" for a release.
+Customization: Feel free to change colors/fonts! Just keep the credit link.
+No Re-hosting: Always link back to the original blog post.
+----------------------------------------------------->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>P E R S O N A | Ghibli Directory</title>
+<style>
+  :root {
+    --bg-color: #F3F1F6; 
+    --card-bg: #FFFFFF; 
+    --text-main: #3C3642; 
+    --accent-violet: #B8A8C9; 
+    --accent-violet-dark: #8E7FA1; 
+    --font-serif: 'Playfair Display', 'Times New Roman', serif;
+    --font-sans: 'Inter', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  }
+
+  body {
+    background-color: var(--bg-color);
+    color: var(--text-main);
+    margin: 0;
+    padding: 30px 20px 60px 20px; 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: url('https://static.tumblr.com/obptcxj/QvHmo0l0g/cursor__6_.png'), auto;
+  }
+
+  a, label, input, button, .close-btn {
+    cursor: url('https://static.tumblr.com/obptcxj/QvHmo0l0g/cursor__6_.png'), pointer !important;
+  }
+
+  ::-webkit-scrollbar {
+    width: 12px; 
+  }
+
+  ::-webkit-scrollbar-track {
+    background: var(--bg-color); 
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background-color: var(--accent-violet); 
+    border-radius: 20px; 
+    border: 3px solid var(--bg-color); 
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background-color: var(--accent-violet-dark); 
+  }
+  
+  ::selection {
+    background-color: var(--accent-violet);
+    color: var(--card-bg);
+  }
+  ::-moz-selection {
+    background-color: var(--accent-violet);
+    color: var(--card-bg);
+  }
+
+  input[name="dir-filter"] { display: none; }
+
+  #filter-active:checked ~ .directory-container .status-hiatus { display: none; }
+  #filter-hiatus:checked ~ .directory-container .status-active { display: none; }
+
+  #filter-all:checked ~ .directory-container .filter-menu label[for="filter-all"],
+  #filter-active:checked ~ .directory-container .filter-menu label[for="filter-active"],
+  #filter-hiatus:checked ~ .directory-container .filter-menu label[for="filter-hiatus"] {
+    background: var(--accent-violet-dark);
+    color: var(--card-bg);
+    box-shadow: 0px 0px 0px rgba(0,0,0,0.15);
+    top: 2px; left: 2px;
+    border-color: var(--accent-violet-dark);
+  }
+
+  .directory-container {
+    max-width: 1000px;
+    width: 100%;
+  }
+
+  .directory-header {
+    display: grid;
+    grid-template-columns: 2fr 1fr; 
+    gap: 15px;
+    margin-bottom: 25px;
+  }
+
+  .persona-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+  }
+
+  @keyframes floatUp {
+    0% { opacity: 0; top: 25px; }
+    100% { opacity: 1; top: 0; }
+  }
+
+  .intro-card {
+    background: var(--accent-violet); 
+    border: 1px solid var(--accent-violet-dark);
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start; 
+    text-align: left;
+    padding: 25px 30px;
+    position: relative;
+    top: 0;
+    opacity: 0;
+    animation: floatUp 0.6s ease forwards;
+    animation-delay: 0.1s;
+  }
+
+  .intro-card h1 {
+    font-family: var(--font-serif);
+    font-size: 2.2rem; 
+    font-style: italic;
+    color: var(--card-bg); 
+    margin: 0 0 10px 0;
+    letter-spacing: 3px;
+    line-height: 1;
+  }
+
+  .intro-card h1::after {
+    content: ' ✦';
+    font-size: 1.2rem;
+    color: var(--card-bg);
+    opacity: 0.8;
+  }
+
+  .intro-card p {
+    font-family: var(--font-sans);
+    font-size: 0.65rem; 
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    line-height: 1.6; 
+    color: var(--card-bg);
+    opacity: 0.95;
+    margin: 0;
+    max-width: 90%;
+  }
+
+  .filter-card {
+    background: var(--card-bg);
+    border: 1px solid var(--accent-violet-dark);
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 15px; 
+    gap: 12px; 
+    position: relative;
+    top: 0;
+    opacity: 0;
+    animation: floatUp 0.6s ease forwards;
+    animation-delay: 0.2s;
+  }
+
+  .filter-card h3 {
+    margin: 0;
+    font-family: var(--font-serif);
+    font-size: 1.2rem; 
+    font-style: italic;
+    color: var(--accent-violet-dark);
+  }
+
+  .filter-menu {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .filter-label {
+    background: var(--card-bg);
+    border: 1px solid var(--accent-violet-dark);
+    padding: 8px 12px; 
+    border-radius: 20px; 
+    font-family: var(--font-sans);
+    font-size: 0.6rem;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: var(--accent-violet-dark);
+    font-weight: 600;
+    transition: all 0.2s ease;
+    box-shadow: 2px 2px 0px rgba(0,0,0,0.15);
+    position: relative;
+    top: 0; left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .filter-label:hover {
+    top: -1px; left: -1px;
+    box-shadow: 3px 3px 0px rgba(0,0,0,0.15);
+  }
+
+  .filter-label::before {
+    content: attr(data-tooltip);
+    position: absolute;
+    top: calc(100% + 10px); 
+    left: 50%;
+    transform: translateX(-50%) translateY(-5px);
+    background: var(--accent-violet-dark);
+    color: var(--card-bg);
+    font-family: var(--font-sans);
+    font-size: 0.55rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    padding: 4px 8px;
+    border-radius: 12px;
+    white-space: nowrap;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s;
+    z-index: 10;
+    pointer-events: none;
+  }
+
+  .filter-label:hover::before {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(0px);
+  }
+
+  @media (max-width: 768px) {
+    .directory-header { grid-template-columns: 1fr; }
+  }
+
+  .id-card {
+    background-color: var(--card-bg);
+    border: 1px solid var(--accent-violet);
+    padding: 15px;
+    display: flex;
+    gap: 15px;
+    position: relative;
+    top: 0; 
+    left: 0;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+    box-shadow: 2px 2px 0px var(--accent-violet);
+    opacity: 0;
+    animation: floatUp 0.6s ease forwards;
+    z-index: 1; 
+  }
+
+  .id-card:has(.popup-toggle:checked) {
+    z-index: 99999;
+  }
+
+  .persona-grid .id-card:nth-child(1) { animation-delay: 0.3s; }
+  .persona-grid .id-card:nth-child(2) { animation-delay: 0.4s; }
+  .persona-grid .id-card:nth-child(3) { animation-delay: 0.5s; }
+  .persona-grid .id-card:nth-child(4) { animation-delay: 0.6s; }
+  .persona-grid .id-card:nth-child(5) { animation-delay: 0.7s; }
+  .persona-grid .id-card:nth-child(6) { animation-delay: 0.8s; }
+
+  .persona-grid .id-card:hover {
+    top: -2px; 
+    left: -2px;
+    box-shadow: 4px 4px 0px var(--accent-violet);
+  }
+
+  .photo-wrapper {
+    width: 90px;
+    height: 120px;
+    flex-shrink: 0;
+    border-radius: 2px;
+    border: 1px solid var(--accent-violet);
+    overflow: hidden; 
+  }
+
+  .id-photo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: sepia(20%) contrast(90%) brightness(105%); 
+    transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94), filter 0.5s ease;
+  }
+
+  .id-card:hover .id-photo {
+    filter: sepia(0%) contrast(105%) brightness(100%);
+    transform: scale(1.1);
+  }
+
+  .id-details {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .id-verse {
+    font-family: var(--font-sans);
+    font-size: 0.6rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--accent-violet-dark);
+    margin-bottom: 3px;
+    font-weight: 600;
+  }
+
+  .id-name {
+    font-family: var(--font-serif);
+    font-size: 1.4rem;
+    font-weight: normal;
+    font-style: italic;
+    margin: 0 0 6px 0;
+    line-height: 1.1;
+    color: var(--text-main);
+  }
+
+  .id-role {
+    font-family: var(--font-sans);
+    font-size: 0.65rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border-bottom: 1px solid var(--accent-violet);
+    padding-bottom: 6px;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: var(--text-main);
+  }
+
+  .id-desc {
+    font-family: var(--font-sans);
+    font-size: 0.75rem;
+    line-height: 1.4;
+    color: var(--text-main);
+    flex-grow: 1;
+    opacity: 0.9;
+  }
+
+  .card-actions {
+    display: flex;
+    gap: 8px;
+    margin-top: 10px;
+  }
+
+  .action-btn {
+    font-family: var(--font-sans);
+    font-size: 0.6rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    text-decoration: none;
+    color: var(--accent-violet-dark);
+    border: 1px solid var(--accent-violet);
+    padding: 5px 8px;
+    border-radius: 3px;
+    transition: all 0.2s ease;
+    text-align: center;
+    flex: 1;
+    background: transparent;
+  }
+
+  .action-btn:hover {
+    background-color: var(--accent-violet);
+    color: var(--card-bg);
+  }
+
+  .id-auth-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: var(--font-sans);
+    font-size: 0.65rem;
+    letter-spacing: 1px;
+    margin-top: 10px;
+    padding-top: 8px;
+    border-top: 1px dashed var(--accent-violet);
+  }
+
+  .card-url {
+    color: var(--accent-violet-dark);
+    text-decoration: none;
+    text-transform: lowercase;
+    transition: all 0.2s ease;
+  }
+
+  .card-url:hover {
+    color: var(--text-main);
+    text-decoration: underline;
+    text-decoration-style: dashed;
+  }
+
+  .card-status {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    color: var(--accent-violet);
+    text-transform: uppercase;
+    font-size: 0.55rem;
+    font-weight: 600;
+  }
+
+  .status-dot {
+    width: 6px;
+    height: 6px;
+    background-color: #A3D9A5; 
+    border-radius: 50%;
+  }
+  
+  .status-dot.hiatus {
+    background-color: #F4C4C4;
+  }
+
+  .popup-toggle { display: none; }
+  
+  .popup-overlay {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100vw; height: 100vh;
+    background-color: rgba(60, 54, 66, 0.4); 
+    backdrop-filter: blur(6px);
+    z-index: 99999; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+  }
+  
+  .popup-toggle:checked ~ .popup-overlay { opacity: 1; visibility: visible; }
+
+  .overlay-close {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    z-index: 1;
+  }
+  
+  .popup-content {
+    background: #FFFFFF;
+    padding: 40px 35px;
+    border-radius: 24px;
+    border: 2px dashed var(--accent-violet);
+    max-width: 420px;
+    width: 85%;
+    max-height: 75vh;
+    overflow-y: auto; 
+    position: relative;
+    z-index: 2; 
+    box-shadow: 0px 15px 40px rgba(184, 168, 201, 0.3), inset 0 0 0 6px var(--bg-color);
+    transform: translateY(30px) scale(0.9);
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    text-align: center; 
+  }
+
+  .popup-content::-webkit-scrollbar {
+    width: 6px;
+  }
+  .popup-content::-webkit-scrollbar-track {
+    background: transparent;
+    margin: 20px 0;
+  }
+  .popup-content::-webkit-scrollbar-thumb {
+    background-color: var(--accent-violet);
+    border-radius: 10px;
+  }
+  
+  .popup-toggle:checked ~ .popup-overlay .popup-content { transform: translateY(0) scale(1); }
+  
+  .popup-content h3 {
+    font-family: var(--font-serif);
+    font-style: italic;
+    font-size: 1.8rem;
+    color: var(--accent-violet-dark);
+    margin-top: 0;
+    margin-bottom: 15px;
+  }
+
+  .popup-content p {
+    font-family: var(--font-sans);
+    font-size: 0.85rem;
+    line-height: 1.6;
+    color: var(--text-main);
+  }
+
+  .id-card .close-btn {
+    position: absolute;
+    top: 10px; right: 15px; 
+    width: 30px; height: 30px; 
+    background-color: var(--accent-violet); 
+    border: none; 
+    border-radius: 50%;
+    display: flex; justify-content: center; align-items: center;
+    font-size: 1.1rem; color: var(--card-bg); 
+    box-shadow: 0 4px 10px rgba(184, 168, 201, 0.5); 
+    transition: all 0.2s ease;
+    cursor: pointer;
+    z-index: 10;
+  }
+  
+  .id-card .close-btn:hover { 
+    background-color: var(--accent-violet-dark); 
+    transform: rotate(90deg) scale(1.1); 
+  }
+
+  .id-card .connections-wrapper {
+    margin-top: 25px;
+    padding-top: 20px;
+    border-top: 1px dashed var(--accent-violet);
+  }
+
+  .id-card .connections-title {
+    font-family: var(--font-serif);
+    font-size: 1.2rem;
+    font-style: italic;
+    color: var(--accent-violet-dark);
+    margin-bottom: 15px;
+  }
+
+  .id-card .connections-grid {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+
+  .id-card .connection-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+  }
+
+  .id-card .connection-img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: 2px solid var(--card-bg);
+    box-shadow: 0 0 0 1px var(--accent-violet);
+    object-fit: cover;
+    transition: transform 0.2s ease;
+  }
+
+  .id-card .connection-item:hover .connection-img {
+    transform: translateY(-3px);
+  }
+
+  .id-card .connection-label {
+    font-family: var(--font-sans);
+    font-size: 0.5rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--text-main);
+    font-weight: 600;
+  }
+
+  .id-card .connection-name {
+    font-family: var(--font-sans);
+    font-size: 0.55rem;
+    color: var(--accent-violet-dark);
+  }
+
+  .main-nav-toggle { display: none; }
+  
+  .main-nav-btn {
+    position: fixed;
+    bottom: 30px; 
+    left: 30px;
+    width: 50px; 
+    height: 50px; 
+    background-color: var(--accent-violet); 
+    color: var(--card-bg);
+    border: none; 
+    border-radius: 50%;
+    display: flex; 
+    justify-content: center; 
+    align-items: center;
+    font-size: 1.6rem;
+    box-shadow: 3px 3px 0px var(--accent-violet-dark); 
+    transition: all 0.2s ease;
+    z-index: 1000;
+  }
+  
+  .main-nav-btn:hover { transform: translate(-2px, -2px); background-color: var(--accent-violet-dark); }
+  
+  .main-nav-panel {
+    position: fixed;
+    bottom: 90px; 
+    left: 30px;
+    background: var(--card-bg);
+    border: 1px solid var(--accent-violet);
+    padding: 12px; border-radius: 16px;
+    box-shadow: 4px 4px 0px var(--accent-violet);
+    display: flex; flex-direction: column; gap: 10px;
+    opacity: 0; visibility: hidden;
+    transform: translateY(15px) scale(0.9);
+    transform-origin: bottom left; 
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    z-index: 999;
+  }
+  
+  .main-nav-toggle:checked ~ .main-nav-panel { opacity: 1; visibility: visible; transform: translateY(0) scale(1); }
+  
+  .main-nav-panel a {
+    text-decoration: none; 
+    color: var(--accent-violet-dark);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px; height: 40px;
+    border-radius: 10px;
+    background: var(--bg-color);
+    transition: all 0.2s ease;
+    position: relative;
+  }
+
+  .main-nav-panel a svg { width: 20px; height: 20px; }
+  .main-nav-panel a:hover { background: var(--accent-violet); color: var(--card-bg); }
+
+  .main-nav-panel a::after {
+    content: attr(data-tooltip);
+    position: absolute;
+    left: 55px;
+    background-color: var(--accent-violet-dark);
+    color: var(--card-bg);
+    font-family: var(--font-sans);
+    font-size: 0.65rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    padding: 6px 10px;
+    border-radius: 6px;
+    white-space: nowrap;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateX(-10px);
+    transition: all 0.2s ease;
+    pointer-events: none;
+    box-shadow: 2px 2px 0px rgba(0,0,0,0.05);
+  }
+
+  .main-nav-panel a:hover::after {
+    opacity: 1; visibility: visible; transform: translateX(0);
+  }
+
+  .theme-credit {
+    position: fixed; bottom: 25px; right: 30px;
+    color: var(--accent-violet-dark);
+    font-family: var(--font-serif); font-style: italic;
+    font-size: 1.5rem; text-decoration: none;
+    transition: all 0.3s ease; z-index: 1000;
+  }
+  .theme-credit:hover { transform: translateY(-3px); color: var(--text-main); }
+  
+  .theme-credit::after {
+    content: attr(data-tooltip);
+    position: absolute;
+    right: 35px;
+    top: 50%;
+    transform: translateY(-50%) translateX(10px);
+    background-color: var(--accent-violet-dark);
+    color: var(--card-bg);
+    font-family: var(--font-sans);
+    font-size: 0.65rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    padding: 6px 10px;
+    border-radius: 6px;
+    white-space: nowrap;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.2s ease;
+    pointer-events: none;
+    box-shadow: 2px 2px 0px rgba(0,0,0,0.05);
+  }
+
+  .theme-credit:hover::after {
+    opacity: 1; visibility: visible; transform: translateY(-50%) translateX(0);
+  }
+
+  .scroll-top-btn {
+    position: fixed; 
+    bottom: 65px; 
+    right: 25px;
+    width: 35px; 
+    height: 35px;
+    background-color: var(--accent-violet);
+    color: var(--card-bg);
+    border-radius: 50%;
+    display: flex; 
+    justify-content: center; 
+    align-items: center;
+    text-decoration: none;
+    font-family: var(--font-sans);
+    font-size: 1.2rem;
+    box-shadow: 2px 2px 0px var(--accent-violet-dark);
+    transition: all 0.3s ease;
+    z-index: 1000;
+  }
+  
+  .scroll-top-btn:hover {
+    transform: translateY(-3px);
+    background-color: var(--accent-violet-dark);
+  }
+
+  .scroll-top-btn::after {
+    content: attr(data-tooltip);
+    position: absolute;
+    right: 48px; 
+    top: 50%;
+    transform: translateY(-50%) translateX(10px);
+    background-color: var(--accent-violet-dark);
+    color: var(--card-bg);
+    font-family: var(--font-sans);
+    font-size: 0.65rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    padding: 6px 10px;
+    border-radius: 6px;
+    white-space: nowrap;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.2s ease;
+    pointer-events: none;
+    box-shadow: 2px 2px 0px rgba(0,0,0,0.05);
+  }
+
+  .scroll-top-btn:hover::after {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(-50%) translateX(0);
+  }
+  
+  @media (max-width: 1100px) {
+    .main-nav-btn, .main-nav-panel {
+        left: 20px !important; 
+        right: auto !important;
+    }
+  }
+
+  @media (max-width: 600px) {
+    .persona-grid { grid-template-columns: 1fr; }
+    .id-card { flex-direction: column; align-items: center; text-align: center; }
+    
+    .photo-wrapper { width: 120px; height: 120px; border-radius: 50%; margin-bottom: 5px; }
+    
+    .filter-label::before,
+    .main-nav-panel a::after,
+    .theme-credit::after,
+    .scroll-top-btn::after {
+      display: none;
+    }
+    
+    .filter-label { padding: 12px 16px; }
+    .action-btn { padding: 10px 12px; }
+    
+    .main-nav-btn { bottom: 15px; left: 15px !important; width: 45px; height: 45px; font-size: 1.4rem; }
+    .main-nav-panel { bottom: 70px; left: 15px !important; }
+    .scroll-top-btn { bottom: 50px; right: 15px; width: 40px; height: 40px; }
+    .theme-credit { bottom: 15px; right: 15px; }
+    .popup-content { padding: 50px 20px 25px 20px; }
+  }
+  
+  .filter-status {
+    width: 100%;
+    margin-top: 12px;
+    padding-top: 10px;
+    border-top: 1px dashed var(--accent-violet);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    font-family: var(--font-sans);
+    font-size: 0.55rem;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+  }
+
+  .status-label {
+    color: var(--text-main);
+    font-weight: 600;
+    opacity: 0.7;
+  }
+
+  .status-date {
+    color: var(--accent-violet-dark);
+    font-weight: 400;
+  }
+</style>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<input type="radio" name="dir-filter" id="filter-all" checked>
+<input type="radio" name="dir-filter" id="filter-active">
+<input type="radio" name="dir-filter" id="filter-hiatus">
+
+<input type="checkbox" id="main-nav-toggle" class="main-nav-toggle">
+<label for="main-nav-toggle" class="main-nav-btn">☰</label>
+
+<div class="main-nav-panel">
+  <a href="/" data-tooltip="Home">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+  </a>
+  <a href="/about" data-tooltip="About">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>
+  </a>
+  <a href="/ask" data-tooltip="Message">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+  </a>
+  <a href="/tags" data-tooltip="Tags">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path><line x1="7" y1="7" x2="7.01" y2="7"></line></svg>
+  </a>
+  <a href="/network" data-tooltip="Network">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg>
+  </a>
+  <a href="/archive" data-tooltip="Archive">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="21 8 21 21 3 21 3 8"></polyline><rect x="1" y="3" width="22" height="5"></rect><line x1="10" y1="12" x2="14" y2="12"></line></svg>
+  </a>
+</div>
+
+<div class="directory-container">
+  
+  <div class="directory-header">
+    <div class="intro-card">
+      <h1>Persona Static Preview</h1>
+      <p><b>Made for storytellers, reviewers, and GIF creators alike.</b><br><br>
+      
+      This theme offers a clean and organized space for your content and features a CSS-powered filter box that loads instantly, allowing visitors to browse posts without any delays or additional scripts.
+</p>
+    </div>
+    
+    <div class="filter-card">
+      <h3>Filters</h3>
+      <div class="filter-menu">
+        <label for="filter-all" class="filter-label" data-tooltip="Show All" style="font-size: 0.8rem;">✺</label>
+        <label for="filter-active" class="filter-label" data-tooltip="Active" style="font-size: 0.8rem;">✦</label>
+        <label for="filter-hiatus" class="filter-label" data-tooltip="Hiatus" style="font-size: 1rem;">○</label>
+      </div>
+      <div class="filter-status">
+    <span class="status-label">Status:</span> 
+    <span class="status-date">Updated Last Feb 2026</span>
+  </div>
+    </div>
+  </div>
+
+  <div class="persona-grid">
+    
+    <div class="id-card status-active">
+      <div class="photo-wrapper">
+        <img src="https://i.pinimg.com/1200x/e0/1e/e4/e01ee4d522916ca215010cafc0dd1aec.jpg" alt="Howl" class="id-photo">
+      </div>
+      <div class="id-details">
+        <span class="id-verse">Verse 01: The Wastes</span>
+        <h2 class="id-name">Howl Pendragon</h2>
+        <div class="id-role">Wandering Wizard</div>
+        <div class="id-desc">Flamboyant, charming, and terribly dramatic. Hiding a cursed heart behind a beautiful exterior.</div>
+        <div class="card-actions">
+          <input type="checkbox" id="popup-1" class="popup-toggle">
+          <label for="popup-1" class="action-btn">Portfolio</label>
+          <a href="/" class="action-btn">Visit Blog</a>
+          <div class="popup-overlay">
+            <label for="popup-1" class="overlay-close"></label>
+            <div class="popup-content">
+              <label for="popup-1" class="close-btn">✕</label>
+              <h3>Howl's Portfolio</h3>
+              <p>Extended details for Howl go here. Talk about his magic, his connection to Calcifer, and his moving castle.</p>
+              
+              <div class="connections-wrapper">
+                <div class="connections-title">Connections</div>
+                <div class="connections-grid">
+                  <div class="connection-item">
+                    <img src="https://i.pinimg.com/736x/2f/21/c6/2f21c6bb1b7ff39d75a96c38e030f91f.jpg" class="connection-img" alt="Sophie">
+                    <span class="connection-label">Ally</span>
+                    <span class="connection-name">Sophie</span>
+                  </div>
+                  <div class="connection-item">
+                    <img src="https://i.pinimg.com/736x/2f/21/c6/2f21c6bb1b7ff39d75a96c38e030f91f.jpg" class="connection-img" alt="Calcifer">
+                    <span class="connection-label">Familiar</span>
+                    <span class="connection-name">Calcifer</span>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+        <div class="id-auth-footer">
+          <a href="https://howl.tumblr.com" class="card-url">howl.tumblr.com</a>
+          <div class="card-status"><span class="status-dot"></span> Active</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="id-card status-active">
+      <div class="photo-wrapper">
+        <img src="https://i.pinimg.com/736x/dc/da/f3/dcdaf37280fa8c50c58e4beacde43eff.jpg" alt="Chihiro" class="id-photo">
+      </div>
+      <div class="id-details">
+        <span class="id-verse">Verse 02: The Bathhouse</span>
+        <h2 class="id-name">Sen / Chihiro</h2>
+        <div class="id-role">Bathhouse Worker</div>
+        <div class="id-desc">Resilient and determined. Navigating a spirit world to save her parents and remember her true name.</div>
+        <div class="card-actions">
+          <input type="checkbox" id="popup-2" class="popup-toggle">
+          <label for="popup-2" class="action-btn">Portfolio</label>
+          <a href="/" class="action-btn">Visit Blog</a>
+          <div class="popup-overlay">
+            <label for="popup-2" class="overlay-close"></label>
+            <div class="popup-content">
+              <label for="popup-2" class="close-btn">✕</label>
+              <h3>Sen's Portfolio</h3>
+              <p>Extended details for Chihiro go here. You can add more paragraphs about her growth and her friendship with Haku.</p>
+
+              <div class="connections-wrapper">
+                <div class="connections-title">Connections</div>
+                <div class="connections-grid">
+                  <div class="connection-item">
+                    <img src="https://i.pinimg.com/736x/2f/21/c6/2f21c6bb1b7ff39d75a96c38e030f91f.jpg" class="connection-img" alt="Haku">
+                    <span class="connection-label">Ally</span>
+                    <span class="connection-name">Haku</span>
+                  </div>
+                  <div class="connection-item">
+                    <img src="https://i.pinimg.com/736x/2f/21/c6/2f21c6bb1b7ff39d75a96c38e030f91f.jpg" class="connection-img" alt="Lin">
+                    <span class="connection-label">Friend</span>
+                    <span class="connection-name">Lin</span>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+        <div class="id-auth-footer">
+          <a href="https://sen.tumblr.com" class="card-url">sen.tumblr.com</a>
+          <div class="card-status"><span class="status-dot"></span> Active</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="id-card status-hiatus">
+      <div class="photo-wrapper">
+        <img src="https://i.pinimg.com/1200x/48/b7/7c/48b77cbff78685b56ba8bdbabefa2db5.jpg" alt="Ponyo" class="id-photo">
+      </div>
+      <div class="id-details">
+        <span class="id-verse">Verse 03: The Ocean</span>
+        <h2 class="id-name">Ponyo</h2>
+        <div class="id-role">Magic Fish Girl</div>
+        <div class="id-desc">Energetic, deeply curious, and loves ham! Driven entirely by a pure, unyielding love for the surface world.</div>
+        <div class="card-actions">
+          <input type="checkbox" id="popup-3" class="popup-toggle">
+          <label for="popup-3" class="action-btn">Portfolio</label>
+          <a href="/" class="action-btn">Visit Blog</a>
+          <div class="popup-overlay">
+            <label for="popup-3" class="overlay-close"></label>
+            <div class="popup-content">
+              <label for="popup-3" class="close-btn">✕</label>
+              <h3>Ponyo's Portfolio</h3>
+              <p>Extended details for Ponyo go here. Talk about her magical abilities and her bond with Sosuke.</p>
+
+              <div class="connections-wrapper">
+                <div class="connections-title">Connections</div>
+                <div class="connections-grid">
+                  <div class="connection-item">
+                    <img src="https://i.pinimg.com/736x/2f/21/c6/2f21c6bb1b7ff39d75a96c38e030f91f.jpg" class="connection-img" alt="Sosuke">
+                    <span class="connection-label">Best Friend</span>
+                    <span class="connection-name">Sosuke</span>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+        <div class="id-auth-footer">
+          <a href="https://ponyo.tumblr.com" class="card-url">ponyo.tumblr.com</a>
+          <div class="card-status"><span class="status-dot hiatus"></span> Hiatus</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="id-card status-active">
+      <div class="photo-wrapper">
+        <img src="https://i.pinimg.com/1200x/d6/66/fe/d666fe84aad2f42cbce067665af05d84.jpg" alt="Arrietty" class="id-photo">
+      </div>
+      <div class="id-details">
+        <span class="id-verse">Verse 04: The Floorboards</span>
+        <h2 class="id-name">Arrietty</h2>
+        <div class="id-role">The Borrower</div>
+        <div class="id-desc">Fiercely protective and adventurous. Proving that a big spirit can live inside a very small package.</div>
+        <div class="card-actions">
+          <input type="checkbox" id="popup-4" class="popup-toggle">
+          <label for="popup-4" class="action-btn">Portfolio</label>
+          <a href="/" class="action-btn">Visit Blog</a>
+          <div class="popup-overlay">
+            <label for="popup-4" class="overlay-close"></label>
+            <div class="popup-content">
+              <label for="popup-4" class="close-btn">✕</label>
+              <h3>Arrietty's Portfolio</h3>
+              <p>Extended details for Arrietty go here. Document her borrowing missions and her interactions with the human world.</p>
+
+              <div class="connections-wrapper">
+                <div class="connections-title">Connections</div>
+                <div class="connections-grid">
+                  <div class="connection-item">
+                    <img src="https://i.pinimg.com/736x/2f/21/c6/2f21c6bb1b7ff39d75a96c38e030f91f.jpg" class="connection-img" alt="Sho">
+                    <span class="connection-label">Friend</span>
+                    <span class="connection-name">Sho</span>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+        <div class="id-auth-footer">
+          <a href="https://arrietty.tumblr.com" class="card-url">arrietty.tumblr.com</a>
+          <div class="card-status"><span class="status-dot"></span> Active</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="id-card status-active">
+      <div class="photo-wrapper">
+        <img src="https://i.pinimg.com/1200x/68/88/29/6888299e4fa34d5173e688e2a76c49e3.jpg" alt="Totoro" class="id-photo">
+      </div>
+      <div class="id-details">
+        <span class="id-verse">Verse 05: The Camphor Tree</span>
+        <h2 class="id-name">Totoro</h2>
+        <div class="id-role">Forest Spirit</div>
+        <div class="id-desc">Gentle, easily distracted, and wonderfully majestic. A comforting presence that only pure hearts can see.</div>
+        <div class="card-actions">
+          <input type="checkbox" id="popup-5" class="popup-toggle">
+          <label for="popup-5" class="action-btn">Portfolio</label>
+          <a href="/" class="action-btn">Visit Blog</a>
+          <div class="popup-overlay">
+            <label for="popup-5" class="overlay-close"></label>
+            <div class="popup-content">
+              <label for="popup-5" class="close-btn">✕</label>
+              <h3>Totoro's Portfolio</h3>
+              <p>Extended details for Totoro go here. Share lore about the forest, the catbus, and the smaller spirits.</p>
+              
+              <div class="connections-wrapper">
+                <div class="connections-title">Connections</div>
+                <div class="connections-grid">
+                  <div class="connection-item">
+                    <img src="https://i.pinimg.com/736x/2f/21/c6/2f21c6bb1b7ff39d75a96c38e030f91f.jpg" class="connection-img" alt="Mei">
+                    <span class="connection-label">Friend</span>
+                    <span class="connection-name">Mei</span>
+                  </div>
+                  <div class="connection-item">
+                    <img src="https://i.pinimg.com/736x/2f/21/c6/2f21c6bb1b7ff39d75a96c38e030f91f.jpg" class="connection-img" alt="Satsuki">
+                    <span class="connection-label">Friend</span>
+                    <span class="connection-name">Satsuki</span>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+        <div class="id-auth-footer">
+          <a href="https://totoro.tumblr.com" class="card-url">totoro.tumblr.com</a>
+          <div class="card-status"><span class="status-dot"></span> Active</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="id-card status-active">
+      <div class="photo-wrapper">
+        <img src="https://i.pinimg.com/736x/b3/c3/ee/b3c3ee137db016096b94eb296047706c.jpg" alt="Kiki" class="id-photo">
+      </div>
+      <div class="id-details">
+        <span class="id-verse">Verse 06: Koriko City</span>
+        <h2 class="id-name">Kiki</h2>
+        <div class="id-role">Delivery Witch</div>
+        <div class="id-desc">Earnest, hardworking, and finding her independence. Learning to fly again when the magic suddenly fades.</div>
+        <div class="card-actions">
+          <input type="checkbox" id="popup-6" class="popup-toggle">
+          <label for="popup-6" class="action-btn">Portfolio</label>
+          <a href="/" class="action-btn">Visit Blog</a>
+          <div class="popup-overlay">
+            <label for="popup-6" class="overlay-close"></label>
+            <div class="popup-content">
+              <label for="popup-6" class="close-btn">✕</label>
+              <h3>Kiki's Portfolio</h3>
+              <p>Extended details for Kiki go here. Talk about her delivery service, her cat Jiji, and overcoming burnout.</p>
+
+              <div class="connections-wrapper">
+                <div class="connections-title">Connections</div>
+                <div class="connections-grid">
+                  <div class="connection-item">
+                    <img src="https://i.pinimg.com/736x/2f/21/c6/2f21c6bb1b7ff39d75a96c38e030f91f.jpg" class="connection-img" alt="Jiji">
+                    <span class="connection-label">Familiar</span>
+                    <span class="connection-name">Jiji</span>
+                  </div>
+                  <div class="connection-item">
+                    <img src="https://i.pinimg.com/736x/2f/21/c6/2f21c6bb1b7ff39d75a96c38e030f91f.jpg" class="connection-img" alt="Tombo">
+                    <span class="connection-label">Friend</span>
+                    <span class="connection-name">Tombo</span>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+        <div class="id-auth-footer">
+          <a href="https://kiki.tumblr.com" class="card-url">kiki.tumblr.com</a>
+          <div class="card-status"><span class="status-dot"></span> Active</div>
+        </div>
+      </div>
+    </div>
+
+  </div> 
+</div> 
+
+<a href="#" class="scroll-top-btn" data-tooltip="back to top">↑</a>
+<a href="https://whereinmnl.tumblr.com/" class="theme-credit" data-tooltip="theme">w</a>
+
+</body>
+</html>
