@@ -1,0 +1,1272 @@
+<!----------------------------------------------------
+SINING by whereinMNL  - 01 AUGUST 2026
+
+Do Not Remove Credit: Please keep the credit in the footer visible. It helps me grow!
+Personal Use Only: Do not resell, redistribute, or claim the code as your own.
+Base Coding: Do not use my themes as a "base" for a release.
+Customization: Feel free to change colors/fonts! Just keep the credit link.
+No Re-hosting: Always link back to the original blog post.
+----------------------------------------------------->
+<!DOCTYPE html> 
+<html lang="en"> 
+<head>
+    <meta charset="utf-8">
+    <link rel="shortcut icon" href="{Favicon}">
+    <link rel="alternate" type="application/rss+xml" href="{RSS}">
+    <title>{Title}</title>
+    {block:Description}
+        <meta name="description" content="{MetaDescription}">
+    {/block:Description}
+    {NewPostStyles}
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
+    
+    <meta name="color:Background" content="#0d0d12"/>
+    <meta name="color:Secondary Background" content="#28344a"/>
+    <meta name="color:Card Background" content="#f2ecdd"/>
+    <meta name="color:Main Text" content="#e9e6da"/>
+    <meta name="color:Accent 1" content="#d6ff3f"/>
+    <meta name="color:Accent 2" content="#ff3fa6"/>
+    <meta name="color:Accent 3" content="#39f2ff"/>
+    <meta name="color:Dark Accents" content="#161611"/>
+    <meta name="color:Tagline Text" content="#6d1f4d"/>
+    <meta name="color:Menu Background" content="#15151a"/>
+
+    <meta name="image:Avatar 1" content=""/>
+    <meta name="image:Avatar 2" content=""/>
+    <meta name="image:Avatar 3" content=""/>
+    <meta name="image:Background Texture" content=""/>
+
+    <meta name="text:Tagline" content="new jeans. old rage. same seams."/>
+    <meta name="text:Badge Text" content="RIOT / DENIM"/>
+    
+    <meta name="text:About Me Title" content="Status"/>
+    <meta name="text:About Me Text" content=""/>
+    
+    <meta name="text:Ask Title" content="Ask me anything"/>
+    <meta name="text:Ask Username" content=""/>
+
+    <meta name="text:Archive URL" content="/archive"/>
+    
+    <meta name="text:Avatar 1 Status" content="status 1 text"/>
+    <meta name="text:Avatar 2 Status" content="status 2"/>
+    <meta name="text:Avatar 3 Status" content="status 3"/>
+    
+    <meta name="text:Pinned Post Label" content="Pinned"/>
+    <meta name="text:Scroll To Top Text" content="↑ TOP"/>
+
+    <meta name="text:Link 1 Title" content="Link 1"/>
+    <meta name="text:Link 1 URL" content=""/>
+    <meta name="text:Link 2 Title" content=""/>
+    <meta name="text:Link 2 URL" content=""/>
+    <meta name="text:Link 3 Title" content=""/>
+    <meta name="text:Link 3 URL" content=""/>
+    <meta name="text:Link 4 Title" content=""/>
+    <meta name="text:Link 4 URL" content=""/>
+    <meta name="text:Link 5 Title" content=""/>
+    <meta name="text:Link 5 URL" content=""/>
+    <meta name="text:Link 6 Title" content=""/>
+    <meta name="text:Link 6 URL" content=""/>
+    <meta name="text:Link 7 Title" content=""/>
+    <meta name="text:Link 7 URL" content=""/>
+    <meta name="text:Link 8 Title" content=""/>
+    <meta name="text:Link 8 URL" content=""/>
+    <meta name="text:Link 9 Title" content=""/>
+    <meta name="text:Link 9 URL" content=""/>
+    <meta name="text:Link 10 Title" content=""/>
+    <meta name="text:Link 10 URL" content=""/>
+
+    <meta name="if:Show Avatar Tooltips" content="1"/>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bungee&family=Permanent+Marker&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="https://assets.tumblr.com/fonts/favorit/stylesheet.css?v=1">
+    <link href="//static.tumblr.com/gtjt4bo/mXBrpdj0n/unblue-polls.css" rel="stylesheet">
+    
+    <script src="//tmblr-npf-audio.gitlab.io/s/fix.js"></script>
+    <link href="//tmblr-npf-audio.gitlab.io/s/fix.css" rel="stylesheet">
+    <script>
+    tumblr_npf_audio({
+        emptyTitleText: "Untitled track",
+        emptyArtistText: "Untitled artist",
+        emptyAlbumText: "Untitled album",
+        titleLabel: "Track:",
+        artistLabel: "Artist:",
+        albumLabel: "Album:"
+    });
+    </script>
+
+    <style type="text/css">
+        @font-face {
+            font-family: 'poke';
+            src: url('https://static.tumblr.com/uopakca/bVaq6n1j4/pokemon_x_and_y.ttf') format('truetype');
+        }
+
+        :root {
+            --bg: {color:Background};
+            --denim: {color:Secondary Background};
+            --paper: {color:Card Background};
+            --ink: {color:Main Text};
+            --lime: {color:Accent 1};
+            --magenta: {color:Accent 2};
+            --cyan: {color:Accent 3};
+            --dark: {color:Dark Accents};
+            --tagline: {color:Tagline Text};
+            --bubble-bg: {color:Menu Background};
+            --spacing: 1rem;
+            --borders: rgba(255,255,255,0.12);
+        }
+
+        * { 
+            box-sizing: border-box; 
+            cursor: crosshair; 
+        }
+
+        ::-webkit-scrollbar {
+            width: 10px;
+            background: var(--bg);
+        }
+        ::-webkit-scrollbar-thumb {
+            background: var(--magenta);
+            border: 2px solid var(--bg);
+        }
+        ::-webkit-scrollbar-corner {
+            background: var(--bg);
+        }
+        ::selection { background: var(--magenta); color: var(--bg); }
+        ::-moz-selection { background: var(--magenta); color: var(--bg); }
+
+        body {
+            margin: 0;
+            background:
+                repeating-linear-gradient(115deg, rgba(255,255,255,0.025) 0px, rgba(255,255,255,0.025) 2px, transparent 2px, transparent 6px),
+                radial-gradient(circle at 15% 10%, rgba(214,255,63,0.06), transparent 40%),
+                radial-gradient(circle at 85% 90%, rgba(255,63,166,0.08), transparent 45%),
+                var(--bg);
+            color: var(--ink);
+            font-family: 'Space Mono', monospace;
+            font-size: 13px;
+            line-height: 1.6;
+            word-wrap: break-word;
+        }
+        
+        iframe.tmblr-iframe {
+            transform: scale(0.8);
+            transform-origin: top right;
+            z-index: 99999999 !important;
+        }
+
+        a { color: var(--lime); text-decoration: none; cursor: crosshair; transition: color 0.2s; }
+        
+        .caption a:not(.read_more), .reblog-content a, .post-body a, .source-block a, .question a, .answer a {
+            text-decoration: none;
+        }
+        .caption a:not(.read_more):hover, .reblog-content a:hover, .post-body a:hover, .source-block a:hover, .question a:hover, .answer a:hover {
+            color: var(--magenta);
+            text-decoration: underline wavy var(--magenta);
+            text-underline-offset: 3px;
+        }
+        
+        .read_more, .caption a.read_more, .reblog-content a.read_more, .tmblr-truncated-link {
+            display: inline-block !important;
+            margin-top: 12px;
+            padding: 5px 12px;
+            background: var(--lime) !important;
+            color: var(--dark) !important;
+            font-family: 'Bungee', cursive !important;
+            font-size: 11px !important;
+            text-transform: uppercase !important;
+            letter-spacing: 0.5px !important;
+            text-decoration: none !important;
+            border: 1px solid var(--dark) !important;
+            border-radius: 0 !important;
+            transition: 0.2s !important;
+        }
+        .read_more:hover, .caption a.read_more:hover, .reblog-content a.read_more:hover, .tmblr-truncated-link:hover {
+            background: var(--magenta) !important;
+            color: var(--paper) !important;
+        }
+
+        .reblog-header a:hover, .post-footer a:hover, .navlist a:hover, .tags-content a:hover, .post-header a:hover, .npf-link-block a:hover, .jump-pages a:hover {
+            text-decoration: none !important;
+        }
+
+        .flex { display: flex; flex-wrap: wrap; }
+        .centered { align-items: center; justify-content: center; }
+        .align-center { align-items: center; }
+        .justify-between { justify-content: space-between; }
+
+        .wrap {
+            max-width: 1100px;
+            margin: 40px auto;
+            padding: 0 20px;
+            display: flex;
+            align-items: flex-start;
+            position: relative;
+        }
+
+        .flyer {
+            background: var(--paper);
+            color: var(--dark);
+            padding: 30px 20px 26px;
+            position: sticky;
+            top: 40px;
+            width: 320px;
+            transform: rotate(-1.3deg);
+            box-shadow: 10px 10px 0 rgba(0,0,0,0.55);
+            border: 2px solid var(--dark);
+            z-index: 5;
+            flex-shrink: 0;
+            margin-right: 50px;
+            transition: transform 0.35s ease;
+        }
+
+        .flyer:hover {
+            transform: rotate(-3deg) scale(1.02);
+        }
+
+        .flyer .tape {
+            position: absolute;
+            top: -12px; left: 30px;
+            width: 75px; height: 26px;
+            background: rgba(240,240,240,0.85);
+            border: 1px solid rgba(0,0,0,0.15);
+            transform: rotate(-6deg);
+            z-index: 10;
+        }
+
+        .badge {
+            position: absolute;
+            top: -20px; right: -25px;
+            width: 85px; height: 85px;
+            background: var(--lime);
+            color: var(--dark);
+            display: flex; align-items: center; justify-content: center;
+            font-family: 'Bungee', cursive;
+            font-size: 12px;
+            text-align: center;
+            line-height: 1.1;
+            transform: rotate(9deg);
+            clip-path: polygon(50% 0%, 61% 10%, 80% 4%, 82% 24%, 100% 32%, 90% 48%, 100% 66%, 82% 72%, 80% 92%, 61% 86%, 50% 100%, 39% 86%, 20% 92%, 18% 72%, 0% 66%, 10% 48%, 0% 32%, 18% 24%, 20% 4%, 39% 10%);
+            border: 2px solid var(--dark);
+            z-index: 10;
+        }
+
+        .flyer h1 {
+            font-family:'Bungee', cursive;
+            font-size: 32px;
+            line-height: 1.1;
+            margin: 6px 0 8px;
+            letter-spacing: 0.5px;
+            word-break: break-word;
+            position: relative;
+            text-shadow: 3px 3px 0 var(--magenta), -2px -2px 0 var(--cyan);
+            text-transform: uppercase;
+        }
+
+        .flyer .tagline {
+            font-family:'Permanent Marker', cursive;
+            font-size: 14px;
+            color: var(--tagline);
+            margin: 0 0 16px;
+        }
+
+        .stitch {
+            border:0;
+            border-top: 2px dashed var(--dark);
+            position:relative;
+            margin: 18px 0;
+        }
+        .stitch::after {
+            content:"+ + + + + + + + + + + + + + + + + + + +";
+            position:absolute; top:-9px; left:0; right:0;
+            font-size:10px; letter-spacing:3px; color: var(--magenta);
+            overflow:hidden; white-space:nowrap;
+        }
+
+        .zine-desc { 
+            font-size:13px; 
+            margin-top: 14px; 
+            padding-top: 12px; 
+            color:var(--dark); 
+            max-height: 120px;
+            overflow-y: auto;
+            padding-right: 5px;
+        }
+        
+        .zine-desc::-webkit-scrollbar { width: 6px; background: rgba(0,0,0,0.1); }
+        .zine-desc::-webkit-scrollbar-thumb { background: var(--dark); border: none; }
+
+        .sidebar-icons {
+            display: flex; justify-content: space-between; align-items: center;
+            margin-top: 20px; padding-top: 15px; border-top: 2px dashed var(--dark);
+            position: static; 
+        }
+        
+        .icon-item { 
+            position: static; 
+            cursor: crosshair; 
+        }
+        
+        .icon-trigger {
+            display: flex; align-items: center; justify-content: center;
+        }
+        
+        .icon-trigger svg { width: 20px; height: 20px; stroke: var(--dark); transition: 0.2s; }
+        .icon-trigger:hover svg { stroke: var(--magenta); }
+        .icon-item.active .icon-trigger svg { stroke: var(--denim); }
+        
+        .tooltip-small { position: relative; }
+        .tooltip-small::after {
+            content: attr(data-title);
+            position: absolute; bottom: 150%; left: 50%; transform: translateX(-50%);
+            background: var(--magenta); color: var(--paper);
+            font-size: 10px; padding: 3px 6px; white-space: nowrap;
+            opacity: 0; visibility: hidden; border: 1px solid var(--dark);
+            font-family: 'Space Mono', monospace; text-transform: uppercase;
+            transition: 0.2s;
+        }
+        .tooltip-small:hover::after { opacity: 1; visibility: visible; }
+
+        .status-bubble {
+            position: absolute;
+            top: calc(100% + 15px);
+            left: -2px; 
+            width: calc(100% + 4px); 
+            background: var(--bubble-bg);
+            border: 2px solid var(--cyan);
+            border-left: 6px solid var(--magenta);
+            padding: 15px;
+            box-shadow: 6px 6px 0 rgba(0,0,0,0.5);
+            color: var(--paper);
+            font-family: 'Space Mono', monospace;
+            font-size: 12px;
+            opacity: 0; visibility: hidden;
+            transition: opacity 0.2s, transform 0.2s;
+            transform: translateY(-10px);
+            z-index: 50;
+            max-height: 220px;
+            overflow-y: auto;
+        }
+        
+        .status-bubble::-webkit-scrollbar { width: 6px; background: rgba(0,0,0,0.3); }
+        .status-bubble::-webkit-scrollbar-thumb { background: var(--cyan); border: none; }
+        
+        .icon-item.active .status-bubble {
+            opacity: 1; visibility: visible; transform: translateY(0);
+        }
+
+        .status-bubble.more-links {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .more-links a {
+            position: relative;
+            display: block;
+            color: var(--paper);
+            font-family: 'Space Mono', monospace;
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            padding: 9px 4px 9px 20px;
+            border-bottom: 1px dashed rgba(255,255,255,0.15);
+            transition: padding-left 0.2s, color 0.2s;
+        }
+        .more-links a:last-child { border-bottom: none; }
+        .more-links a::before {
+            content: "»";
+            position: absolute;
+            left: 0;
+            top: 9px;
+            color: var(--lime);
+        }
+        .more-links a:hover {
+            color: var(--lime);
+            padding-left: 26px;
+            text-decoration: none;
+        }
+        
+        .status-bubble iframe#ask_form {
+            width: 100%; height: 190px;
+            border: none; background: transparent;
+        }
+
+        main.posts {
+            flex-grow: 1;
+            width: 100%;
+            max-width: 560px;
+            display: flex;
+            flex-direction: column;
+            gap: 70px;
+        }
+
+        article {
+            background: rgba(255,255,255,0.02);
+            border: 1px solid var(--borders);
+            padding: 12px 16px;
+            position: relative;
+            box-sizing: border-box;
+            width: 100%;
+            transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+        }
+        
+        article:hover {
+            transform: translateY(-4px) rotate(1deg);
+            box-shadow: 6px 6px 0 var(--lime);
+            border-color: var(--cyan);
+        }
+
+        article.ask-post, article.link-post {
+            padding: 12px 14px;
+        }
+
+        article::before {
+            content:"";
+            position:absolute; top:-1px; left:18px; right:18px; height:2px;
+            background: repeating-linear-gradient(90deg, var(--lime) 0 8px, transparent 8px 14px);
+        }
+
+     .pinned-post-tape {
+    position: absolute;
+    top: -24px;
+    left: 50%;
+    transform: translateX(-50%) rotate(-2deg);
+    background: rgba(240,240,240,0.85);
+    border: 1px solid rgba(0,0,0,0.15);
+    padding: 4px 20px;
+    font-family: 'Permanent Marker', cursive;
+    font-size: 13px;
+    color: var(--dark);
+    z-index: 10;
+    box-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+        .post-header {
+            margin-bottom: 12px;
+            padding-bottom: 10px;
+            border-bottom: 1px dashed var(--borders);
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: rgba(233,230,218,0.6);
+        }
+        .post-header a { color: var(--cyan); }
+
+        .post-footer {
+            margin-top: 15px;
+            padding-top: 12px;
+            border-top: 1px dashed var(--borders);
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .footer-main {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+        }
+        
+        .post-footer a { color: var(--cyan); }
+        .post-footer .via-source { flex-grow: 1; color: rgba(233,230,218,0.5); font-size: 11px; text-transform: uppercase; }
+
+        .hashtag-icon {
+            cursor: crosshair;
+        }
+        
+        .tags-content {
+            max-height: 0;
+            overflow: hidden;
+            opacity: 0;
+            transition: max-height 0.4s ease, opacity 0.4s ease, margin-top 0.4s ease, padding-top 0.4s ease;
+            display: flex; flex-wrap: wrap; gap: 8px;
+        }
+        
+        .tag-toggle-cb:checked + .tags-content {
+            max-height: 500px;
+            opacity: 1;
+            margin-top: 15px;
+            padding-top: 15px;
+            border-top: 1px dashed rgba(255,255,255,0.1);
+        }
+
+        .tags-content a {
+            font-size: 10px; color: var(--lime); text-decoration: none !important; text-transform: lowercase;
+            background: rgba(255,255,255,0.05); padding: 3px 6px; border: 1px solid var(--borders);
+        }
+        .tags-content a:hover { color: var(--bg); background: var(--cyan); border-color: var(--cyan); }
+
+        .like-and-reblog { display: flex; gap: 10px; align-items: center; }
+
+        .hashtag-icon,
+        .like-and-reblog .reblog_button,
+        .like-and-reblog .like_button {
+            display: inline-flex; 
+            align-items: center; 
+            justify-content: center;
+            width: 20px; 
+            height: 20px;
+            background: transparent !important;
+            border: none !important;
+            box-shadow: none !important;
+            transition: transform 0.1s ease;
+            cursor: crosshair;
+        }
+
+        .hashtag-icon:active,
+        .like-and-reblog .reblog_button:active,
+        .like-and-reblog .like_button:active {
+            transform: scale(0.9);
+        }
+
+        .hashtag-icon svg { width: 18px; height: 18px; stroke: #d4b200; transition: 0.2s; }
+        .hashtag-icon:hover svg { stroke: var(--magenta); }
+
+        .like-and-reblog .reblog_button svg { filter: invert(75%) sepia(30%) saturate(6000%) hue-rotate(140deg) brightness(105%) contrast(100%); width: 18px; height: 18px; }
+        .like-and-reblog .like_button iframe { filter: invert(45%) sepia(85%) saturate(2300%) hue-rotate(295deg) brightness(95%) contrast(110%); width: 18px; height: 18px; }
+
+        article h1, article h2, article h3, article h4 {
+            font-family: 'Bungee', cursive;
+            text-transform: uppercase;
+            text-align: center;
+            color: var(--lime);
+            margin: 14px 0;
+            line-height: 1.2;
+            word-break: break-word;
+        }
+        article h1 { font-size: 26px; }
+        article h2 { font-size: 20px; }
+        article h3 { font-size: 16px; }
+        article h4 { font-size: 14px; }
+
+        .caption b, .caption strong, .reblog-content b { color: var(--cyan); font-weight: bold; }
+        .caption i, .caption em, .reblog-content i { color: var(--magenta); font-family: 'Permanent Marker', cursive; font-size: 15px; }
+        
+        strike, del, s, .caption strike, .caption del, .reblog-content strike { 
+            text-decoration: line-through; 
+            text-decoration-style: wavy;
+            text-decoration-color: var(--magenta); 
+            opacity: 0.9; 
+        }
+        
+        .caption u, .reblog-content u { text-decoration: underline; text-decoration-color: var(--magenta); text-decoration-style: wavy; }
+
+        ul, ol, .caption ul, .reblog-content ul, .caption ol, .reblog-content ol { 
+            padding-left: 35px; 
+            margin-left: 10px;
+        }
+        .caption ul, .reblog-content ul { list-style-type: square; color: var(--lime); }
+        .caption ol, .reblog-content ol { list-style-type: decimal-leading-zero; color: var(--cyan); }
+        .caption li span, .reblog-content li span, .caption li, .reblog-content li { color: var(--ink); margin-bottom: 4px; }
+
+        blockquote {
+            margin: 10px 0; padding: 5px 0 5px 15px;
+            border-left: 3px solid var(--magenta);
+            color: var(--paper); font-style: italic;
+        }
+
+        article .question, article .answer {
+            padding: 10px; margin: 0 0 10px 0;
+            border: 1px solid var(--magenta);
+            background: rgba(255,63,166,0.05);
+            border-radius: 0;
+        }
+        article .question { font-family: 'Space Mono', monospace; font-size: 13px; color: var(--paper); }
+        .asker-info { margin-bottom: 8px; border-bottom: 1px dashed rgba(255,63,166,0.3); padding-bottom: 8px; }
+        .asker-avatar { width: 32px; height: 32px; border-radius: 50%; margin-right: 12px; border: 2px solid var(--cyan); }
+        .asker-name { font-family: 'Bungee', cursive; color: var(--cyan); text-transform: uppercase; font-size: 13px; }
+
+        .quote-block, .npf_quote, .quote-post h2, .npf_quote p, .quote-block p, .quote-block h2 {
+            font-family: 'poke', monospace !important;
+            font-weight: normal !important;
+            font-size: 22px;
+            color: var(--cyan);
+            line-height: 1.35;
+            margin: 15px 0;
+            text-transform: uppercase;
+            border-left: none;
+            text-shadow: 2px 2px 0 var(--magenta);
+            letter-spacing: 0.5px;
+            text-align: center !important;
+        }
+        .source-block, .npf_quote + p {
+            font-family: 'Space Mono', monospace;
+            font-size: 13px;
+            color: var(--magenta);
+            text-align: center !important;
+            text-transform: uppercase;
+        }
+
+        ul.chat, .npf_chat { list-style: none; padding: 0; margin: 0; border: none; }
+        ul.chat li, .npf_chat { 
+            padding: 4px 0; margin-bottom: 4px; background: transparent; 
+            border: none !important; display: flex; align-items: flex-start; font-family: 'Space Mono', monospace; 
+        }
+        ul.chat li::before, .npf_chat::before {
+            content: ">"; color: rgba(233,230,218,0.4); margin-right: 12px; margin-top: 1px; font-weight: bold;
+        }
+        ul.chat .label, .npf_chat b { 
+            color: var(--magenta); font-weight: bold; margin-right: 12px; font-size: 13px; text-transform: none; 
+        }
+
+        .npf-audio-wrapper {
+            --NPF-Audio-Buttons-Size: 1.4rem;
+            --NPF-Audio-Buttons-Color: var(--lime); 
+            --NPF-Audio-Buttons-Spacing: 1.3rem; 
+            --NPF-Audio-Image-Size: 85px;
+            --NPF-Audio-Image-Spacing: 0px;
+        }
+        .npf-audio-background {
+            background: rgba(255, 255, 255, 0.05); 
+            border: 2px solid var(--lime);
+            box-shadow: 4px 4px 0 var(--magenta);
+            padding: 0.5rem 1.5rem;
+            margin: 15px 0;
+        }
+        .npf-audio-title-label,
+        .npf-audio-artist-label,
+        .npf-audio-album-label {
+            font-weight: bold;
+            color: var(--cyan);
+            font-family: 'Space Mono', monospace;
+            text-transform: uppercase;
+        }
+        .npf-audio-title,
+        .npf-audio-artist,
+        .npf-audio-album {
+            color: var(--paper); 
+            font-family: 'Space Mono', monospace;
+        }
+
+        .reblog-header {
+            display: flex; align-items: center; padding: 10px 0;
+            border-bottom: 1px dashed rgba(255,255,255,0.1); margin-bottom: 10px;
+        }
+        .reblog-header img { max-width: 24px; margin-right: 8px; border-radius: 0; border: 1px solid var(--lime); }
+        .reblog-header a { font-family: 'Bungee', cursive; font-size: 12px; color: var(--cyan); text-transform: uppercase; }
+
+        article img, article iframe { max-width: 100%; display: block; margin: 10px 0; }
+        .npf-link-block { border: 1px solid var(--cyan); padding: 12px; margin: 8px 0; background: rgba(57,242,255,0.05); }
+        .npf-link-block a { text-decoration: none !important; }
+        
+        iframe[src*="spotify.com"] {
+            width: 100% !important;         
+            height: 152px !important; 
+            border-radius: 12px !important; 
+            margin: 15px 0 !important;      
+            border: none !important; 
+            overflow: hidden !important; 
+            transition: transform 0.3s ease, box-shadow 0.3s ease !important;
+        }
+        iframe[src*="spotify.com"]:hover { transform: translateY(-2px) !important; box-shadow: 0 8px 20px rgba(0,0,0,0.15) !important; }
+
+        iframe[src*="youtube.com/embed"] {
+            width: 100% !important;         
+            height: 80px !important;        
+            border-radius: 12px !important; 
+            margin: 15px 0 !important;      
+            box-sizing: border-box !important;
+            border: 4px solid transparent !important; 
+            transition: transform 0.3s ease, box-shadow 0.3s ease !important;
+        }
+        iframe[src*="youtube.com/embed"]:hover { transform: translateY(-2px) !important; box-shadow: 0 8px 20px rgba(0,0,0,0.15) !important; }
+
+        .poll-post {
+            --Poll-Question-Font-Size: 16px;
+            --Poll-Option-Background-Color: var(--bg);
+            --Poll-Option-Corner-Rounding: 0px;
+            --Poll-Option-Border-Size: 2px;
+            --Poll-Option-Border-Color: var(--magenta);
+            --Poll-Option-Padding: 12px;
+            --Poll-Option-Font-Size: 13px;
+            --Poll-Option-Spacing: 10px;
+            --Poll-Option-Text-Color: var(--paper);
+            --Poll-Option-HOVER-Border-Color: var(--lime);
+            --Poll-Option-HOVER-Background-Color: rgba(214,255,63,0.1);
+            --Poll-Option-HOVER-Text-Color: var(--lime);
+            --Poll-Option-HOVER-Speed: 0.3s;
+        }
+
+        .perma-container { margin-top: 20px; border-top: 2px dashed var(--borders); padding-top: 20px; }
+        .perma-tags { margin-bottom: 15px; display: flex; flex-wrap: wrap; gap: 8px; }
+        .perma-tags a { 
+            background: var(--lime); color: var(--bg); font-family: 'Bungee', cursive; 
+            padding: 3px 8px; font-size: 10px; text-transform: uppercase;
+            text-decoration: none; border: 1px solid var(--dark);
+        }
+        .perma-tags a:hover { background: var(--magenta); }
+
+        ol.notes {
+            padding: 10px; margin: 0; list-style-type: none;
+            max-height: 300px; overflow-y: auto;
+            border: 1px solid var(--borders);
+            background: rgba(0,0,0,0.2);
+            scrollbar-width: thin; scrollbar-color: var(--cyan) var(--bg);
+        }
+        ol.notes li { padding: 6px; border-bottom: 1px dashed rgba(255,255,255,0.1); font-size: 11px; }
+        ol.notes li:last-child { border-bottom: none; }
+        ol.notes img { display: none; }
+        ol.notes a { color: var(--cyan); text-transform: uppercase; font-weight: bold; }
+
+        .pagination {
+            display: flex; justify-content: space-between; align-items: center;
+            font-family: 'Space Mono', monospace; font-size: 13px;
+            padding: 30px 0 20px; width: 100%; border-top: 2px dashed var(--borders);
+        }
+        
+        .jump-pages { display: flex; gap: 8px; }
+        .jump-pages a, .jump-pages span { 
+            display: inline-flex; align-items: center; justify-content: center;
+            width: 28px; height: 28px;
+            border: 1px solid var(--cyan); color: var(--cyan); font-weight: bold;
+        }
+        .jump-pages span.current_page { 
+            background: var(--magenta); color: var(--paper); border-color: var(--magenta); 
+        }
+        .jump-pages a:hover { 
+            background: var(--lime); color: var(--bg); border-color: var(--lime); 
+        }
+        
+        .pagination a.prev-page, .pagination a.next-page { 
+            color: var(--lime); font-family: 'Bungee', cursive; 
+            text-transform: uppercase; font-size: 12px; border: none; padding: 0; 
+        }
+        .pagination a.prev-page:hover, .pagination a.next-page:hover { 
+            color: var(--magenta); 
+        }
+
+        .floating-avatars {
+            position: sticky;
+            top: 50%;
+            transform: translateY(-50%);
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            margin-left: 50px;
+            flex-shrink: 0;
+            height: max-content;
+            z-index: 10;
+        }
+        .float-avi {
+            width: 95px; 
+            height: 95px;
+            border: 2px solid var(--dark);
+            border-radius: 50%;
+            background: #fff;
+            transform: rotate(1.4deg);
+            box-shadow: 4px 4px 0 var(--cyan);
+            transition: transform 0.2s, box-shadow 0.2s;
+            position: relative;
+            cursor: crosshair;
+        }
+        .float-avi img {
+            display: block; 
+            width: 100%; 
+            height: 100%;
+            border-radius: 50%;
+            object-fit: cover;
+            filter: grayscale(30%) contrast(1.08); 
+        }
+        .float-avi:hover {
+            transform: scale(1.05) rotate(-3deg);
+            box-shadow: 6px 6px 0 var(--magenta);
+        }
+        
+        {block:IfShowAvatarTooltips}
+        .float-avi::after {
+            content: attr(data-tooltip);
+            position: absolute;
+            left: 120%;
+            top: 50%;
+            transform: translateY(-50%);
+            background: var(--denim);
+            color: var(--cyan);
+            border: 1px solid var(--cyan);
+            padding: 4px 10px;
+            font-size: 12px;
+            font-family: 'Space Mono', monospace;
+            text-transform: uppercase;
+            opacity: 0;
+            visibility: hidden;
+            transition: 0.2s;
+            white-space: nowrap;
+            box-shadow: 2px 2px 0 rgba(0,0,0,0.5);
+            pointer-events: none;
+            z-index: 100;
+        }
+        .float-avi:hover::after {
+            opacity: 1;
+            visibility: visible;
+            left: 130%;
+        }
+        {/block:IfShowAvatarTooltips}
+
+        .scroll-to-top {
+            position: fixed; bottom: 20px; right: 20px;
+            background: var(--magenta); color: var(--bg);
+            padding: 8px 12px; font-family: 'Bungee', cursive;
+            border: 2px solid var(--dark); font-size: 12px;
+            z-index: 100; box-shadow: 4px 4px 0 rgba(0,0,0,0.6);
+            text-decoration: none !important;
+            opacity: 0; 
+            visibility: hidden; 
+            pointer-events: none;
+            transition: opacity 0.3s ease, visibility 0.3s ease, background 0.2s, color 0.2s;
+        }
+        .scroll-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+            pointer-events: auto;
+        }
+        .scroll-to-top:hover { background: var(--cyan); color: var(--dark); }
+
+        @media (max-width: 1100px) {
+            .wrap { flex-direction: column; align-items: center; padding: 0 10px; margin-top: 20px; }
+            .flyer { position: relative; width: 100%; max-width: 400px; margin: 0 0 40px 0; transform: none; top: auto; }
+            main.posts { margin-left: 0; width: 100%; max-width: 560px; }
+            .floating-avatars { 
+                position: static; 
+                flex-direction: row; 
+                margin-left: 0; 
+                margin-top: 40px; 
+                justify-content: center;
+                transform: none;
+                flex-wrap: wrap;
+            }
+            .float-avi {
+                width: 70px;
+                height: 70px;
+            }
+            {block:IfShowAvatarTooltips}
+            .float-avi::after {
+                left: 50%;
+                top: -40px;
+                transform: translateX(-50%);
+            }
+            .float-avi:hover::after {
+                left: 50%;
+                top: -45px;
+            }
+            {/block:IfShowAvatarTooltips}
+        }
+
+        .floating-w {
+            position: fixed; bottom: 20px; left: 20px;
+            background: var(--lime); color: var(--dark);
+            font-family: 'Bungee', cursive; font-size: 24px;
+            width: 45px; height: 45px;
+            display: flex; align-items: center; justify-content: center;
+            border: 2px solid var(--dark); box-shadow: 3px 3px 0 rgba(0,0,0,0.5);
+            z-index: 100; text-decoration: none !important;
+            opacity: 0.35; 
+            transition: transform 0.2s, opacity 0.2s;
+        }
+
+        .floating-w:hover { 
+            transform: scale(1.1) rotate(-5deg); 
+            background: var(--magenta); color: var(--paper); 
+            opacity: 1; 
+        }
+
+        .floating-w::after {
+            content: attr(data-tooltip);
+            position: absolute; left: 120%; top: 50%; transform: translateY(-50%);
+            background: var(--denim); color: var(--cyan);
+            border: 1px solid var(--cyan); padding: 4px 10px;
+            font-size: 12px; font-family: 'Space Mono', monospace; text-transform: uppercase;
+            opacity: 0; visibility: hidden; transition: 0.2s;
+            white-space: nowrap; box-shadow: 2px 2px 0 rgba(0,0,0,0.5);
+        }
+
+        .floating-w:hover::after { opacity: 1; visibility: visible; }
+    </style>
+</head>
+<body class="{block:homepage}home{/block:homepage}{block:tagpage}tag{/block:tagpage}{block:searchpage}search{/block:searchpage}{block:submitpage}submit-{/block:submitpage}{block:AskPage}ask{/block:AskPage}-page">
+
+<a href="https://whereinmnl.tumblr.com" class="floating-w" data-tooltip="whereinmnl">W</a>
+
+<div class="wrap">
+    
+    <aside class="flyer">
+        <div class="tape"></div>
+        <div class="badge">{text:Badge Text}</div>
+
+        <h1>{Title}</h1>
+        <p class="tagline">{text:Tagline}</p>
+
+        <hr class="stitch">
+
+        <div class="zine-desc">{Description}</div>
+
+        <div class="sidebar-icons">
+            <div class="icon-item">
+                <a href="/" class="icon-trigger tooltip-small" data-title="Home">
+                    <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+                </a>
+            </div>
+            
+            <div class="icon-item">
+                <div class="icon-trigger tooltip-small" data-title="{text:About Me Title}" onclick="toggleBubble(event, this.parentElement)">
+                    <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+                </div>
+                <div class="status-bubble" onclick="event.stopPropagation()">
+                    <div style="font-family:'Bungee', cursive; font-size:16px; margin-bottom:10px; color:var(--lime);">{text:About Me Title}</div>
+                    {text:About Me Text}
+                </div>
+            </div>
+            
+            <div class="icon-item">
+                <div class="icon-trigger tooltip-small" data-title="{text:Ask Title}" onclick="toggleBubble(event, this.parentElement)">
+                    <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+                </div>
+                <div class="status-bubble" onclick="event.stopPropagation()">
+                    <div style="font-family:'Bungee', cursive; font-size:16px; margin-bottom:10px; color:var(--lime);">{text:Ask Title}</div>
+                    <iframe frameborder="0" scrolling="no" src="https://www.tumblr.com/ask_form/{block:IfAskUsername}{text:Ask Username}{/block:IfAskUsername}{block:IfNotAskUsername}{Name}{/block:IfNotAskUsername}.tumblr.com" id="ask_form"></iframe>
+                </div>
+            </div>
+
+            <div class="icon-item">
+                <a href="{text:Archive URL}" class="icon-trigger tooltip-small" data-title="Archive">
+                    <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg>
+                </a>
+            </div>
+
+            <div class="icon-item">
+                <div class="icon-trigger tooltip-small" data-title="Links" onclick="toggleBubble(event, this.parentElement)">
+                    <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="1"></circle><circle cx="12" cy="5" r="1"></circle><circle cx="12" cy="19" r="1"></circle></svg>
+                </div>
+                <div class="status-bubble more-links" onclick="event.stopPropagation()">
+                    {block:IfLink1Title}<a href="{text:Link 1 URL}">{text:Link 1 Title}</a>{/block:IfLink1Title}
+                    {block:IfLink2Title}<a href="{text:Link 2 URL}">{text:Link 2 Title}</a>{/block:IfLink2Title}
+                    {block:IfLink3Title}<a href="{text:Link 3 URL}">{text:Link 3 Title}</a>{/block:IfLink3Title}
+                    {block:IfLink4Title}<a href="{text:Link 4 URL}">{text:Link 4 Title}</a>{/block:IfLink4Title}
+                    {block:IfLink5Title}<a href="{text:Link 5 URL}">{text:Link 5 Title}</a>{/block:IfLink5Title}
+                    {block:IfLink6Title}<a href="{text:Link 6 URL}">{text:Link 6 Title}</a>{/block:IfLink6Title}
+                    {block:IfLink7Title}<a href="{text:Link 7 URL}">{text:Link 7 Title}</a>{/block:IfLink7Title}
+                    {block:IfLink8Title}<a href="{text:Link 8 URL}">{text:Link 8 Title}</a>{/block:IfLink8Title}
+                    {block:IfLink9Title}<a href="{text:Link 9 URL}">{text:Link 9 Title}</a>{/block:IfLink9Title}
+                    {block:IfLink10Title}<a href="{text:Link 10 URL}">{text:Link 10 Title}</a>{/block:IfLink10Title}
+                </div>
+            </div>
+        </div>
+    </aside>
+
+    <main class="posts">
+        {block:Posts}
+        <article id="post-{PostID}" class="{posttype}-post npf-post poll-post">
+
+            {block:Date}
+            <header class="post-header flex justify-between align-center">
+                <div class="post-date">
+                    <a href="{Permalink}">{DayOfWeek}, {ShortMonth} {DayOfMonth}, {Year} at {12Hour}:{Minutes} {AmPm}</a>
+                    {block:PinnedPostLabel}
+                    <span class="pinned-post-tape">{text:Pinned Post Label}</span>
+                    {/block:PinnedPostLabel}
+                </div>
+                <div class="post-notes-count">
+                    <a href="{Permalink}">{NoteCountWithLabel}</a>
+                </div>
+            </header>
+            {/block:Date}
+
+            {block:Photo}
+                <div class="legacy-photo"><img src="{PhotoURL-HighRes}" alt="{photoalt}" class="photos"></div>
+            {/block:Photo}
+
+            {block:Photoset}
+                <div class="legacy-photoset">{Photoset}</div> 
+            {/block:Photoset}
+
+            {block:Panorama}
+                <div class="legacy-photo"><img src="{photourl-panorama}" alt="{photoalt}"></div>
+            {/block:Panorama}
+
+            {block:Quote}
+                <div class="quote-block">"{Quote}"</div>
+                {block:Source}<div class="source-block">&mdash; {Source}</div>{/block:Source}
+            {/block:Quote}
+
+            {block:Chat}
+                <ul class="chat">
+                    {block:Lines}
+                        <li>
+                            {block:Label}<span class="label">{Label}</span>{/block:Label} 
+                            {Line}
+                        </li>
+                    {/block:Lines}
+                </ul>
+            {/block:Chat}
+
+            {block:Link}
+                <div class="npf-link-block">
+                    <a href="{URL}" {Target}>{Name} &rarr;</a>
+                </div>
+            {/block:Link}
+
+            {block:Video}
+                {Video-500}
+            {/block:Video}
+
+            {block:Audio}
+                <div class="audio-wrapper">
+                    {AudioEmbed}
+                </div>
+            {/block:Audio}         
+
+            {block:Answer}
+                <div class="question">
+                    <div class="asker-info flex align-center">
+                        <img src="{AskerPortraitURL-48}" class="asker-avatar" alt="avatar">
+                        <span class="asker-name">{Asker} asked:</span>
+                    </div>
+                    {Question}
+                </div>
+                {block:Answerer}
+                <div class="answer">
+                    <div class="asker-info flex align-center">
+                        <img src="{PortraitURL-48}" class="asker-avatar" alt="avatar">
+                        <span class="asker-name">{Answerer} answered:</span>
+                    </div>
+                    {Answer}
+                </div>
+                {/block:Answerer}
+                {block:NotReblog}
+                <div class="replies">{Replies}</div>
+                {/block:NotReblog}
+            {/block:Answer}
+
+            <div class="caption {block:notreblog} original-post {/block:notreblog}">
+                {block:Text}
+                    {block:Title}<h1>{Title}</h1>{/block:Title}
+                {/block:Text}
+                
+                {block:notreblog}
+                    {block:Caption}{Caption}{/block:Caption}
+                    {block:Text}{Body}{/block:Text}
+                {/block:notreblog}
+
+                {block:RebloggedFrom}
+                    {block:Reblogs}
+                    <div class="reblogs">
+                        <div class="reblog-header {block:IsOriginalEntry}original{/block:IsOriginalEntry}">
+                            <a href="{Permalink}" target="_blank"><img src="{PortraitURL-64}" alt="avatar"></a>
+                            <a href="{Permalink}" target="_blank" {block:isdeactivated}class="inactive"{/block:isdeactivated}>
+                                {Username}
+                            </a>
+                        </div>
+                        <div class="reblog-content">
+                            {Body}
+                        </div>
+                    </div>
+                    {/block:Reblogs}
+                {/block:RebloggedFrom}
+            </div>
+
+            {block:Date}
+            <footer class="post-footer">
+                <div class="footer-main">
+                    
+                    <div class="via-source">
+                        {block:RebloggedFrom}
+                            via <a href="{ReblogParentURL}">{ReblogParentName}</a>
+                        {/block:RebloggedFrom}
+                    </div>
+                    
+                    <div class="like-and-reblog">
+                        {block:HasTags}
+                        <label for="tag-toggle-{PostID}" class="hashtag-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line></svg>
+                        </label>
+                        {/block:HasTags}
+                        {ReblogButton} {LikeButton}
+                    </div>
+                </div>
+
+                {block:HasTags}
+                <input type="checkbox" id="tag-toggle-{PostID}" class="tag-toggle-cb" style="display: none;">
+                <div class="tags-content">
+                    {block:Tags}<a href="{TagURL}">#{Tag}</a>{/block:Tags}
+                </div>
+                {/block:HasTags}
+
+            </footer>
+            {/block:Date}
+
+            {block:PermalinkPage}
+            <div class="perma-container">
+                {block:HasTags}
+                <div class="perma-tags">
+                    {block:Tags}<a href="{TagURL}">#{Tag}</a>{/block:Tags}
+                </div>
+                {/block:HasTags}
+                
+                {block:PostNotes}
+                <div class="notes-container">
+                    {PostNotes}
+                </div>
+                {/block:PostNotes}
+            </div>
+            {/block:PermalinkPage}
+
+        </article>
+        {/block:Posts}
+
+        {block:Pagination}
+        <div class="pagination">
+            {block:PreviousPage}<a href="{PreviousPage}" class="prev-page">&larr; Prev</a>{/block:PreviousPage}
+            
+            <div class="jump-pages">
+                {block:JumpPagination length="5"}
+                    {block:CurrentPage}<span class="current_page">{PageNumber}</span>{/block:CurrentPage}
+                    {block:JumpPage}<a href="{URL}">{PageNumber}</a>{/block:JumpPage}
+                {/block:JumpPagination}
+            </div>
+            
+            {block:NextPage}<a href="{NextPage}" class="next-page">Next &rarr;</a>{/block:NextPage}
+        </div>
+        {/block:Pagination}
+
+    </main>
+
+    <aside class="floating-avatars">
+        {block:IfAvatar1Image}
+        <div class="float-avi" data-tooltip="{text:Avatar 1 Status}">
+            <img src="{image:Avatar 1}" alt="Avatar 1">
+        </div>
+        {/block:IfAvatar1Image}
+        {block:IfAvatar2Image}
+        <div class="float-avi" data-tooltip="{text:Avatar 2 Status}">
+            <img src="{image:Avatar 2}" alt="Avatar 2">
+        </div>
+        {/block:IfAvatar2Image}
+        {block:IfAvatar3Image}
+        <div class="float-avi" data-tooltip="{text:Avatar 3 Status}">
+            <img src="{image:Avatar 3}" alt="Avatar 3">
+        </div>
+        {/block:IfAvatar3Image}
+    </aside>
+
+</div>
+
+<a href="#" class="scroll-to-top" onclick="window.scrollTo({top: 0, behavior: 'smooth'}); return false;">{text:Scroll To Top Text}</a>
+
+<script>
+
+window.addEventListener('scroll', function() {
+    const topButton = document.querySelector('.scroll-to-top');
+    if (window.scrollY > 300) {
+        topButton.classList.add('visible');
+    } else {
+        topButton.classList.remove('visible');
+    }
+});
+
+function toggleBubble(event, element) {
+    event.stopPropagation();
+    
+    const isActive = element.classList.contains('active');
+    
+    document.querySelectorAll('.icon-item').forEach(el => {
+        el.classList.remove('active');
+    });
+    
+    if(!isActive) {
+        element.classList.add('active');
+    }
+}
+
+document.addEventListener('click', function(e) {
+    if(!e.target.closest('.icon-item')) {
+        document.querySelectorAll('.icon-item').forEach(el => {
+            el.classList.remove('active');
+        });
+    }
+});
+
+for (const p of document.querySelectorAll('p')) {
+    if (p.innerHTML.trim() === '') {
+       p.remove()
+    }
+}
+
+let posts = []
+{block:Posts} 
+    posts.push({ npf: JSON.parse({JSNPF}), id: {JSPostId}}) 
+{/block:Posts}
+
+function updateTypes(type, article) {
+    article.classList.remove('text-post')
+    article.classList.add(`${ type }-post`, 'npf-post')
+}
+
+for (const post of posts) {
+   let npf = post.npf
+   let article = document.getElementById(`post-${post.id}`)
+   let caption = article.querySelector('.caption:is(:not(:empty))')
+   if (caption != null && article.classList.contains('text-post')) {
+      if (npf.trail.length || npf.content.length) {
+            switch (npf.trail[0]?.content[0]?.type ?? npf.content[0].type) {
+            case 'image':
+               updateTypes('photos', article)
+               if (article.querySelector('.npf_row') == null) {
+                  caption.prepend(article.querySelector('figure'))
+               }
+               break
+            case 'video':
+               updateTypes('video', article)
+               let video = article.querySelector('figure')
+               caption.prepend(video)
+               break
+            case 'link':
+              updateTypes('link', article)
+              break
+            case 'audio':
+               updateTypes('audio', article)
+                break
+            case 'quote':
+                updateTypes('quote', article)
+                break
+            }
+          
+         if (article.classList.contains('photos-post')) {
+            let photoset = document.createElement('div')
+            photoset.classList.add('npf-photos')
+            caption.prepend(photoset)
+            let photoBreak = article.querySelector('.reblog-content p, .reblog-content h1, .reblog-content h2')
+            let elements = []
+            if (photoBreak) {
+               let prevElement = photoBreak.parentNode.firstElementChild
+               while (prevElement !== photoBreak) {
+                  elements.push(prevElement)
+                  prevElement = prevElement.nextElementSibling
+               }
+            }
+            else {
+               elements = article.querySelectorAll('.npf_row')
+            }
+            for (const el of elements) {
+               photoset.append(el)
+            }
+            if (article.querySelectorAll('.npf_row').length > 1) {
+                updateTypes('photoset', article)
+            }
+            else {
+                updateTypes('photo', article)
+            }
+         }
+         
+         let reblogHeader = article.querySelector('.reblog-header')
+         let reblogContent = article.querySelector('.reblog-content')
+         if (reblogHeader?.nextElementSibling === reblogContent && reblogContent?.childElementCount === 0) {
+            reblogHeader.remove()
+            reblogContent.remove()
+         }
+      }
+   }
+}
+</script>
+</body>
+</html>
