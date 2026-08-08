@@ -1038,15 +1038,15 @@ No Re-hosting: Always link back to the original blog post.
                 {/block:NotReblog}
             {/block:Answer}
 
-            <div class="caption {block:notreblog} original-post {/block:notreblog}">
+           <div class="caption {block:NotReblog} original-post {/block:NotReblog}">
                 {block:Text}
                     {block:Title}<h1>{Title}</h1>{/block:Title}
+                    {Body}
                 {/block:Text}
                 
-                {block:notreblog}
+                {block:NotReblog}
                     {block:Caption}{Caption}{/block:Caption}
-                    {block:Text}{Body}{/block:Text}
-                {/block:notreblog}
+                {/block:NotReblog}
 
                 {block:RebloggedFrom}
                     {block:Reblogs}
