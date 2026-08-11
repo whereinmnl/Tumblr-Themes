@@ -1,0 +1,425 @@
+<!---------------------------------------------------
+CHROMA DARK THEME BY WHEREINMNL
+11 AUGUST 2026
+Do Not Remove Credit:
+Please keep the credit. It helps me grow!
+Personal Use Only:
+Do not resell, redistribute, or claim the code as your own.
+Base Coding:
+Do not use my themes as a "base" for a release.
+Customization:
+Feel free to change colors/fonts! Just keep the credit link.
+No Re-hosting:
+Always link back to the original blog post.
+----------------------------------------------------->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Y2K Console About Me 🎀</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Bubblegum+Sans&family=Nunito:wght@600;700&family=VT323&display=swap');
+
+  :root {
+    --console-bg: #2b1d3d;
+    --console-border: #4f366b;
+    --console-shadow: rgba(79, 54, 107, 0.5);
+  }
+
+  body {
+    background-color: #160f1c;
+    background-image: 
+      radial-gradient(#38264c 2px, transparent 2px),
+      radial-gradient(#38264c 2px, transparent 2px);
+    background-size: 40px 40px;
+    background-position: 0 0, 20px 20px;
+    font-family: 'Nunito', sans-serif;
+    font-weight: 600;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    color: #d4c5e3; 
+    overflow: hidden;
+  }
+
+  input[type="radio"] {
+    display: none;
+  }
+
+  #theme-up:checked ~ .console { --console-bg: #142838; --console-border: #234e6b; --console-shadow: rgba(35, 78, 107, 0.5); }
+  #theme-right:checked ~ .console { --console-bg: #132b1a; --console-border: #265935; --console-shadow: rgba(38, 89, 53, 0.5); }
+  #theme-down:checked ~ .console { --console-bg: #361713; --console-border: #6e2c23; --console-shadow: rgba(110, 44, 35, 0.5); }
+  #theme-left:checked ~ .console { --console-bg: #381523; --console-border: #732746; --console-shadow: rgba(115, 39, 70, 0.5); }
+  
+  .page { display: none; animation: fadeIn 0.4s ease; }
+  @keyframes fadeIn { from { opacity: 0; transform: translateY(5px); } to { opacity: 1; transform: translateY(0); } }
+  
+  #tab-home:checked ~ .console .screen-content #page-home,
+  #tab-tags:checked ~ .console .screen-content #page-tags,
+  #tab-faq:checked ~ .console .screen-content #page-faq,
+  #tab-diary:checked ~ .console .screen-content #page-diary {
+    display: block;
+  }
+
+  .floating-w {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    width: 35px;
+    height: 35px;
+    background: #2b1b0f;
+    color: #ffc359;
+    font-family: 'Bubblegum Sans', cursive;
+    font-size: 20px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid #ff9d00;
+    cursor: help;
+    z-index: 100;
+    opacity: 0.6;
+    transition: all 0.2s;
+  }
+  .floating-w:hover { opacity: 1; transform: translateY(-3px); box-shadow: 2px 2px 0px #ff9d00;}
+  
+  .tooltip-w {
+    position: absolute;
+    left: 140%;
+    background: #4a1d2e;
+    color: #ffdce8;
+    font-family: 'Bubblegum Sans', cursive;
+    font-size: 1.2rem;
+    padding: 3px 10px;
+    border-radius: 8px;
+    border: 2px dashed #8a2b4f;
+    white-space: nowrap;
+    opacity: 0;
+    pointer-events: none;
+    transform: translateX(-5px);
+    transition: all 0.2s ease-out;
+    letter-spacing: 1px;
+  }
+  .tooltip-w::before { content: ''; position: absolute; right: 100%; top: 50%; transform: translateY(-50%); border-width: 5px; border-style: solid; border-color: transparent #4a1d2e transparent transparent; }
+  .floating-w:hover .tooltip-w { opacity: 1; transform: translateX(0); }
+
+  .blog-title {
+    margin-bottom: 15px;
+    transform: rotate(-2deg); 
+    animation: floatTitle 3s ease-in-out infinite;
+    z-index: 10;
+  }
+  @keyframes floatTitle {
+    0%, 100% { transform: rotate(-2deg) translateY(0px); }
+    50% { transform: rotate(-1deg) translateY(-8px); }
+  }
+  .blog-title span {
+    font-family: 'Bubblegum Sans', cursive;
+    font-size: 3.5rem; 
+    color: #ffffff;
+    text-shadow: 3px 3px 0px #d81b60, 6px 6px 0px #6a1b9a, -2px -2px 0px #0277bd;
+    display: inline-block;
+    transform-origin: top center;
+    transition: color 0.2s;
+    letter-spacing: 2px;
+  }
+  .blog-title span:hover { color: #ff9d00; animation: swingEffect 0.8s ease-out forwards; }
+  
+  @keyframes swingEffect { 20% { transform: rotate(15deg); } 40% { transform: rotate(-10deg); } 60% { transform: rotate(5deg); } 80% { transform: rotate(-5deg); } 100% { transform: rotate(0deg); } }
+
+  .back-to-blog {
+    margin-top: 25px;
+    background: #1a1124;
+    padding: 10px 25px;
+    border: 3px solid #ff8fb8;
+    border-radius: 30px;
+    color: #ff8fb8;
+    font-family: 'Bubblegum Sans', cursive;
+    font-size: 1.4rem;
+    text-decoration: none;
+    letter-spacing: 1px;
+    box-shadow: 4px 4px 0px rgba(255, 143, 184, 0.3);
+    transition: all 0.2s;
+  }
+  .back-to-blog:hover { 
+    background: #ff8fb8; 
+    color: #1a1124; 
+    transform: translateY(-2px); 
+    box-shadow: 4px 6px 0px rgba(255, 143, 184, 0.5); 
+  }
+
+  .console {
+    display: flex;
+    align-items: center;
+    background: var(--console-bg); 
+    padding: 20px;
+    border-radius: 65px; 
+    border: 5px solid var(--console-border);
+    box-shadow: 
+      inset 8px 8px 15px rgba(255, 255, 255, 0.05),
+      inset -8px -8px 15px rgba(0, 0, 0, 0.4),
+      12px 12px 0px var(--console-shadow); 
+    width: 980px; 
+    height: 480px; 
+    gap: 15px;
+    transition: background 0.4s ease, border-color 0.4s ease, box-shadow 0.4s ease;
+  }
+
+  .left-controls { width: 100px; display: flex; justify-content: center; align-items: center; }
+  .d-pad { position: relative; width: 90px; height: 90px; }
+  .d-pad::after {
+    content: "Click Me!";
+    position: absolute;
+    bottom: -30px;
+    left: -10px;
+    width: 110px;
+    text-align: center;
+    font-family: 'Bubblegum Sans', cursive;
+    color: #ff8fb8;
+    font-size: 1.1rem;
+    opacity: 0;
+    transition: opacity 0.2s;
+    pointer-events: none;
+  }
+  .d-pad:hover::after { opacity: 1; }
+
+  .d-pad-base {
+    background: #331c28; border: 3px solid #63304a; border-radius: 5px; position: absolute; box-shadow: 2px 2px 0px #63304a;
+  }
+  .d-pad-v { width: 30px; height: 90px; left: 30px; top: 0; }
+  .d-pad-h { width: 90px; height: 30px; top: 30px; left: 0; }
+
+  .d-pad-btn { position: absolute; width: 30px; height: 30px; cursor: pointer; z-index: 5; }
+  .d-pad-btn:hover { background: rgba(255, 255, 255, 0.1); border-radius: 4px; }
+  .d-pad-btn.up { top: 0; left: 30px; }
+  .d-pad-btn.right { top: 30px; right: 0; }
+  .d-pad-btn.down { bottom: 0; left: 30px; }
+  .d-pad-btn.left { top: 30px; left: 0; }
+  .d-pad-btn.center { top: 30px; left: 30px; } 
+
+  .screen-bezel {
+    flex-grow: 1; height: 100%; background: #0f0a14; border-radius: 20px; border: 8px solid #20152b; 
+    box-shadow: inset 0px 0px 15px rgba(0,0,0,0.8); display: flex; padding: 15px; gap: 15px;
+  }
+  .avatar {
+    width: 230px; height: 100%; background-color: #111a22;
+    background-image: url('https://i.pinimg.com/736x/64/4b/42/644b42d366aa82d2850dc6cf4037e139.jpg'); 
+    background-size: cover; background-position: center; border-radius: 12px;
+    border: 2px dashed #3c89d0; box-shadow: 4px 4px 0px #1a4166; flex-shrink: 0; position: relative;
+  }
+  .avatar::after { content: "✨"; position: absolute; top: -10px; right: -10px; font-size: 30px; animation: blink 1.5s infinite alternate; }
+
+  .screen-content {
+    flex-grow: 1; height: 100%; background: #1a1124; border-radius: 12px; padding: 15px 20px 15px 15px;
+    border: 2px solid #4f366b; box-sizing: border-box; overflow-y: auto; position: relative;
+    scrollbar-width: thin; scrollbar-color: #4f366b #1a1124;
+  }
+  .screen-content::-webkit-scrollbar { width: 14px; }
+  .screen-content::-webkit-scrollbar-track { background: #1a1124; border-radius: 10px; border: 2px dashed #4f366b; margin: 4px 0; }
+  .screen-content::-webkit-scrollbar-thumb { background: #4f366b; border-radius: 10px; border: 2px solid #1a1124; }
+
+  h2 { font-family: 'Bubblegum Sans', cursive; font-size: 1.8rem; color: #ff8fb8; text-shadow: 2px 2px 0px #63304a; margin-top: 0; margin-bottom: 8px; letter-spacing: 1px;}
+  p { font-size: 14px; line-height: 1.6; margin-top: 5px; margin-bottom: 10px; }
+  
+  .marquee-box { background: #2b1b0f; border: 2px dashed #ff9d00; padding: 5px; border-radius: 8px; font-family: 'VT323', monospace; font-size: 18px; color: #ffc359; margin-bottom: 12px; box-shadow: 2px 2px 0px #8a5a00;}
+  .pixel-tag { font-family: 'VT323', monospace; font-size: 18px; color: #64b5f6; background: #111a22; padding: 2px 6px; border-radius: 5px; border: 1px dotted #3c89d0; display: inline-block; margin-bottom: 8px; }
+  
+  .stat-bar { background: #25172b; border: 2px solid #4f366b; border-radius: 10px; height: 15px; width: 100%; margin-bottom: 10px; position: relative; overflow: hidden; }
+  .stat-fill { background: repeating-linear-gradient(45deg, #d81b60, #d81b60 10px, #880e4f 10px, #880e4f 20px); height: 100%; border-radius: 8px; }
+
+  .tags-menu-container { 
+    display: grid; 
+    grid-template-columns: 1fr 1fr; 
+    gap: 15px; 
+    margin-top: 20px; 
+  }
+  .tag-nav-btn { 
+    background: #15202b; 
+    border: 3px solid #2c608e; 
+    border-radius: 0px; 
+    padding: 12px 10px; 
+    font-family: 'VT323', monospace; 
+    font-size: 1.5rem; 
+    color: #64b5f6; 
+    text-decoration: none; 
+    text-align: center; 
+    box-shadow: 4px 4px 0px #1a4166; 
+    transition: all 0.1s; 
+    letter-spacing: 1px; 
+    text-transform: uppercase;
+  }
+  .tag-nav-btn:hover { 
+    transform: translate(2px, 2px); 
+    box-shadow: 2px 2px 0px #1a4166; 
+    background: #1c3044; 
+    color: #90caf9;
+    border-color: #3c89d0;
+  }
+
+  .diary-box { background: #21142e; border: 2px dashed #4f366b; padding: 10px 12px; border-radius: 12px; margin-bottom: 12px; box-shadow: 2px 2px 0px #160f1c; display: flex; align-items: center; gap: 10px; font-size: 14px;}
+  .diary-badge { background: #ff8fb8; color: #1a1124; font-family: 'Bubblegum Sans', cursive; padding: 4px 10px; border-radius: 15px; font-size: 1.1rem; letter-spacing: 1px; white-space: nowrap; }
+
+  details { background: #21142e; border: 2px solid #4f366b; border-radius: 10px; padding: 10px 12px; margin-bottom: 12px; box-shadow: 2px 2px 0px #160f1c; transition: all 0.3s; }
+  summary { font-family: 'Bubblegum Sans', cursive; color: #d896ff; font-size: 1.2rem; cursor: pointer; outline: none; list-style: none; display: flex; justify-content: space-between; align-items: center; letter-spacing: 1px;}
+  summary::-webkit-details-marker { display: none; }
+  summary::after { content: '🌸'; transition: transform 0.3s; }
+  details[open] summary::after { transform: rotate(180deg); }
+  details p { margin-top: 8px; margin-bottom: 0; border-top: 2px dotted #4f366b; padding-top: 8px; font-size: 14px;}
+
+  .right-controls { width: 80px; display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 25px; }
+  .icon-wrapper { position: relative; display: flex; align-items: center; }
+
+  .action-btn { width: 50px; height: 50px; background: #2b1d3d; border: none; box-shadow: 0 0 0 4px #4f366b; border-radius: 50%; display: flex; justify-content: center; align-items: center; color: #d896ff; font-size: 24px; cursor: pointer; position: relative; transition: background 0.2s, color 0.2s, box-shadow 0.2s; z-index: 1; margin:0;}
+  .action-btn:active { transform: translateY(2px); }
+  .action-btn::after { pointer-events: none; position: absolute; width: 100%; height: 100%; border-radius: 50%; content: ''; box-sizing: content-box; padding: 0; box-shadow: 0 0 0 3px transparent; border: 3px dashed #ff8fb8; top: -3px; left: -3px; opacity: 0; transform: scale(0.8); transition: transform 0.3s ease-out, opacity 0.3s ease-out; }
+  
+  #tab-home:checked ~ .console .icon-home,
+  #tab-tags:checked ~ .console .icon-tags,
+  #tab-faq:checked ~ .console .icon-faq,
+  #tab-diary:checked ~ .console .icon-diary {
+    background: #ff8fb8; color: #1a1124; box-shadow: 0 0 0 4px #d81b60;
+  }
+  
+  .action-btn:hover { background: #ff8fb8; color: #1a1124; box-shadow: 0 0 0 4px #d81b60;}
+  .action-btn:hover::after { opacity: 1; transform: scale(1.3) rotate(45deg); animation: spinBorder 10s linear infinite; }
+  @keyframes spinBorder { 100% { transform: scale(1.3) rotate(360deg); } }
+
+  .tooltip { position: absolute; left: 140%; background: #4a1d2e; color: #ffdce8; font-family: 'Bubblegum Sans', cursive; font-size: 1.3rem; letter-spacing: 1px; padding: 4px 12px; border-radius: 10px; border: 2px dashed #8a2b4f; white-space: nowrap; opacity: 0; pointer-events: none; transform: translateX(-10px); transition: all 0.2s ease-out; box-shadow: 2px 2px 0px #160f1c; z-index: 10; }
+  .tooltip::before { content: ''; position: absolute; right: 100%; top: 50%; transform: translateY(-50%); border-width: 5px; border-style: solid; border-color: transparent #4a1d2e transparent transparent; }
+  .icon-wrapper:hover .tooltip { opacity: 1; transform: translateX(0px); }
+
+  .divider { text-align: center; color: #63304a; font-weight: bold; margin: 12px 0; font-family: 'Bubblegum Sans', cursive; font-size: 1.3rem; letter-spacing: 2px;}
+  @keyframes blink { 0% { opacity: 1;} 100% { opacity: 0.3;} }
+</style>
+</head>
+<body>
+
+<input type="radio" name="page" id="tab-home" checked>
+<input type="radio" name="page" id="tab-tags">
+<input type="radio" name="page" id="tab-faq">
+<input type="radio" name="page" id="tab-diary">
+
+<input type="radio" name="theme" id="theme-default" checked>
+<input type="radio" name="theme" id="theme-up">
+<input type="radio" name="theme" id="theme-right">
+<input type="radio" name="theme" id="theme-down">
+<input type="radio" name="theme" id="theme-left">
+
+<div class="floating-w">
+  W
+  <div class="tooltip-w">whereinmnl</div>
+</div>
+
+<div class="blog-title">
+  <span>✧</span> <span>M</span><span>y</span> <span>&nbsp;</span>
+  <span>D</span><span>i</span><span>g</span><span>i</span><span>t</span><span>a</span><span>l</span> <span>&nbsp;</span>
+  <span>D</span><span>i</span><span>a</span><span>r</span><span>y</span> <span>✧</span>
+</div>
+
+<div class="console">
+  
+  <div class="left-controls">
+    <div class="d-pad">
+      <div class="d-pad-base d-pad-v"></div>
+      <div class="d-pad-base d-pad-h"></div>
+      <label for="theme-up" class="d-pad-btn up"></label>
+      <label for="theme-right" class="d-pad-btn right"></label>
+      <label for="theme-down" class="d-pad-btn down"></label>
+      <label for="theme-left" class="d-pad-btn left"></label>
+      <label for="theme-default" class="d-pad-btn center"></label>
+    </div>
+  </div>
+  
+  <div class="screen-bezel">
+    <div class="avatar"></div>
+    
+    <div class="screen-content">
+      
+      <div id="page-home" class="page">
+        <h2>Welcome to the Theme! 🎀</h2>
+        <div class="marquee-box">
+          <marquee scrollamount="5">✧･ﾟ: *✧･ﾟ:* Features include: CSS-only tabs, interactive D-Pad color palettes, custom scrollbars! *:･ﾟ✧*:･ﾟ✧</marquee>
+        </div>
+        <p><span class="pixel-tag">STATUS: 100% Responsive</span></p>
+        <p>Hiii! This container theme is designed to look like a chunky, pastel gaming console from the 2000s! It utilizes native HTML and CSS to create interactive areas without needing JavaScript. 💖</p>
+        <p><b>✨ Try clicking the arrows on the cross button (D-Pad) on the left side of the console to change the outer shell color! ✨</b></p>
+        <div class="divider">♡ ✿ ♡ ✿ ♡</div>
+        <b>CSS Magic Level:</b>
+        <div class="stat-bar"><div class="stat-fill" style="width: 95%;"></div></div>
+        <b>Y2K Nostalgia Factor:</b>
+        <div class="stat-bar"><div class="stat-fill" style="width: 100%; background: repeating-linear-gradient(45deg, #0277bd, #0277bd 10px, #01579b 10px, #01579b 20px);"></div></div>
+      </div>
+
+      <div id="page-tags" class="page">
+        <h2>🎀 Internal Navigation</h2>
+        <p>This menu acts as a static navigation area. It is styled with blocky, pixelated UI elements to mimic classic web directories and vintage OS folders! (✿◠‿◠)</p>
+        <div class="tags-menu-container">
+          <a href="#" class="tag-nav-btn">📂 CSS Styling</a>
+          <a href="#" class="tag-nav-btn">📂 HTML Structure</a>
+          <a href="#" class="tag-nav-btn">📂 Animations</a>
+          <a href="#" class="tag-nav-btn">📂 Fonts & UI</a>
+        </div>
+        <div class="divider" style="margin-top:20px;">✧･ﾟ: *✧･ﾟ:*</div>
+      </div>
+
+      <div id="page-faq" class="page">
+        <h2>💌 Theme FAQ</h2>
+        <details>
+          <summary>Does this require JavaScript?</summary>
+          <p>Nope! The tabs on the right side and the color changer on the left rely entirely on the "CSS Radio Button Hack" tying label elements to hidden radio inputs. 🐰✨</p>
+        </details>
+        <details>
+          <summary>How do I edit the avatar?</summary>
+          <p>You can change the image by finding the `.avatar` class in the CSS and swapping out the Pinterest URL for your own direct image link! (🎮^▽^)</p>
+        </details>
+        <div class="divider">TEST THE ASK BOX!</div>
+        <div style="background: #1a1124; padding: 10px; border-radius: 12px; border: 2px solid #4f366b; box-shadow: 2px 2px 0px #160f1c;">
+          <iframe frameborder="0" scrolling="no" width="100%" height="190" src="https://www.tumblr.com/ask_form/staff.tumblr.com" id="ask_form" style="background: transparent;"></iframe>
+        </div>
+      </div>
+      
+      <div id="page-diary" class="page">
+        <h2>📓 Theme Specs</h2>
+        <p>Technical details outlining the build of this container. ( ˘͈ ᵕ ˘͈♡)</p>
+        <div class="diary-box">
+          <div class="diary-badge">📐 Dimensions:</div><div>980px Wide x 480px High</div>
+        </div>
+        <div class="diary-box">
+          <div class="diary-badge">🎨 Fonts Used:</div><div>Bubblegum Sans, Nunito, VT323</div>
+        </div>
+        <div class="diary-box">
+          <div class="diary-badge">⚙️ Mechanics:</div><div>Hover transitions, CSS Keyframes</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="right-controls">
+    <div class="icon-wrapper">
+      <label for="tab-home" class="action-btn icon-home">🏠</label>
+      <div class="tooltip">Features</div>
+    </div>
+    <div class="icon-wrapper">
+      <label for="tab-tags" class="action-btn icon-tags">🎀</label>
+      <div class="tooltip">Nav Style</div>
+    </div>
+    <div class="icon-wrapper">
+      <label for="tab-faq" class="action-btn icon-faq">💌</label>
+      <div class="tooltip">FAQ</div>
+    </div>
+    <div class="icon-wrapper">
+      <label for="tab-diary" class="action-btn icon-diary">📓</label>
+      <div class="tooltip">Specs</div>
+    </div>
+  </div>
+  
+</div>
+
+<a href="/" class="back-to-blog">⟵ Return to my blog</a>
+
+</body>
+</html>
