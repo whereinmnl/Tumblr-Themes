@@ -1,3 +1,16 @@
+<!---------------------------------------------------
+NIMBUS THEME BY RELA OF WHEREINMNL
+
+First Version - 02 January 2026
+Latest Version - 11 August 2026
+
+Do Not Remove Credit: Please keep the credit in the footer visible. It helps me grow!
+Personal Use Only: Do not resell, redistribute, or claim the code as your own.
+Base Coding: Do not use my themes as a "base" for a release.
+Customization: Feel free to change colors/fonts! Just keep the credit link.
+No Re-hosting: Always link back to the original blog post.
+----------------------------------------------------->
+
 
 <!---------------------------------------------------
 NIMBUS THEME BY RELA OF WHEREINMNL
@@ -156,7 +169,8 @@ Always link back to the original blog post.
 
         a { color: var(--text); text-decoration: none; transition: color 0.3s ease; }
         a:hover { color: var(--accent); }
-        img, iframe, object, embed { max-width: 100%; height: auto; display: block; }
+       img, video { max-width: 100%; height: auto; display: block; }
+iframe, object, embed { max-width: 100%; display: block; }
         hr { border: none; border-top: 3px solid var(--borders); margin: 15px 0; }
         .layout-wrapper { display: flex; min-height: 100vh; position: relative; z-index: 1; overflow-x: hidden; }
 
@@ -262,7 +276,15 @@ Always link back to the original blog post.
 
         main.content { margin-left: var(--sidebar-width); padding: 32px 100px 64px 64px; width: calc(100% - var(--sidebar-width)); display: block; transition: all var(--transition); }
 
-        .post-wrapper { width: 100%; display: inline-block; break-inside: avoid; margin-bottom: 16px; }
+      .post-wrapper { 
+    width: 100%; 
+    display: inline-block; 
+    break-inside: avoid; 
+    page-break-inside: avoid;
+    -webkit-column-break-inside: avoid;
+    margin-bottom: 16px; 
+    transform: translateZ(0); 
+}
         article.post { background-color: var(--post-bg); padding: 16px; border: 1px solid var(--borders); border-radius: 4px; width: 100%; max-width: 620px; position: relative; transition: border-color 0.3s ease; }
 
         body.is-permalink main.content { display: flex; flex-direction: column; align-items: center; }
@@ -286,7 +308,7 @@ Always link back to the original blog post.
         body.is-grid:not(.is-permalink) .side-controls {
             left: auto;
             right: 16px;
-            top: 16px;
+            top: 40px;
             flex-direction: row;
             background: var(--bg);
             padding: 6px;
@@ -349,16 +371,26 @@ Always link back to the original blog post.
         .caption h3 { font-size: 1.4rem; }
         .caption h4 { font-size: 1.2rem; }
 
-        .photo-container, .photoset-container { width: 100%; margin-bottom: 8px; display: block; }
+       .photo-container, .photoset-container, .video-container { width: 100%; margin-bottom: 8px; display: block; overflow: hidden; }
+.tumblr_video_container, .video-container iframe { max-width: 100% !important; }
         article.post > .photo-container:first-child, article.post > .photoset-container:first-child,
         article.post > .post-top-meta + .photo-container, article.post > .post-top-meta + .photoset-container { margin-top: 0; }
         
-        figure.tmblr-full, .npf_row, .npf_col { margin: 0; padding: 0; }
-        .photo-container img, .photoset-container iframe, figure.tmblr-full img { 
+        figure.tmblr-full { margin: 0 0 8px 0; padding: 0; }
+       .photo-container img { 
             width: 100% !important; height: auto !important; max-height: none !important; max-width: 100% !important; display: block; 
         }
-        .npf_row img, .npf_col img { 
-            width: 100% !important; max-width: 100% !important; display: block; 
+        .photoset-container iframe {
+            width: 100% !important; max-width: 100% !important; display: block;
+        }
+        .npf_row { display: flex !important; flex-direction: row !important; gap: 4px; margin-bottom: 8px; }
+        .npf_col { flex: 1; display: flex; flex-direction: column; gap: 4px; }
+        .npf_col figure.tmblr-full { margin: 0; height: 100%; }
+        .npf_row img, .npf_col img, figure.tmblr-full img { 
+            width: 100% !important; 
+            height: 100% !important; 
+            object-fit: cover !important; 
+            display: block; 
         }
 
         .photo-container:hover img { transform: scale(1.02); filter: grayscale(100%); opacity: 0.9; transition: all 0.3s ease; } 
@@ -421,10 +453,45 @@ Always link back to the original blog post.
         .more_link, a.read_more { display: inline-block; padding: 8px 16px; border: 1px solid var(--borders); font-family: 'DM Mono', monospace; font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--text); background: transparent; border-radius: 4px; transition: all 0.3s ease; margin-top: 12px; font-weight: normal; text-decoration: none; }
         .more_link:hover, a.read_more:hover { border-color: var(--accent); background: var(--hover-bg); color: var(--bg); }
 
-        .poll-post, .tmblr-iframe-poll, iframe.tmblr-iframe-poll { text-align: center; filter: grayscale(100%); margin: 12px 0; padding: 20px; border: 1px solid var(--borders); border-radius: 4px; background: var(--post-bg) !important; }
-        .poll-question { text-align: center; font-family: 'DM Serif Display', serif; font-size: 1.25rem; margin-bottom: 18px; color: var(--text); font-style: italic; }
-        .poll-row { text-align: center; display: block; position: relative; margin-bottom: 10px; padding: 10px 14px; border: 1px solid var(--borders); border-radius: 4px; text-decoration: none !important; color: var(--text); font-family: 'DM Sans', sans-serif; overflow: hidden; transition: border-color 0.3s; }
-        .poll-row:hover { border-color: var(--accent); }
+.poll-post, .tmblr-iframe-poll, iframe.tmblr-iframe-poll { 
+    margin: 12px 0; 
+    padding: 20px; 
+    border: 1px solid var(--borders); 
+    border-radius: 4px; 
+    background: var(--post-bg) !important;
+    
+    --Poll-Question-Font-Family: 'DM Serif Display', serif;
+    --Poll-Question-Font-Size: 1.4rem;
+    --Poll-Option-Font-Family: 'DM Mono', monospace;
+    --Poll-Option-Font-Size: 11px;
+    
+    --Poll-Option-Background-Color: transparent;
+    --Poll-Option-Corner-Rounding: 4px;
+    --Poll-Option-Border-Size: 1px;
+    --Poll-Option-Border-Color: var(--borders);
+    --Poll-Option-Padding: 12px 14px;
+    --Poll-Option-Spacing: 8px;
+    --Poll-Option-Text-Color: var(--text);
+    
+    --Poll-Option-HOVER-Border-Color: var(--accent);
+    --Poll-Option-HOVER-Background-Color: var(--hover-bg);
+    --Poll-Option-HOVER-Text-Color: var(--bg);
+    --Poll-Option-HOVER-Speed: 0.3s;
+}
+
+.poll-post .poll-question {
+    font-family: 'DM Serif Display', serif !important;
+    font-style: italic !important;
+    line-height: 1.3 !important;
+}
+
+.poll-post .poll-row, 
+.poll-post .poll-see-results {
+    font-family: 'DM Mono', monospace !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.1em !important;
+    font-weight: normal !important;
+}
 
         .ask-wrap { background: var(--widget-bg); border: 1px solid var(--borders); padding: 16px 20px; border-radius: 12px 12px 12px 4px; margin-bottom: 16px; position: relative; }
         .ask-header { display: flex; align-items: center; gap: 8px; margin-bottom: 8px; }
@@ -606,6 +673,7 @@ Always link back to the original blog post.
         }
     </style>
 
+<link href="//static.tumblr.com/gtjt4bo/mXBrpdj0n/unblue-polls.css" rel="stylesheet">
 </head>
 
 <body class="{block:PermalinkPage}is-permalink{/block:PermalinkPage} {block:IfTwoColumnGrid}is-grid{/block:IfTwoColumnGrid}">
@@ -714,7 +782,7 @@ Always link back to the original blog post.
                     <div class="sidebar-pagination">
                         {block:PreviousPage}<a href="{PreviousPage}">Prev</a>{/block:PreviousPage}
                         
-                        {block:JumpPagination length="5"}
+                        {block:JumpPagination length="3"}
                             {block:CurrentPage}<span class="current-page">{PageNumber}</span>{/block:CurrentPage}
                             {block:JumpPage}<a href="{URL}">{PageNumber}</a>{/block:JumpPage}
                         {/block:JumpPagination}
@@ -812,14 +880,13 @@ Always link back to the original blog post.
                         {/block:NotReblog}
                     {/block:Text}
 
-                    {block:Photo}
-                        {block:NotReblog}
-                            <div class="photo-container original-content"><a href="{Permalink}"><img src="{PhotoURL-HighRes}" alt="{PhotoAlt}" loading="lazy"/></a></div>
-                            <div class="caption original-content">
-                                {block:Caption}{Caption}{/block:Caption}
-                            </div>
-                        {/block:NotReblog}
-                        
+                   {block:Photo}
+                        <div class="photo-container original-content">
+                            <a href="{Permalink}"><img src="{PhotoURL-HighRes}" alt="{PhotoAlt}" loading="lazy"/></a>
+                        </div>
+                        <div class="caption original-content">
+                            {block:Caption}{Caption}{/block:Caption}
+                        </div>
                         {block:Reblogs}
                             <div class="reblog-chain">
                                 <div class="caption photo-reblog-content reblog-content">
@@ -834,13 +901,12 @@ Always link back to the original blog post.
                     {/block:Photo}
 
                     {block:Photoset}
-                        {block:NotReblog}
-                            <div class="photo-container photoset-container original-content">{Photoset-700}</div>
-                            <div class="caption original-content">
-                                {block:Caption}{Caption}{/block:Caption}
-                            </div>
-                        {/block:NotReblog}
-
+                        <div class="photo-container photoset-container original-content">
+                            {Photoset-700}
+                        </div>
+                        <div class="caption original-content">
+                            {block:Caption}{Caption}{/block:Caption}
+                        </div>
                         {block:Reblogs}
                             <div class="reblog-chain">
                                 <div class="caption photo-reblog-content reblog-content">
@@ -903,6 +969,28 @@ Always link back to the original blog post.
                             </div>
                         {/block:NotReblog}
                     {/block:Audio}
+
+{block:Video}
+    <div class="video-container original-content">{Video-500}</div>
+    {block:Reblogs}
+        <div class="reblog-chain">
+            <div class="caption reblog-content">
+                <div class="reblog-header">
+                    <img src="{PortraitURL-64}" class="reblog-avatar" alt="" loading="lazy">
+                    <a href="{Permalink}" class="reblog-user">{Username}</a>
+                </div>
+                {Body}
+            </div>
+        </div>
+    {/block:Reblogs}
+    {block:NotReblog}
+        <div class="caption original-content">
+            {block:Caption}{Caption}{/block:Caption}
+        </div>
+    {/block:NotReblog}
+{/block:Video}
+
+
 
                     {block:Link}
                         <a href="{URL}" class="link-wrapper" {Target}>
@@ -1106,12 +1194,14 @@ Always link back to the original blog post.
                     var isIframe = player.tagName.toLowerCase() === 'iframe';
                     var isAudio = player.tagName.toLowerCase() === 'audio';
 
-                    if (isIframe) {
+             if (isIframe) {
                         var src = player.src || '';
-                        if (src.includes('spotify.com') || src.includes('soundcloud.com') || src.includes('youtube.com') || src.includes('bandcamp.com')) return; 
+                        
+                        if (src.includes('/video') || player.classList.contains('tumblr_video_iframe') || src.includes('photoset') || player.classList.contains('photoset') || player.classList.contains('soundcloud_audio_player')) return;
+                        
+                        if (src.includes('spotify.com') || src.includes('youtube.com') || src.includes('bandcamp.com')) return; 
                         if (!src.includes('tumblr.com')) return;
                     }
-
                     var target = player;
                     var curr = player.parentElement;
                     while (curr && curr.tagName !== 'ARTICLE' && curr !== document.body) {
