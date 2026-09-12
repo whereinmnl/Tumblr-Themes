@@ -248,6 +248,7 @@ article .post-content .tumblr_video_iframe {
     margin: 0 !important;
 }
 
+
 article .post-content div.npf_row,
 article .post-content .npf-photos div.npf_row {
     align-items: stretch !important;
@@ -260,7 +261,7 @@ article .post-content div.npf_row .npf_col img {
     object-fit: cover !important;
     display: block !important;
 }
-        
+
         #cute-tooltip { position: absolute; background: {color:Main Accent}; color: #fff; padding: 2px 6px !important; border-radius: 4px !important; font-family: {select:Body Font}; font-size: 0.6rem !important; font-weight: bold; text-transform: uppercase; letter-spacing: 0.5px; pointer-events: none; opacity: 0; transition: opacity 0.2s ease; z-index: 9999999; box-shadow: 0 2px 5px rgba(0,0,0,0.15); white-space: nowrap; }
         #cute-tooltip.visible { opacity: 1; }
 
@@ -304,6 +305,21 @@ article .post-content div.npf_row .npf_col img {
         .sidebar-header img { width: 100%; height: 100%; object-fit: cover; border-radius: 12px 12px 0 0; }
         .sidebar-content { padding: 25px 20px 15px 20px; text-align: center; position: relative; }
         
+{block:IfNotShowSidebarHeader}
+.sidebar-inner {
+    margin-top: 75px !important; 
+}
+.avatar {
+    border: 3px dotted {color:Main Accent} !important;
+    padding: 5px !important; 
+    background-color: {color:Menu Background} !important;
+}
+body.dark-mode .avatar {
+    border-color: {color:Dark Main Accent} !important;
+    background-color: {color:Dark Card Background} !important;
+}
+{/block:IfNotShowSidebarHeader}
+
         .avatar { width: 140px; height: 140px; border-radius: 50%; border: 5px solid {color:Menu Background}; margin: -80px auto 10px auto; position: relative; z-index: 2; transition: transform 0.4s ease, border-color 0.4s ease; object-fit: cover; display: block; }
         body.dark-mode .avatar { border-color: {color:Dark Card Background}; } .avatar:hover { transform: rotate(5deg); }
         .blog-title { font-family: {select:Title Font}; font-weight: 700; font-size: 1.4rem; color: {color:Main Accent}; margin-bottom: 10px; font-style: italic; }
