@@ -4,11 +4,16 @@ BLUSH THEME BY RELA OF WHEREINMNL
 First Version - 03 January 2026
 Latest Version - 12 September 2026
 
-Do Not Remove Credit: Please keep the credit in the footer visible. It helps me grow!
-Personal Use Only: Do not resell, redistribute, or claim the code as your own.
-Base Coding: Do not use my themes as a "base" for a release.
-Customization: Feel free to change colors/fonts! Just keep the credit link.
-No Re-hosting: Always link back to the original blog post.
+Do Not Remove Credit:
+Please keep the credit in the footer visible. It helps me grow!
+Personal Use Only:
+Do not resell, redistribute, or claim the code as your own.
+Base Coding:
+Do not use my themes as a "base" for a release.
+Customization:
+Feel free to change colors/fonts! Just keep the credit link.
+No Re-hosting:
+Always link back to the original blog post.
 ----------------------------------------------------->
 <!DOCTYPE html>
 <html lang="en">
@@ -21,8 +26,10 @@ No Re-hosting: Always link back to the original blog post.
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- Trimmed unused weights -->
     <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Cookie&family=Fredoka:wght@400;600&family=Lato:wght@400;700&family=Lora:ital,wght@0,400;0,700;1,400;1,700&family=Nunito:wght@400;700&family=Open+Sans:wght@400;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=Source+Code+Pro:wght@400;700&display=swap" rel="stylesheet">
-
+    
+    <!-- Added defer to non-critical external scripts -->
     <script defer src="https://unpkg.com/@phosphor-icons/web"></script>
     <script defer src="//tmblr-npf-audio.gitlab.io/s/fix.js"></script> 
     <link href="//tmblr-npf-audio.gitlab.io/s/fix.css" rel="stylesheet"> 
@@ -75,18 +82,18 @@ No Re-hosting: Always link back to the original blog post.
     <meta name="if:Infinite Scroll" content="0"/>
 
     <meta name="text:About Me Text" content=""/>
-    <meta name="text:Stat Name" content=""/>
-    <meta name="text:Stat Location" content=""/>
-    <meta name="text:Stat MBTI" content=""/>
-    <meta name="text:Stat Hobbies" content=""/>
-    <meta name="text:Stat Likes" content=""/>
-    <meta name="text:Stat Dislikes" content=""/>
+    <meta name="text:Stat Name" content="Cupi"/>
+    <meta name="text:Stat Location" content="Australia"/>
+    <meta name="text:Stat MBTI" content="INFP"/>
+    <meta name="text:Stat Hobbies" content="Writing, Video editing"/>
+    <meta name="text:Stat Likes" content="Anime, Aesthetics"/>
+    <meta name="text:Stat Dislikes" content="Rude people, Waking up early"/>
     
     <meta name="text:FAQ 1 Question" content="What do you do?"/>
     <meta name="text:FAQ 1 Answer" content=""/>
     <meta name="text:FAQ 2 Question" content="Current obsessions?"/>
-    <meta name="text:FAQ 2 Answer" content=""/>
-    <meta name="text:Status Message" content=""/>
+    <meta name="text:FAQ 2 Answer" content="Editing travel vids (Boracay/La Union) on CapCut and watching Oshi no Ko!"/>
+    <meta name="text:Status Message" content="Doing okay! Just working on some edits and watching anime. Drop a message if you want to chat!"/>
     <meta name="text:More Links Label" content="More Links"/>
 
     <meta name="text:Drop Link 1 Title" content="Shop"/> <meta name="text:Drop Link 1 URL" content=""/>
@@ -232,6 +239,15 @@ No Re-hosting: Always link back to the original blog post.
 
         article .post-content div.npf_row .npf_col figure img, 
         article .post-content div.npf_row .npf_col img { width: 100% !important; height: 100% !important; object-fit: cover !important; display: block !important; }
+
+
+article .post-content figure.tmblr-full figcaption,
+article .post-content figure.tmblr-full p.tmblr-attribution,
+article .post-content figure.tmblr-embed figcaption {
+    padding-left: 15px !important;
+    padding-right: 15px !important;
+}
+
 
         #cute-tooltip { position: absolute; background: {color:Main Accent}; color: #fff; padding: 2px 6px !important; border-radius: 4px !important; font-family: {select:Body Font}; font-size: 0.6rem !important; font-weight: bold; text-transform: uppercase; letter-spacing: 0.5px; pointer-events: none; opacity: 0; transition: opacity 0.2s ease; z-index: 9999999; box-shadow: 0 2px 5px rgba(0,0,0,0.15); white-space: nowrap; }
         #cute-tooltip.visible { opacity: 1; }
@@ -394,7 +410,7 @@ No Re-hosting: Always link back to the original blog post.
         #scrollToTopBtn.show { opacity: 1; transform: translateY(0); } #scrollToTopBtn:hover { transform: translateY(-3px); background-color: {color:Link Text}; }
         @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
 
-        iframe.tmblr-iframe { transform: scale(0.85); transform-origin: top right; z-index: 999999 !important; position: fixed !important; right: auto !important; left: auto !important; top: auto !important; visibility: hidden !important; pointer-events: none !important; transition: visibility 0.2s ease !important; }
+        iframe.tmblr-iframe { transform: scale(0.65); transform-origin: top right; z-index: 999999 !important; position: fixed !important; right: auto !important; left: auto !important; top: auto !important; visibility: hidden !important; pointer-events: none !important; transition: visibility 0.2s ease !important; }
         body.show-controls iframe.tmblr-iframe { visibility: visible !important; pointer-events: auto !important; }
 
         .credit { position: fixed; bottom: 25px; left: 25px; background: {color:Card Background}; width: 32px; height: 32px; border-radius: 50%; font-family: {select:Title Font}; font-weight: 700; font-size: 13px; color: {color:Link Text}; border: 1px solid {color:Soft Border}; z-index: 99; box-shadow: 0 4px 10px rgba(0,0,0,0.05); display: flex; align-items: center; justify-content: center; }
@@ -515,6 +531,12 @@ No Re-hosting: Always link back to the original blog post.
         body.dark-mode .stat-item:hover { border-bottom-color: {color:Dark Main Accent}; }
         body.dark-mode .stat-item:hover b { color: {color:Dark Link Text}; }
 
+
+.page-load-status { display: none; text-align: center; padding: 20px 0; width: 100%; }
+.page-load-status.is-loading { display: block; }
+.infinite-scroll-spinner { width: 28px; height: 28px; margin: 0 auto; border: 3px solid {color:Soft Border}; border-top-color: {color:Main Accent}; border-radius: 50%; animation: spin 0.8s linear infinite; }
+@keyframes spin { to { transform: rotate(360deg); } }
+body.dark-mode .infinite-scroll-spinner { border-color: {color:Dark Soft Border}; border-top-color: {color:Dark Main Accent}; }
         @media screen and (max-width: 1380px) {
            body[data-grid="3-columns"] .posts-wrapper { column-count: 2; width: calc((400px * 2) + 25px); max-width: 100%; }
         }
@@ -544,6 +566,7 @@ No Re-hosting: Always link back to the original blog post.
             .about-right-col { position: static; width: 100%; display: block; }
             .about-me-text { text-align: left; position: relative; height: auto !important; max-height: 250px; display: block; align-items: flex-start; } 
         }
+        
         
         {CustomCSS}
     </style>
@@ -844,7 +867,10 @@ No Re-hosting: Always link back to the original blog post.
 </article>
 {/block:Posts}
 
-        </div>
+             </div>
+        {block:IfInfiniteScroll}
+        <div class="page-load-status"><div class="infinite-scroll-spinner"></div></div>
+        {/block:IfInfiniteScroll}
     </main>
 
 </div>
@@ -855,11 +881,17 @@ No Re-hosting: Always link back to the original blog post.
 {block:IfInfiniteScroll}
 <script defer src="https://unpkg.com/infinite-scroll@4/dist/infinite-scroll.pkgd.min.js"></script>
 <script>
-    document.addEventListener("DOMContentLoaded", () => {
+       document.addEventListener("DOMContentLoaded", () => {
         var elem = document.querySelector('.posts-wrapper');
         if(elem) {
-            var infScroll = new InfiniteScroll( elem, { path: '#sidebarPagination a:last-child', append: 'article', history: false });
+            var infScroll = new InfiniteScroll( elem, { path: '#sidebarPagination a:last-child', append: 'article', history: false, status: '.page-load-status' });
             document.getElementById('sidebarPagination').style.display = 'none';
+
+            var loadStatus = document.querySelector('.page-load-status');
+            infScroll.on('request', function() { if (loadStatus) loadStatus.classList.add('is-loading'); });
+            infScroll.on('load', function() { if (loadStatus) loadStatus.classList.remove('is-loading'); });
+            infScroll.on('last', function() { if (loadStatus) loadStatus.classList.remove('is-loading'); });
+            infScroll.on('error', function() { if (loadStatus) loadStatus.classList.remove('is-loading'); });
         }
     });
 </script>
@@ -957,12 +989,16 @@ No Re-hosting: Always link back to the original blog post.
         const iframe = document.querySelector('iframe.tmblr-iframe');
         if(iframe && document.body.classList.contains('show-controls')){
             const rect = controlsBtn.getBoundingClientRect();
-            iframe.style.setProperty('left', (rect.right + 8) + 'px', 'important');
+            const iframeWidth = iframe.offsetWidth || 300;
+            let leftPos = rect.right + 8;
+            if (leftPos + iframeWidth > window.innerWidth) {
+                leftPos = window.innerWidth - iframeWidth - 8;
+            }
+            iframe.style.setProperty('left', leftPos + 'px', 'important');
             iframe.style.setProperty('top', rect.top + 'px', 'important');
             iframe.style.setProperty('right', 'auto', 'important');
         }
     });
-
     for (const p of document.querySelectorAll('p')) {
         if (p.innerHTML.trim() === '') {
            p.remove();
@@ -994,7 +1030,7 @@ No Re-hosting: Always link back to the original blog post.
              }
              if (article.classList.contains('photos-post')) {
                 let photoset = document.createElement('div'); photoset.classList.add('npf-photos'); caption.prepend(photoset);
-                let photoBreak = article.querySelector('.reblog-content p, .reblog-content h1, .reblog-content h2'); let elements = [];
+             let photoBreak = article.querySelector('.reblog-content p, .reblog-content h1, .reblog-content h2') || article.querySelector('.caption.original-post p, .caption.original-post h1, .caption.original-post h2'); let elements = [];
                 if (photoBreak) {
                    let prevElement = photoBreak.parentNode.firstElementChild;
                    while (prevElement !== photoBreak) { elements.push(prevElement); prevElement = prevElement.nextElementSibling; }
