@@ -125,6 +125,20 @@ Always link back to the original blog post.
         ::-webkit-scrollbar-track { background: {color:Page Background}; }
         ::-webkit-scrollbar-thumb { background: {color:Soft Border}; border-radius: 10px; border: 2px solid {color:Page Background}; }
         ::-webkit-scrollbar-thumb:hover { background: {color:Main Accent}; }
+
+        .post-content p:empty, 
+.post-content p:has(br:only-child) {
+    display: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+        .post-content figure.tmblr-full {
+    margin: 15px 0 !important; 
+}
+        .post-content figure.tmblr-full:first-child {
+    margin-top: 0 !important;
+}
         
         #cute-tooltip { position: absolute; background: {color:Main Accent}; color: #fff; padding: 2px 6px !important; border-radius: 4px !important; font-family: {select:Body Font}; font-size: 0.6rem !important; font-weight: bold; text-transform: uppercase; letter-spacing: 0.5px; pointer-events: none; opacity: 0; transition: opacity 0.2s ease; z-index: 9999999; box-shadow: 0 2px 5px rgba(0,0,0,0.15); white-space: nowrap; }
         #cute-tooltip.visible { opacity: 1; }
