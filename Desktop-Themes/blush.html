@@ -785,17 +785,17 @@ body.dark-mode .infinite-scroll-spinner { border-color: {color:Dark Soft Border}
 
         {block:Video}{Video-500}{/block:Video}
 
-        <div class="caption {block:notreblog} original-post {/block:notreblog}">
+        <div class="caption {block:NotReblog} original-post {/block:NotReblog}">
             {block:Text}
                 {block:Title}<div class="post-header"><h2><a href="{Permalink}">{Title}</a></h2></div>{/block:Title}
             {/block:Text}
             
-            {block:notreblog}
-                {block:caption}{Caption}{/block:caption}
-                {block:Text}{body}{/block:Text}
-            {/block:notreblog}
+            {block:NotReblog}
+                {block:Caption}{Caption}{/block:caption}
+                {block:Text}{Body}{/block:Text}
+            {/block:NotReblog}
             
-            {block:Rebloggedfrom}
+            {block:RebloggedFrom}
                 {block:Reblogs}
                 <div class="reblogs">
                     <div class="reblog-header {block:IsOriginalEntry}original{/block:IsOriginalEntry} flex align-center">
